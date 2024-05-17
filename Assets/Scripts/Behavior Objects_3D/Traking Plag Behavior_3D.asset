@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c492b89a9f66da74888eaa8ebc0c3c8b, type: 3}
+  m_Name: Traking Plag Behavior_3D
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11400000, guid: b6f9a6be39d3dcc4ab9022595effe8ed, type: 2}
+  flags:
+  - {fileID: 6093796116737761202, guid: c2a752c7adf74544ead41b99222652bd, type: 3}
