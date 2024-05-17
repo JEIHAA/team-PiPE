@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\mvp patterns\\healthpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mvp patterns\\healthpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\mvp patterns\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mvp patterns\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\movecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\movecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\playermover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\playermover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HealthPresenter.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAowDUAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T07:21:19.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Health.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MVP Patterns\\Health.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\Health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MVP Patterns\\Health.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAuwCcAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T07:14:55.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\InputManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\InputManager.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\InputManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\InputManager.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwCQAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T05:51:49.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MoveCommand.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T05:42:59.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ICommand.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\ICommand.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\ICommand.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\ICommand.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\ICommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T05:36:44.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerMover.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T05:40:09.6Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
