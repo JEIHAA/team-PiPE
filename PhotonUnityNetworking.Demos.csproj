@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5BFAEE88-EE9B-11CF-BF03-1A1FBAFE2C65}</ProjectGuid>
+    <ProjectGuid>{05FD083B-3401-83BC-4594-808288D7DB0D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PhotonUnityNetworking.Demos</AssemblyName>
@@ -1054,15 +1054,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{83968335-6D2F-F013-3D3B-8960207702A4}</Project>
+      <Project>{B08E9029-C50D-1D5E-A65B-1BF1F70516DE}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{6B104824-E852-64F5-FDD3-4829E95688CD}</Project>
+      <Project>{B608CAE7-A1CD-7903-86A9-BED4133B882E}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{B8BFDE67-BC92-63D7-BC98-53B90CC8296E}</Project>
+      <Project>{7A137443-5AB4-E214-418F-AAA3CFD7D088}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

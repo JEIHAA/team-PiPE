@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{124327AD-A65D-629C-7724-3680C83CAAB5}</ProjectGuid>
+    <ProjectGuid>{0174727A-2987-AC46-D283-D77209BEA289}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor</AssemblyName>
@@ -60,10 +60,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Samples\XR Interaction Toolkit\2.5.4\Starter Assets\Editor\Scripts\StarterAssetsSampleProjectValidation.cs" />
+    <Compile Include="Assets\VR\Samples\XR Interaction Toolkit\2.5.4\Starter Assets\Editor\Scripts\StarterAssetsSampleProjectValidation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Samples\XR Interaction Toolkit\2.5.4\Starter Assets\Editor\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.asmdef" />
+    <None Include="Assets\VR\Samples\XR Interaction Toolkit\2.5.4\Starter Assets\Editor\Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
