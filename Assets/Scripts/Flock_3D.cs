@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Flock_3D : MonoBehaviour
 {
+    [SerializeField] private List<Transform> flags;
+    public List<Transform> Flags { get { return flags; } }
     [SerializeField] private FlockAgent_3D agentPrefab;
-    private List<FlockAgent_3D> agents = new List<FlockAgent_3D>();
     [SerializeField] private FlockBehavior_3D behavior;
+    [SerializeField, Range(1, 500)] private int startingCount = 30;
 
-    [SerializeField, Range(10, 500)] private int startingCount = 30;
-    private const float AgentDensity = 0.02f; //군집 밀도
+    private List<FlockAgent_3D> agents = new List<FlockAgent_3D>();
 
     [SerializeField, Range(1f, 100f)] private float driveFactor = 10f; //움직임 속도 오프셋 계수
     [SerializeField, Range(1f, 100f)] private float maxSpeed = 5f;
@@ -18,6 +19,7 @@ public class Flock_3D : MonoBehaviour
     [SerializeField, Range(1f, 100f)] private float avoidanceRadiusMultiplier = 0.1f; //회피 범위 조절 계수
     [SerializeField, Range(1f, 100f)] private float detectionFlagRadius = 5f; // 탐지 범위
     [SerializeField, Range(1f, 100f)] private float followRadiusMultiplier = 0.1f; //플래그 따라가기 범위 조절 계수
+    private const float AgentDensity = 0.02f; //군집 밀도
 
     private float squareMaxSpeed;
     private float squareNeighborRadius;
@@ -57,7 +59,7 @@ public class Flock_3D : MonoBehaviour
             //FOR DEMO ONLY
             //agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
 
-            Vector3 move = behavior.CalculateMove(agent, context, this); // Agent 주변의 이웃과 상호작용을 고려하여 움직임
+            Vector3 move = behavior.CalculateMove(agent, context, this, flags); // Agent 주변의 이웃과 상호작용을 고려하여 움직임
             move *= driveFactor;
             if (move.sqrMagnitude > squareMaxSpeed)
             {

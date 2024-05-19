@@ -8,7 +8,7 @@ public class CompositeBehavior_3D : FlockBehavior_3D
     public FlockBehavior_3D[] behaviors;
     public float[] weights;
 
-    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock)
+    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock, List<Transform> flags)
     {
         //가중치 배열과 행동 배열 길이 불일치 처리
         if (weights.Length != behaviors.Length) {
@@ -21,7 +21,7 @@ public class CompositeBehavior_3D : FlockBehavior_3D
 
         //행동 반복
         for (int i = 0; i < behaviors.Length; i++) {
-            Vector3 partialMove = behaviors[i].CalculateMove(agent, context, flock) * weights[i];
+            Vector3 partialMove = behaviors[i].CalculateMove(agent, context, flock, flock.Flags) * weights[i];
 
             if(partialMove != Vector3.zero)
             {

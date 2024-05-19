@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c492b89a9f66da74888eaa8ebc0c3c8b, type: 3}
   m_Name: Traking Plag Behavior_3D
   m_EditorClassIdentifier: 
-  filter: {fileID: 11400000, guid: b6f9a6be39d3dcc4ab9022595effe8ed, type: 2}
-  flags:
-  - {fileID: 6093796116737761202, guid: c2a752c7adf74544ead41b99222652bd, type: 3}
+  filter: {fileID: 11400000, guid: 2d047c2ab5673854c8a13d5c832c1e71, type: 2}

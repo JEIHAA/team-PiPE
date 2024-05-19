@@ -6,5 +6,5 @@ using UnityEngine;
 //메모리에 SCriptableObject의 데이터 사본만 저장. 게임 오브젝트에 컴포넌트로 부착할 수 없고, 에셋으로 저장됨
 public abstract class FlockBehavior_3D : ScriptableObject 
 {
-    public abstract Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock);
+    public abstract Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock, List<Transform> flags);
 }

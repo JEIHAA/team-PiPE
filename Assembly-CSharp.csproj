@@ -90,6 +90,7 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Scripts\Filter Scripts_3D\SameFlockFilter_3D.cs" />
     <Compile Include="Assets\Scripts\Behavior Scripts_3D\AvoidanceBehavior_3D.cs" />
+    <Compile Include="Assets\Scripts\Filter Scripts_3D\NextFlagFilter_3D.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\2DFlock\FilteredFlockBehavior.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />

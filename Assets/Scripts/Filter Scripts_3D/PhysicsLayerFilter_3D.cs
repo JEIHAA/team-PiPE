@@ -13,9 +13,9 @@ public class PhysicsLayerFilter_3D : ContextFilter_3D
         List<Transform> filtered = new List<Transform>();
         foreach (Transform item in original)
         {
-            Debug.Log(item.name);
             if (mask == (mask | (1 << item.gameObject.layer)))
             {
+                Debug.Log(item.name);
                 filtered.Add(item);
             }
             

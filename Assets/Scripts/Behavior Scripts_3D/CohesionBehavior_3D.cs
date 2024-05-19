@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "3DFlock/Behavior/Cohesion")] // MonoBehaviour를 가지고 있으면 안됨
 public class CohesionBehavior_3D : FilteredFlockBehavior_3D // 응집 행동
 {
-    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock)
+    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock, List<Transform> flag)
     {
         //가까운 agent가 없으면 위치를 조정하지 않음
         if (context.Count == 0) {

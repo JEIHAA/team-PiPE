@@ -9,10 +9,10 @@ public class SteeredCohesionBehavior_3D : FilteredFlockBehavior_3D // 응집 행동
     Vector3 currentVelocity;
     public float agentSmoothTime = 0.5f; // 현재 상태에서 계산된 상태로 이동하는데까지 걸릴 시간 계수
         
-    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock)
+    public override Vector3 CalculateMove(FlockAgent_3D agent, List<Transform> context, Flock_3D flock, List<Transform> flag)
     {
         //가까운 agent가 없으면 위치를 조정하지 않음
-        if (context.Count == 0)
+        if (context.Count <= 1)
         {
             return Vector3.zero;
         }

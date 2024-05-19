@@ -24,7 +24,7 @@ public class FlockAgent_3D : MonoBehaviour
     public void Init(Flock_3D flock)
     {
         agentFlock = flock;
-        vectorToVisualize = new Vector3(flock.SquareFollowRadius, flock.SquareFollowRadius, flock.SquareFollowRadius);
+        vectorToVisualize = new Vector3(flock.SquareFollowRadius, 0, 0);
     }
 
     public void Move(Vector3 _velocity) {
