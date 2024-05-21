@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - CinemachineTarget
-  - IgnorePicture
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,7 +17,7 @@ TagManager:
   - 
   - 
   - 
-  - Intertable
+  - 
   - 
   - 
   - 
