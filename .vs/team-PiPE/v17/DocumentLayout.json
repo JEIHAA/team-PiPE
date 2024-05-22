@@ -1,38 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\",
+  "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\home\\documents\\github\\team-pipe\\assets\\shader\\toon.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\shader\\toon.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\shader\\customlightcelshade\\subgraph\\lightcelshade.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\shader\\customlightcelshade\\subgraph\\lightcelshade.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\rewind\\timebody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rewind\\timebody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\movecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\movecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\command patterns\\playermover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command patterns\\playermover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\mvp patterns\\healthpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mvp patterns\\healthpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\mvp patterns\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mvp patterns\\health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\shader\\customlightcelshade_2\\customlightcelshading.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\shader\\customlightcelshade_2\\customlightcelshading.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,104 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Toon.shader",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\Toon.shader",
-              "RelativeDocumentMoniker": "Assets\\Shader\\Toon.shader",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\Toon.shader",
-              "RelativeToolTip": "Assets\\Shader\\Toon.shader",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAALAAAA",
+              "DocumentIndex": 1,
+              "Title": "CustomLightCelShading.shader",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
+              "RelativeDocumentMoniker": "Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
+              "RelativeToolTip": "Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-05-21T13:53:22.522Z",
+              "WhenOpened": "2024-05-22T09:32:17.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TimeBody.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Rewind\\TimeBody.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Rewind\\TimeBody.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Rewind\\TimeBody.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Rewind\\TimeBody.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAewCwAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T03:14:33.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HealthPresenter.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MVP Patterns\\HealthPresenter.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAowDUAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T07:21:19.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Health.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\Health.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MVP Patterns\\Health.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MVP Patterns\\Health.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MVP Patterns\\Health.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAuwCcAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T07:14:55.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InputManager.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\InputManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\InputManager.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\InputManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\InputManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T05:51:49.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MoveCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\MoveCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T05:42:59.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ICommand.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\ICommand.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\ICommand.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\ICommand.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\ICommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T05:36:44.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PlayerMover.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Command Patterns\\PlayerMover.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T05:40:09.6Z"
+              "DocumentIndex": 0,
+              "Title": "LightCelShade.hlsl",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
+              "RelativeDocumentMoniker": "Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
+              "RelativeToolTip": "Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2024-05-22T04:05:24.667Z",
+              "EditorCaption": ""
             }
           ]
         }
