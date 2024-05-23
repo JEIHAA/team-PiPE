@@ -93,6 +93,8 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\UnityChan\Scripts\IKCtrlRightHand.cs" />
     <Compile Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\UnityChan\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Photon\PhotonLaucher.cs" />
+    <Compile Include="Assets\Scripts\Photon\LobbyManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\UnityChan\Scripts\SpringCollider.cs" />
     <Compile Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\UnityChan\Scripts\SpringManager.cs" />
@@ -110,6 +112,7 @@
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\Scenes\Mirror\Shader\Mirror.shader" />
+    <None Include="Assets\Shader\CustomLightCelShade_3\Lighting.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Shader\CustomLightCelShade_1\CustomLightCellShading.shader" />

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\shader\\customlightcelshade\\subgraph\\lightcelshade.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\shader\\customlightcelshade\\subgraph\\lightcelshade.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\photon\\photonlaucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\photon\\photonlaucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\shader\\customlightcelshade_2\\customlightcelshading.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\shader\\customlightcelshade_2\\customlightcelshading.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\photon\\lobbymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\photon\\lobbymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CustomLightCelShading.shader",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
-              "RelativeDocumentMoniker": "Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
-              "RelativeToolTip": "Assets\\Shader\\CustomLightCelShade_2\\CustomLightCelShading.shader",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-05-22T09:32:17.589Z",
+              "Title": "LobbyManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T06:16:18.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LightCelShade.hlsl",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
-              "RelativeDocumentMoniker": "Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
-              "RelativeToolTip": "Assets\\Shader\\CustomLightCelShade\\SubGraph\\LightCelShade.hlsl",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-05-22T04:05:24.667Z",
+              "Title": "PhotonLaucher.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\PhotonLaucher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\PhotonLaucher.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\PhotonLaucher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Photon\\PhotonLaucher.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAG0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T05:27:02.433Z",
               "EditorCaption": ""
             }
           ]
