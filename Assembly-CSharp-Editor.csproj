@@ -60,7 +60,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Samples\Unity Toon Shader\0.10.0-preview\Legacy render pipeline\Editor\UTS_EdgeDetectionEditor.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\Editor\ChatEditor.cs" />
   </ItemGroup>
   <ItemGroup>
