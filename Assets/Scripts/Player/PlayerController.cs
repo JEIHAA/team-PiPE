@@ -1,3 +1,4 @@
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,12 +26,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     RaycastHit spherCasthit;
 
+    private PhotonView photonView;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         maincam = GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");
 
+        photonView = GetComponent<PhotonView>();
     }
     private void Start()
     {
@@ -43,11 +47,13 @@ public class PlayerController : MonoBehaviour
  
     private void Update()
     {
-        Rotate();
+        if (photonView.IsMine)
+            Rotate();
     }
     private void FixedUpdate()
     {
-        Move();
+        if (photonView.IsMine)
+            Move();
         
     }
 
@@ -76,7 +82,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("Gravity : "+ gravity);
         currentMoveSpeed = moveSpeed - addWeight;
-        rb.velocity = velocity * currentMoveSpeed + gravity;
+        rb.velocity = velocity * currentMoveSpeed /*+ gravity*/;
     }
 
 

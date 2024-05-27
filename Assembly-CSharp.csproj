@@ -73,13 +73,17 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\ICommand.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
+    <Compile Include="Assets\Scripts\Network\PlayerMove.cs" />
+    <Compile Include="Assets\Asset\XR_Hand_Toolkit\HandPresence.cs" />
     <Compile Include="Assets\Scripts\Rewind\Rewinder.cs" />
+    <Compile Include="Assets\Scripts\Player\XRPlayerSync.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\InputManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\NonNativeKeyboard.cs" />
+    <Compile Include="Assets\Scripts\Network\ConnManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
@@ -91,11 +95,14 @@
     <Compile Include="Assets\Scripts\Photon\LobbyManager.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\CapsLockHighlight.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\AxisSlider.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
+    <Compile Include="Assets\Scripts\DontDestroyObject.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
+    <Compile Include="Assets\Scripts\Player\VRPlayer.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
   </ItemGroup>
   <ItemGroup>

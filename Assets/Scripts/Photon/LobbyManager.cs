@@ -19,10 +19,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             photonView.RPC("ApplyPlayerListText", RpcTarget.All);
             startBtn.gameObject.SetActive(false);
-            //PhotonNetwork.CurrentRoom.IsOpen = false;
-
         }
+        startBtn.onClick.AddListener(() => { StartGame(); });
         startBtn.gameObject.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        SceneManager.LoadScene("Main_Test");
     }
 
 

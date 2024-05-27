@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class XRPlayerController : MonoBehaviour
     private bool isGrounded;
     private Vector3 direction;
     RaycastHit spherCasthit;
+    private PhotonView photonView;
 
     [SerializeField] private float maxSlopeAngle = 30f;
 
@@ -30,6 +32,7 @@ public class XRPlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         groundLayer = LayerMask.GetMask("Ground");
+        photonView = GetComponent<PhotonView>();
     }
     private void Start()
     {
@@ -42,7 +45,9 @@ public class XRPlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        
+        if(photonView.IsMine)
+            Move();
 
     }
 
