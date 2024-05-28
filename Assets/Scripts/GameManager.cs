@@ -8,21 +8,47 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
 
     private DontDestoryObject client;
-    public XRPlayerSync playersync;
-    public Transform XROrigin;
     private GameObject player;
+    public UIManager ui;
+    public Transform XROrigin;
+    public bool testing;
+    public bool test_isPC;
 
     private void Awake()
     {
         client = FindObjectOfType<DontDestoryObject>();
+        
     }
 
     private void Start()
     {
+        /*#region testing_UI
+        bool status;
+        if (client == null) 
+        {
+            status = test_isPC;
+        }
+        else
+        {
+            status = client.isPc;
+        }
+
+        if (testing)
+        {
+            ui.SetCurClient(status); // << original is below
+            ui.LazyAwake();
+        }
+        #endregion*/
+
+        /*ui.SetCurClient(client.isPc);
+        ui.LazyAwake();*/
+        
+
         if (client != null && client.isPc == false)
         {
-            player = PhotonNetwork.Instantiate("VR_Player", XROrigin.position, XROrigin.rotation, 0);
-            //playersync.SetPlayer(player);
+            Vector2 pos = Random.insideUnitCircle * 2.0f;
+            player = PhotonNetwork.Instantiate("VR_Player", new Vector3(pos.x, 0, pos.y),Quaternion.identity, 0);
+
         }
 
         if (client != null && client.isPc == true)

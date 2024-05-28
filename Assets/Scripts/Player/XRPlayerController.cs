@@ -2,62 +2,62 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class XRPlayerController : MonoBehaviour
 {
+    
     private Rigidbody rb;
-    [SerializeField] protected float moveSpeed;
+    private GameObject origin;
+    private CapsuleCollider capsuleCollider;
+    [SerializeField] private InputActionAsset actionAsset;
+    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float protrusionDistance = 0.01f;
     [SerializeField] private float currentMoveSpeed;
-
     [SerializeField] private float addWeight;
-    [SerializeField] private float mouseSpeed;
-    [SerializeField] private int jumpHeight;
-    [SerializeField] private float jumpForce = 6f;
     private float rayDistance = 2f;
     private RaycastHit slopeHit;
     private int groundLayer;
     private bool isSlope;
     private bool isGrounded;
     private Vector3 direction;
-    RaycastHit spherCasthit;
     private PhotonView photonView;
+    RaycastHit spherCasthit;
 
     [SerializeField] private float maxSlopeAngle = 30f;
-
-
-
 
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         groundLayer = LayerMask.GetMask("Ground");
+        origin = GameObject.FindGameObjectWithTag("XROrigin");
+        capsuleCollider = GetComponent<CapsuleCollider>();
         photonView = GetComponent<PhotonView>();
     }
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서를 화면 안에서 고정
-        Cursor.visible = false;
         rb.freezeRotation = true;
     }
-
-
-
-    private void FixedUpdate()
+    private void Update()
     {
-        
-        if(photonView.IsMine)
+        if (photonView.IsMine)
+        {
             Move();
-
+            origin.transform.position = transform.position;
+            transform.rotation = origin.transform.rotation;
+        }
+        
     }
-
 
 
 
     protected void Move()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = actionAsset.actionMaps[3].actions[5].ReadValue<Vector2>().x;
+        float v = actionAsset.actionMaps[3].actions[5].ReadValue<Vector2>().y;
         Vector3 forward = transform.forward * v;
         Vector3 right = transform.right * h;
         direction = forward + right;
@@ -68,7 +68,7 @@ public class XRPlayerController : MonoBehaviour
 
         Debug.Log("isGrounded : " + isGrounded);
         Debug.Log("isSlope : " + isSlope);
-        if (isGrounded)
+        if (isGrounded && isSlope)
         {
             velocity = AdjustDirectionToSlope(direction);
             gravity = Vector3.zero;
@@ -78,21 +78,9 @@ public class XRPlayerController : MonoBehaviour
         {
             rb.useGravity = true;
         }
-        Debug.Log("Gravity : " + gravity);
         currentMoveSpeed = moveSpeed - addWeight;
-        rb.velocity = velocity * currentMoveSpeed + gravity;
+        rb.velocity = velocity * currentMoveSpeed/* + gravity*/;
     }
-
-
-
-    /*private void Jump()
-    {
-        Debug.Log(isGrounded);
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce);
-        }
-    }*/
 
     private bool OnSlope()
     {
@@ -107,15 +95,15 @@ public class XRPlayerController : MonoBehaviour
 
     private Vector3 AdjustDirectionToSlope(Vector3 slopeDir)
     {
-        Debug.Log(Vector3.ProjectOnPlane(slopeDir, slopeHit.normal).normalized);
         return Vector3.ProjectOnPlane(slopeDir, slopeHit.normal).normalized;
     }
 
     private bool IsGrounded()
     {
         float sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
-        Debug.Log(sphereScale + "  :   " + sphereScale / 3);
-        return Physics.SphereCast(transform.position, sphereScale / 3, -transform.up, out spherCasthit, sphereScale - 0.31f, groundLayer); ;
+        float sphereRadius = sphereScale / 3;
+        float sphereCastDistance = (capsuleCollider.height / 2) + protrusionDistance - sphereRadius;
+        return Physics.SphereCast(transform.position, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
 
     private void OnDrawGizmos()

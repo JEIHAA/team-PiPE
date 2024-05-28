@@ -3,9 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.XR;
 
 public class ConnManager : MonoBehaviourPunCallbacks
 {
+    public bool isVR;
+    public GameObject XROrigin;
+
+    public static bool isPresent()
+    {
+        var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
+        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+        foreach(var xrDisplay in xrDisplaySubsystems)
+        {
+            if (xrDisplay.running)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void Awake()
+    {
+        Debug.Log("VR Device = " + isPresent().ToString());
+        isVR = isPresent();
+    }
+
     private void Start()
     {
         PhotonNetwork.GameVersion = "0.1";
@@ -41,6 +65,14 @@ public class ConnManager : MonoBehaviourPunCallbacks
 
         Vector2 originPos = Random.insideUnitCircle * 2.0f;
 
-        PhotonNetwork.Instantiate("Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+        if (isVR == true)
+        {
+            PhotonNetwork.Instantiate("VR_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate("PC_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+            XROrigin.SetActive(false);
+        }
     }
 }

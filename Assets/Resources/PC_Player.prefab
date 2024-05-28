@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1242189777025686788}
   - component: {fileID: 1442756481503881372}
   - component: {fileID: 4684719677948188256}
-  - component: {fileID: 4505710663921702234}
+  - component: {fileID: 1060375646739378104}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -126,7 +126,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3598044160914458595}
   m_Enabled: 1
---- !u!114 &4505710663921702234
+--- !u!114 &1060375646739378104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,8 +268,8 @@ GameObject:
   - component: {fileID: 7156054944957655586}
   - component: {fileID: 7865682451071339731}
   - component: {fileID: 4946802059728605455}
-  - component: {fileID: 4300212233050763636}
-  - component: {fileID: 8137842488782426592}
+  - component: {fileID: 8291114682166389415}
+  - component: {fileID: 1614554546719166552}
   m_Layer: 0
   m_Name: PC_Player
   m_TagString: Untagged
@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 9007019016905059517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -388,7 +388,7 @@ Rigidbody:
     m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -410,8 +410,6 @@ MonoBehaviour:
   maxSlopeAngle: 40
   addWeight: 0
   mouseSpeed: 100
-  jumpHeight: 20
-  jumpForce: 100
 --- !u!114 &4946802059728605455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +428,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &4300212233050763636
+--- !u!114 &8291114682166389415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,11 +447,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 8137842488782426592}
+  - {fileID: 1614554546719166552}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8137842488782426592
+--- !u!114 &1614554546719166552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

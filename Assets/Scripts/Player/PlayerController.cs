@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSlopeAngle = 30f;
     [SerializeField] private float addWeight;
     [SerializeField] private float mouseSpeed;
-    [SerializeField] private int jumpHeight;
-    [SerializeField] private float jumpForce = 6f;
     private float yRotation;
     private float xRotation;
     private float rayDistance = 2f;
@@ -24,17 +22,16 @@ public class PlayerController : MonoBehaviour
     private bool isSlope;
     private bool isGrounded;
     private Vector3 direction;
-    RaycastHit spherCasthit;
-
     private PhotonView photonView;
+    RaycastHit spherCasthit;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         maincam = GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");
-
         photonView = GetComponent<PhotonView>();
+
     }
     private void Start()
     {
@@ -47,15 +44,18 @@ public class PlayerController : MonoBehaviour
  
     private void Update()
     {
-        if (photonView.IsMine)
+       if (photonView.IsMine)
+        {
             Rotate();
-    }
-    private void FixedUpdate()
-    {
-        if (photonView.IsMine)
             Move();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
+        }
         
     }
+
 
     protected void Move()
     {
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = IsGrounded();
         isSlope = OnSlope();
 
-        if(isGrounded && isSlope)
+        if(isGrounded)
         {
             velocity = AdjustDirectionToSlope(direction);
             gravity = Vector3.zero;
@@ -79,10 +79,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.useGravity = true;
+            rb.AddForce(Vector3.down * 200f, ForceMode.Force);
         }
         Debug.Log("Gravity : "+ gravity);
         currentMoveSpeed = moveSpeed - addWeight;
-        rb.velocity = velocity * currentMoveSpeed /*+ gravity*/;
+        rb.velocity = velocity * currentMoveSpeed;
     }
 
 
@@ -98,15 +99,12 @@ public class PlayerController : MonoBehaviour
         maincam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // 카메라의 회전을 조절
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
-    
-    /*private void Jump()
+
+    private void Jump()
     {
-        Debug.Log(isGrounded);
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce);
-        }
-    }*/
+        rb.AddForce(Vector3.up*60f, ForceMode.Impulse);
+    }
+    
 
     private bool OnSlope()
     { 
