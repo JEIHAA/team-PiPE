@@ -103,7 +103,9 @@ public class XRPlayerController : MonoBehaviour
         float sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
         float sphereRadius = sphereScale / 3;
         float sphereCastDistance = (capsuleCollider.height / 2) + protrusionDistance - sphereRadius;
-        return Physics.SphereCast(transform.position, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
+        Vector3 pos = transform.position;
+        pos.y = transform.position.y + 0.4f;
+        return Physics.SphereCast(pos, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
 
     private void OnDrawGizmos()

@@ -10,6 +10,9 @@ public class ConnManager : MonoBehaviourPunCallbacks
     public bool isVR;
     public GameObject XROrigin;
 
+    public Transform LeftHandController;
+    public Transform RightHandController;
+
     public static bool isPresent()
     {
         var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
@@ -64,10 +67,11 @@ public class ConnManager : MonoBehaviourPunCallbacks
         Debug.Log("Room Entered");
 
         Vector2 originPos = Random.insideUnitCircle * 2.0f;
+        GameObject go;
 
         if (isVR == true)
         {
-            PhotonNetwork.Instantiate("VR_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+            go = PhotonNetwork.Instantiate("VR_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
         }
         else
         {

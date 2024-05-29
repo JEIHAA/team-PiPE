@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\network\\ingameconsole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\ingameconsole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\player\\vrrig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\vrrig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\network\\connmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\rayinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rayinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\network\\connmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\connmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\ui\\vrcanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\vrcanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,90 +27,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ConnManager.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\ConnManager.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Network\\ConnManager.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAowEAAAAAAAAAA",
+              "Title": "RayInteractor.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\RayInteractor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RayInteractor.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\RayInteractor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RayInteractor.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAnwCkAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T09:09:03.373Z",
+              "WhenOpened": "2024-05-29T07:54:44.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InGameConsole.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\InGameConsole.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\InGameConsole.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\InGameConsole.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Network\\InGameConsole.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAowFIAAAAAAAAA",
+              "Title": "VRRig.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\VRRig.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\VRRig.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\VRRig.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\VRRig.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwBkAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T08:46:00.586Z",
+              "WhenOpened": "2024-05-29T07:47:54.644Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "XRPlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAkwFEAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T07:13:14.982Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAMwIAAAAA8AAAA",
+              "Title": "ConnManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\ConnManager.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\ConnManager.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAWwEoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T07:10:34.252Z",
+              "WhenOpened": "2024-05-28T09:09:03.373Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VRCanvas.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\UI\\VRCanvas.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\VRCanvas.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\UI\\VRCanvas.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\VRCanvas.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T03:57:10.814Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAqwBIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T03:27:29.703Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\UI\\UIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIManager.cs",
-              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\UI\\UIManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\UIManager.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T03:26:15.086Z"
             }
           ]
         }
