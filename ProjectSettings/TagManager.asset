@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - XROrigin
+  - Controller
   layers:
   - Default
   - TransparentFX
