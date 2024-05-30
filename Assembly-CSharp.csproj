@@ -60,49 +60,28 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\FilteredFlockBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\SteeredCohesionBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\FlockAgent_3D.cs" />
+    <Compile Include="Assets\Scripts\GPUBoids.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\AlignmentBehavior.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\AlignmentBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\TrakingFlagBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\AvoidanceBehavior.cs" />
-    <Compile Include="Assets\Scripts\Filter Scripts_3D\PhysicsLayerFilter_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Filter Scripts\SameFlockFilter.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\CohesionBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\FlockAgent.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\StayInRadiusBehavior_3D.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
-    <Compile Include="Assets\Scripts\ContextFilter_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\StayInRadiusBehavior.cs" />
-    <Compile Include="Assets\Scripts\Flock_3D.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\CompositeBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\CohesionBehavior.cs" />
-    <Compile Include="Assets\Scripts\FlockBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Filter Scripts\PhysicsLayerFilter.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\ContextFilter.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Flock.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
-    <Compile Include="Assets\Scripts\Filter Scripts_3D\SameFlockFilter_3D.cs" />
-    <Compile Include="Assets\Scripts\Behavior Scripts_3D\AvoidanceBehavior_3D.cs" />
-    <Compile Include="Assets\Scripts\Filter Scripts_3D\NextFlagFilter_3D.cs" />
+    <Compile Include="Assets\Scripts\BoidManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\FilteredFlockBehavior.cs" />
+    <Compile Include="Assets\Scripts\BoidsRender.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\CompositeBehavior.cs" />
+    <Compile Include="Assets\Scripts\BoidsGameObjectGenerator.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\FlockBehavior.cs" />
-    <Compile Include="Assets\Scripts\2DFlock\Behavior Scripts\SteeredCohesionBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
+    <None Include="Assets\Shaders\BoidsRender.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
+    <None Include="Assets\ComputeShaders\Boids.compute" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
     <None Include="Assets\Photon\PhotonChat\Demos\DemoChat\Files\eurof_tt.txt" />
