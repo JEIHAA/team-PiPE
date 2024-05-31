@@ -14,7 +14,7 @@ public class BoidManager : MonoBehaviour
 
   [SerializeField] private GPUBoids GPUBoidCS;
 
-  [SerializeField] private List<PlayerController> player = new List<PlayerController>();
+  [SerializeField] private List<BoidsPlayerController> player = new List<BoidsPlayerController>();
   [SerializeField] private GameObject[] playerGo;
   [SerializeField] private GameObject[] owner;
   [SerializeField] private Vector3 tagetPos;
@@ -31,7 +31,7 @@ public class BoidManager : MonoBehaviour
     ownerHasBoidNum = new int[playerGo.Length];
 
     for (int i = 0; i < playerGo.Length; i++) {
-        player.Add(playerGo[i].GetComponent<PlayerController>());
+        player.Add(playerGo[i].GetComponent<BoidsPlayerController>());
         owner[player[i].OwnerID] = player[i].gameObject;
         ownerHasBoidNum[player[i].OwnerID] = 0;
     }
@@ -44,7 +44,7 @@ public class BoidManager : MonoBehaviour
     Debug.Log("OnCollisionEnter");
     if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
     {
-      OwnerID = _other.gameObject.GetComponent<PlayerController>().OwnerID;
+      OwnerID = _other.gameObject.GetComponent<BoidsPlayerController>().OwnerID;
       /*Debug.Log($"ownerHasBoidNum[{OwnerID}]: {ownerHasBoidNum[OwnerID]}");
       Debug.Log($"total Boid: {ownerHasBoidNum[0] + ownerHasBoidNum[1]}");*/
     }
