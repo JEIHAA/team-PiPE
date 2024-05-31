@@ -1047,8 +1047,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.XR.Interaction.Toolkit.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler.Editor.MemoryProfilerModule">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.Editor.MemoryProfilerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
@@ -1121,6 +1129,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.XR.OpenXR.Editor">

@@ -13,11 +13,13 @@ namespace BoidsSimulationOnGPU
     [System.Serializable]
     struct BoidData
     {
-        public Vector3 velocity; 
-        public Vector3 position;
+      public Vector3 velocity; 
+      public Vector3 position;
+      public Vector3 wall;
 
-        public Vector3 Velocity { get { return velocity; } set { velocity = value; } }
-        public Vector3 Position { get { return position; } set { position = value; } }
+      public Vector3 Velocity { get { return velocity; } set { velocity = value; } }
+      public Vector3 Position { get { return position; } set { position = value; } }
+      public Vector3 Wall { get { return Wall; } set { Wall = value; } }
     }
 
     [System.Serializable]
@@ -153,8 +155,8 @@ namespace BoidsSimulationOnGPU
     {
       UpdateBoidTargetPos();
       Simulation();
-      SyncToCSMesh();
-      SyncToGameObjects();
+      //SyncToCSMesh();
+      //SyncToGameObjects();
     }
 
     void OnDestroy()
@@ -218,7 +220,7 @@ namespace BoidsSimulationOnGPU
 
     public void UpdateBoidTargetPos() 
     {
-      for (int i = 0; i < boidList.Count; i++) {
+      for (int i = 0; i < MaxObjectNum; i++) {
         boidTargetArr[i].OwnerID = boidList[i].GetComponent<BoidManager>().GetOwnerID();
         boidTargetArr[i].TargetPos = boidList[i].GetComponent<BoidManager>().GetTargetPos();      
       }
@@ -233,7 +235,7 @@ namespace BoidsSimulationOnGPU
 
     private void SyncToGameObjects()
     {
-      for (int i = 0; i < boidList.Count; i++)
+      for (int i = 0; i < MaxObjectNum; i++)
       {
         UpdateBoidDataArr(i);
       }

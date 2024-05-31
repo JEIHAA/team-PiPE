@@ -29,6 +29,7 @@
 		{
 			float3 velocity;
 			float3 position;
+			float3 wall;
 		};
 
 		struct BoidTarget

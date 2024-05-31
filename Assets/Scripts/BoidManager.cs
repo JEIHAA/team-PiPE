@@ -48,6 +48,8 @@ public class BoidManager : MonoBehaviour
       /*Debug.Log($"ownerHasBoidNum[{OwnerID}]: {ownerHasBoidNum[OwnerID]}");
       Debug.Log($"total Boid: {ownerHasBoidNum[0] + ownerHasBoidNum[1]}");*/
     }
+    if (_other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
+    }
   }
 
   private void Update()

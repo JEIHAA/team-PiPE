@@ -11,6 +11,7 @@ struct BoidData
 {
 	float3 velocity; // 속도
 	float3 position; // 위치
+	float3 wall;
 };
 
 struct BoidTarget
