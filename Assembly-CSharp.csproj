@@ -60,14 +60,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\mapMaker\Scripts\PlusRandomEdge.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\HealthPresenter.cs" />
     <Compile Include="Assets\Scripts\Rewind\RewindManager.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\PathFinder.cs" />
     <Compile Include="Assets\Scripts\Rewind\PointInTime.cs" />
     <Compile Include="Assets\Scripts\Player\VRFootIK.cs" />
     <Compile Include="Assets\Asset\VR Body\IKFootSolver.cs" />
     <Compile Include="Assets\Scripts\Player\PickingAction.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsRender.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\PathFinder2D.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Room.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\CollidRoom.cs" />
+    <Compile Include="Assets\MapManager.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Tetrahedron.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Face.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
     <Compile Include="Assets\Scripts\Rewind\Moving.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\PlayerMover.cs" />
@@ -88,29 +96,43 @@
     <Compile Include="Assets\Asset\XR_Hand_Toolkit\HandPresence.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Scripts\Rewind\Rewinder.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\DelaunayTriangulation.cs" />
     <Compile Include="Assets\Scripts\UI\PCCanvas.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\BoywerWatson2D.cs" />
     <Compile Include="Assets\Asset\VR Body\IKTargetFollowVRRig.cs" />
     <Compile Include="Assets\Scripts\Boids\GPUBoids.cs" />
     <Compile Include="Assets\Scripts\Player\XRPlayerSync.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\PriorityQueue.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Triangle2D.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\primMst.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\BoywerWaston.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Triangle.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\InputManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\AxisSlider.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Scripts\UI\VRCanvas.cs" />
+    <Compile Include="Assets\ZerinLabs_lowpolyPack_SciFi\ScriptsEditor\scrEdit_objectSnap.cs" />
     <Compile Include="Assets\Scripts\Player\XRBoidsTrigger.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Grid2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPlayerController.cs" />
     <Compile Include="Assets\Scripts\BoomHit.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Point.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
     <Compile Include="Assets\Asset\VR Body\AnimateOnInput.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Sphere.cs" />
     <Compile Include="Assets\Scripts\XRGrabInterAction.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Circumscriber2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\NonNativeKeyboard.cs" />
     <Compile Include="Assets\Scripts\Network\ConnManager.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\MapGenerate2D.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\DontDestroyObject.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\Edge.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
@@ -118,6 +140,7 @@
     <Compile Include="Assets\Scripts\Boids\BoidManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Scripts\Player\VRPlayer.cs" />
+    <Compile Include="Assets\ZerinLabs_lowpolyPack_SciFi\ScriptsEditor\scrEdit_objectGridRepositioneer.cs" />
     <Compile Include="Assets\Scripts\RayInteractor.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\Scripts\Network\InGameConsole.cs" />
@@ -162,6 +185,7 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\ZerinLabs_lowpolyPack_SciFi\Shaders\sh_SOLID_standardWithVC.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -511,6 +535,18 @@
     </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
