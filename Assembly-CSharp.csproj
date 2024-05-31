@@ -79,7 +79,6 @@
     <Compile Include="Assets\mapMaker\Scripts\Grid2D.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Point.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Sphere.cs" />
-    <Compile Include="Assets\Scenes\CharacterController.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Circumscriber2D.cs" />
     <Compile Include="Assets\mapMaker\Scripts\MapGenerate2D.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Edge.cs" />
