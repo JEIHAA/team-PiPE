@@ -8,16 +8,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRPlayerController : MonoBehaviour
 {
-    
-    private Rigidbody rb;
+
+    private CharacterController cc;
     private GameObject origin;
-    private CapsuleCollider capsuleCollider;
     [SerializeField] private InputActionAsset actionAsset;
     [SerializeField] private float moveSpeed = 6f;
-    [SerializeField] private float protrusionDistance = 0.01f;
+    [SerializeField] private float protrusionDistance = 0.05f;
     [SerializeField] private float currentMoveSpeed;
     [SerializeField] private float addWeight;
-    private float rayDistance = 2f;
+    [SerializeField] private float gravitationalAcceleration;
+    private float rayDistance;
     private RaycastHit slopeHit;
     private int groundLayer;
     private bool isSlope;
@@ -26,20 +26,13 @@ public class XRPlayerController : MonoBehaviour
     private PhotonView photonView;
     RaycastHit spherCasthit;
 
-    [SerializeField] private float maxSlopeAngle = 30f;
-
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
         groundLayer = LayerMask.GetMask("Ground");
         origin = GameObject.FindGameObjectWithTag("XROrigin");
-        capsuleCollider = GetComponent<CapsuleCollider>();
         photonView = GetComponent<PhotonView>();
-    }
-    private void Start()
-    {
-        rb.freezeRotation = true;
     }
     private void Update()
     {
@@ -62,36 +55,37 @@ public class XRPlayerController : MonoBehaviour
         Vector3 right = transform.right * h;
         direction = forward + right;
         Vector3 velocity = direction;
-        Vector3 gravity = Vector3.down * Mathf.Abs(rb.velocity.y);
         isGrounded = IsGrounded();
         isSlope = OnSlope();
 
         Debug.Log("isGrounded : " + isGrounded);
         Debug.Log("isSlope : " + isSlope);
-        if (isGrounded && isSlope)
+        if (isSlope)
         {
             velocity = AdjustDirectionToSlope(direction);
-            gravity = Vector3.zero;
-            rb.useGravity = false;
         }
-        else
+        if (!isGrounded)
         {
-            rb.useGravity = true;
+            velocity.y = velocity.y - gravitationalAcceleration * Time.fixedDeltaTime;
         }
+        
+       
         currentMoveSpeed = moveSpeed - addWeight;
-        rb.velocity = velocity * currentMoveSpeed/* + gravity*/;
+        cc.Move(velocity * currentMoveSpeed * Time.deltaTime);
     }
 
     private bool OnSlope()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(ray, out slopeHit, rayDistance, groundLayer))
+        if (Physics.Raycast(ray, out slopeHit, Mathf.Infinity, groundLayer))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle != 0f && angle < maxSlopeAngle;
+            return angle != 0f && angle < cc.slopeLimit;
         }
         return false;
     }
+
+
 
     private Vector3 AdjustDirectionToSlope(Vector3 slopeDir)
     {
@@ -100,12 +94,11 @@ public class XRPlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
+        Debug.Log(cc.height);
         float sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
         float sphereRadius = sphereScale / 3;
-        float sphereCastDistance = (capsuleCollider.height / 2) + protrusionDistance - sphereRadius;
-        Vector3 pos = transform.position;
-        pos.y = transform.position.y + 0.4f;
-        return Physics.SphereCast(pos, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
+        float sphereCastDistance = (cc.height / 2) + protrusionDistance - sphereRadius;
+        return Physics.SphereCast(transform.position, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
 
     private void OnDrawGizmos()

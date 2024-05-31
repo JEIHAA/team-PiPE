@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
-
-public class RayInteractor : MonoBehaviour
+using Photon.Pun;
+public class RayInteractor : MonoBehaviourPunCallbacks
 {
     public XRRayInteractor xri;
-    [SerializeField] private InputActionAsset inputActions;
-    [SerializeField] private float throwPower = 20f;
-    [SerializeField] private XRGrabInterAction boom;
     
-    private void Start()
-    {
-        xri.selectEntered.AddListener(SelectEvent);
-        xri.selectExited.AddListener(SeletExit);
-        
-    }
+    
 
     private void Update()
     {
@@ -25,13 +17,13 @@ public class RayInteractor : MonoBehaviour
 
     private void SelectEvent(SelectEnterEventArgs args)
     {
-        boom.XRGrab();
+        //boom.XRGrab();
     }
 
     private void SeletExit(SelectExitEventArgs args)
     {
-        boom.XRRealease();
-        boom.Throw(throwPower);
+        //boom.XRRealease();
+        //boom.Throw(rightCon, throwPower);
     }
 
     private void RayCheck()
@@ -43,5 +35,4 @@ public class RayInteractor : MonoBehaviour
         }
     }
 
-   
 }
