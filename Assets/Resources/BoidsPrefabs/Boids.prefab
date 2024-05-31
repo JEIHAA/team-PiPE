@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121799762736463503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309365476916722962}
+  - component: {fileID: 1807878398563241016}
+  - component: {fileID: 8310054576927196814}
+  m_Layer: 0
+  m_Name: Boids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &309365476916722962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121799762736463503}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807878398563241016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121799762736463503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89172c0bb49896b4ea692a26e0741e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boidsCS: {fileID: 7200000, guid: d4e9a04542ef7784e92dfd5a122f5719, type: 3}
+  MaxObjectNum: 256
+  boidSpawner: {fileID: 0}
+  maxSpeed: 5
+  maxSteerForce: 0.5
+  cohesionNeighborhoodRadius: 2
+  alignmentNeighborhoodRadius: 2
+  separateNeighborhoodRadius: 2
+  cohesionWeight: 1
+  alignmentWeight: 1
+  separateWeight: 3
+  AvoidWallWeight: 5
+  boundarySize: {x: 5, y: 0.1, z: 5}
+  renderAreaCenter: {x: 0, y: 0, z: 0}
+  renderAreaSize: {x: 45, y: 1, z: 45}
+--- !u!114 &8310054576927196814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121799762736463503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c313f18a9b84e4981f6632159ac627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectScale: {x: 1, y: 1, z: 1}
+  GPUBoidsScript: {fileID: 1807878398563241016}
+  InstanceMesh: {fileID: 8083076389491013506, guid: 4052bafe63c4eef489221dc973080238, type: 3}
+  InstanceRenderMaterial:
+  - {fileID: 2100000, guid: 31671b9a7e5932446827df075c9ae79d, type: 2}
+  material: {fileID: 0}

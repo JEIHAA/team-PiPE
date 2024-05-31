@@ -62,11 +62,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MVP Patterns\HealthPresenter.cs" />
     <Compile Include="Assets\Scripts\Rewind\RewindManager.cs" />
-    <Compile Include="Assets\Scripts\GPUBoids.cs" />
     <Compile Include="Assets\Scripts\Rewind\PointInTime.cs" />
     <Compile Include="Assets\Scripts\Player\VRFootIK.cs" />
     <Compile Include="Assets\Asset\VR Body\IKFootSolver.cs" />
     <Compile Include="Assets\Scripts\Player\PickingAction.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidsRender.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
     <Compile Include="Assets\Scripts\Rewind\Moving.cs" />
@@ -74,11 +74,11 @@
     <Compile Include="Assets\Scripts\Player\XRPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PCGrabInterAction.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\Health.cs" />
-    <Compile Include="Assets\Scripts\BoidsPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\ICommand.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidsGameObjectGenerator.cs" />
     <Compile Include="Assets\Scripts\Photon\PhotonLaucher.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolKeyboard.cs" />
     <Compile Include="Assets\Scripts\Photon\LobbyManager.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Rewind\Rewinder.cs" />
     <Compile Include="Assets\Scripts\UI\PCCanvas.cs" />
     <Compile Include="Assets\Asset\VR Body\IKTargetFollowVRRig.cs" />
+    <Compile Include="Assets\Scripts\Boids\GPUBoids.cs" />
     <Compile Include="Assets\Scripts\Player\XRPlayerSync.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
@@ -100,7 +101,7 @@
     <Compile Include="Assets\Scripts\UI\VRCanvas.cs" />
     <Compile Include="Assets\Scripts\Player\XRBoidsTrigger.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
-    <Compile Include="Assets\Scripts\BoidManager.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidsPlayerController.cs" />
     <Compile Include="Assets\Scripts\BoomHit.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
     <Compile Include="Assets\Asset\VR Body\AnimateOnInput.cs" />
@@ -110,12 +111,11 @@
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\DontDestroyObject.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
-    <Compile Include="Assets\Scripts\BoidsRender.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
-    <Compile Include="Assets\Scripts\BoidsGameObjectGenerator.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Scripts\Player\VRPlayer.cs" />
     <Compile Include="Assets\Scripts\RayInteractor.cs" />
@@ -127,7 +127,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Shaders\BoidsRender.shader" />
+    <None Include="Assets\Shader\BoidShader\BoidsRender.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Shader\CustomLightCelShade_3\Lighting.hlsl" />
@@ -143,7 +143,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
-    <None Include="Assets\Shader\Toon_URP_Test.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Shader\CustomLightCelShade\SubGraph\LightCelShade.hlsl" />
@@ -154,7 +153,6 @@
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.dll" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Photon\PhotonLibs\Metro\Photon3Unity3D.dll" />
-    <None Include="Assets\Shader\MainLight.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
     <None Include="Assets\Shader\CelShadeLit\CustomNodes\LightingCelShaded.hlsl" />
