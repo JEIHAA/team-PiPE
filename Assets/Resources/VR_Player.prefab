@@ -125,6 +125,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8442795637605330086, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
+      propertyPath: myHead
+      value: 
+      objectReference: {fileID: 7513677663248190255}
+    - target: {fileID: 8442795637605330086, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -195,3 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7513677663248190255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6796307054467492337, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
+  m_PrefabInstance: {fileID: 3896923503059149534}
+  m_PrefabAsset: {fileID: 0}
