@@ -1,6 +1,7 @@
 using BoidsSimulationOnGPU;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -45,6 +46,7 @@ public class BoidManager : MonoBehaviour
     if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
     {
       OwnerID = _other.gameObject.GetComponent<BoidsPlayerController>().OwnerID;
+      _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
       /*Debug.Log($"ownerHasBoidNum[{OwnerID}]: {ownerHasBoidNum[OwnerID]}");
       Debug.Log($"total Boid: {ownerHasBoidNum[0] + ownerHasBoidNum[1]}");*/
     }
@@ -52,7 +54,7 @@ public class BoidManager : MonoBehaviour
     }
   }
 
-  private void Update()
+  private void FixedUpdate()
   {
     if (OwnerID != -1) {
       SetOwnerPos();

@@ -13,9 +13,9 @@ namespace BoidsSimulationOnGPU
     [System.Serializable]
     struct BoidData
     {
-      public Vector3 velocity; 
-      public Vector3 position;
-      public Vector3 wall;
+      private Vector3 velocity;
+      private Vector3 position;
+      private Vector3 wall;
 
       public Vector3 Velocity { get { return velocity; } set { velocity = value; } }
       public Vector3 Position { get { return position; } set { position = value; } }
@@ -84,8 +84,6 @@ namespace BoidsSimulationOnGPU
     [SerializeField] private Vector3 renderAreaCenter = Vector3.zero;
     // 렌더 경계 범위
     [SerializeField] private  Vector3 renderAreaSize = new Vector3(45.0f, 1.0f, 45.0f);
-
-    
     #endregion
 
     #region Private Resources
@@ -143,7 +141,7 @@ namespace BoidsSimulationOnGPU
     #endregion
 
     #region MonoBehaviour Functions
-    void Start()
+    private void Start()
     {
       // 생성된 boids GameObject 가져오기
       boidList = boidSpawner.GetBoidsList();
@@ -151,15 +149,27 @@ namespace BoidsSimulationOnGPU
       InitBuffer();
     }
 
-    void Update()
+    private void Update()
+    {
+      Simulation();
+    }
+
+    private void FixedUpdate()
+    {
+      UpdateBoidTargetPos();
+      SyncToCSMesh();
+      SyncToGameObjects();
+    }
+
+    /*private void Update() // 총 개수 256개 이상일 때
     {
       UpdateBoidTargetPos();
       Simulation();
-      //SyncToCSMesh();
-      //SyncToGameObjects();
-    }
+      SyncToCSMesh();
+      SyncToGameObjects();
+    }*/
 
-    void OnDestroy()
+    private void OnDestroy()
     {
       // 버퍼 해제
       ReleaseBuffer();

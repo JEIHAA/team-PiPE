@@ -120,9 +120,11 @@
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPlayerController.cs" />
     <Compile Include="Assets\Scripts\BoomHit.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidsGameManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Point.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
     <Compile Include="Assets\Asset\VR Body\AnimateOnInput.cs" />
+    <Compile Include="Assets\Scripts\Boids\BoidsPlayerManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Sphere.cs" />
     <Compile Include="Assets\Scripts\XRGrabInterAction.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Circumscriber2D.cs" />
@@ -1137,12 +1139,12 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
