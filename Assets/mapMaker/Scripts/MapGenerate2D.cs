@@ -75,7 +75,7 @@ public class MapGenerate2D : MonoBehaviourPun
     {
         return rooms;
     }
-    public void SetRooms(List<MapTransmission> _Input)
+    public void SetRoomData(List<MapTransmission> _Input)
     {
         RecivedData = _Input;
     }
@@ -85,48 +85,51 @@ public class MapGenerate2D : MonoBehaviourPun
         return roomIndexList;
     }
 
-    private IEnumerator WaitForConnect()
+    private IEnumerator WaitForMaster()
     {
-        while (!PhotonNetwork.IsConnectedAndReady)
+        while (isFinished == false)
         {
             Debug.Log("Photon is NotReady");
         }
-        
-        if (!PhotonNetwork.IsConnectedAndReady)
-        {
-            Debug.Log("Photon is Ready");
-            yield break;
-        }
 
+        yield break;
     }
 
-    private IEnumerator Start()
+    public void StartMapGenerator()
+    {
+        StartCoroutine(MapGenerate());
+    }
+
+    private IEnumerator MapGenerate()
     {
         rooms = new List<Room>(); //방의 크기와 위치 저장하는곳
         transforms = GetComponentsInChildren<Transform>();
 
-        /*    yield return StartCoroutine(WaitForConnect());
 
-        // 일반 클라이언트가 맵 생성하는 부분
-            *//*//yield return StartCoroutine(WaitForMaster()); // << 마스터 클라이언트가 맵생성이 다끝날때까지 기다려야 함.
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogWarning("MasterClient?: " + PhotonNetwork.IsMasterClient);
+            yield return StartCoroutine(PlaceRooms());
+
+            onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
+
+            isFinished = true;
+        }
+        else
+        {
+            Debug.LogWarning("MasterClient?: " + PhotonNetwork.IsMasterClient);
+            yield return StartCoroutine(WaitForMaster());
 
             foreach (MapTransmission t in RecivedData)
             {
                 yield return StartCoroutine(PlaceRoom(new Vector3(t.posX, 0, t.posZ), new Vector3(t.sizeX, 0, t.sizeZ), RoomsPrefab[t.index]));
-            }*//*
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("MasterClient?: " + PhotonNetwork.IsMasterClient);
-            yield return StartCoroutine(PlaceRooms());
-
-            onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
-        }*/
+            }
+        }
 
         // 아래는 기존 진행 코드
-        yield return StartCoroutine(PlaceRooms());
+        // yield return StartCoroutine(PlaceRooms());
 
-        onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
+        //onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
 
         // << 길 생성 시작
         //delaunay에 델로니 삼각함수의 결과값을 가져옴
@@ -428,7 +431,10 @@ public class MapGenerate2D : MonoBehaviourPun
 
         Map Map = map.GetComponent<Map>();
 
-        
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            rooms.Add(r.GetComponent<Room>());
+        }
         
         while (Map.returnBool())
         {

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class MapManager : MonoBehaviour
+public class MapManager : MonoBehaviourPunCallbacks
 {
     private MapGenerate2D rooms = null;
     private MapTransfor transfer = null;
@@ -15,6 +16,15 @@ public class MapManager : MonoBehaviour
         rooms = GetComponentInChildren<MapGenerate2D>();
         transfer = GetComponent<MapTransfor>();
         rooms.OnFinishedMapGenerateCallback = SendMap;
+        
+    }
+
+    private void Update()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        {
+            rooms.StartMapGenerator();
+        }
     }
 
     private void SendMap()
@@ -36,11 +46,11 @@ public class MapManager : MonoBehaviour
             transfer.SendMapToNetwork(SendList);
         }
 
-        /*if (transfer.RecivedRooms.Count == roomlist.Count)
+        if (transfer.RecivedRooms.Count == roomlist.Count)
         {
-            rooms.SetRooms(transfer.RecivedRooms);
-        }*/
-        
+            rooms.SetRoomData(transfer.RecivedRooms);
+        }
+
     }
 
 
