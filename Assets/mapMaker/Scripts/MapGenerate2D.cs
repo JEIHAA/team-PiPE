@@ -6,20 +6,30 @@ using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-using static UnityEditor.PlayerSettings;
+using UnityEngine.UIElements;
+using Photon.Pun;
+/*using static UnityEditor.FilePathAttribute;
+using static UnityEditor.PlayerSettings;*/
 
-public class MapGenerate2D : MonoBehaviour
+public class MapGenerate2D : MonoBehaviourPun
 {
     enum CellType //grid방식을 응용하기위해서 cell의 타입을 room(방) none(아무것도없음) hallway(복도) 3가지로 나누었다.
     {
         None, Room , Hallway, Wall
     }
-    
+
+    public delegate void OnFinishedMapGenerate();
+    private OnFinishedMapGenerate onFinishedMapGenerateCallback = null;
+    public OnFinishedMapGenerate OnFinishedMapGenerateCallback
+    {
+        set { onFinishedMapGenerateCallback = value; }
+    }
     
     private Transform[] transforms;
 
     private List<Vector3> points = new List<Vector3>();
+
+    private List<int> roomIndexList = new List<int>();
 
     private Vector3 size;
     [SerializeField]
@@ -58,15 +68,67 @@ public class MapGenerate2D : MonoBehaviour
     Grid2D<CellType> grid;
     // using incremental algorithm
 
+    private List<MapTransmission> RecivedData = new List<MapTransmission>();
+    private bool isFinished = false;
+
+    public List<Room> getRooms()
+    {
+        return rooms;
+    }
+    public void SetRooms(List<MapTransmission> _Input)
+    {
+        RecivedData = _Input;
+    }
+
+    public List<int> getRoomidx()
+    {
+        return roomIndexList;
+    }
+
+    private IEnumerator WaitForConnect()
+    {
+        while (!PhotonNetwork.IsConnectedAndReady)
+        {
+            Debug.Log("Photon is NotReady");
+        }
+        
+        if (!PhotonNetwork.IsConnectedAndReady)
+        {
+            Debug.Log("Photon is Ready");
+            yield break;
+        }
+
+    }
+
     private IEnumerator Start()
     {
         rooms = new List<Room>(); //방의 크기와 위치 저장하는곳
         transforms = GetComponentsInChildren<Transform>();
 
-        //방의 위치배치만 하는 함수
-        yield return StartCoroutine(PlaceRooms());
-        /////////////////////////////////////////////////(destroy)
+        /*    yield return StartCoroutine(WaitForConnect());
 
+        // 일반 클라이언트가 맵 생성하는 부분
+            *//*//yield return StartCoroutine(WaitForMaster()); // << 마스터 클라이언트가 맵생성이 다끝날때까지 기다려야 함.
+
+            foreach (MapTransmission t in RecivedData)
+            {
+                yield return StartCoroutine(PlaceRoom(new Vector3(t.posX, 0, t.posZ), new Vector3(t.sizeX, 0, t.sizeZ), RoomsPrefab[t.index]));
+            }*//*
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("MasterClient?: " + PhotonNetwork.IsMasterClient);
+            yield return StartCoroutine(PlaceRooms());
+
+            onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
+        }*/
+
+        // 아래는 기존 진행 코드
+        yield return StartCoroutine(PlaceRooms());
+
+        onFinishedMapGenerateCallback?.Invoke(); // 맵 생성이 끝나면 MapManager에게 알려줌
+
+        // << 길 생성 시작
         //delaunay에 델로니 삼각함수의 결과값을 가져옴
         delaunay = BoywerWatson2D.Triangulate(rooms); // 삼각분할
 
@@ -83,14 +145,9 @@ public class MapGenerate2D : MonoBehaviour
             //방의 위치가 맞는지 재확인
 
 
-
         }
 
     private IEnumerator PlaceRooms() {
-
-
-        
-        
 
 
 
@@ -103,8 +160,10 @@ public class MapGenerate2D : MonoBehaviour
                 0,
                 random.Next(20, 250)
                 );
-            
-            GameObject RoomPrefab = RoomsPrefab[random.Next(2)];
+
+            int randomRoomindex = random.Next(2);
+            roomIndexList.Add(randomRoomindex);
+            GameObject RoomPrefab = RoomsPrefab[randomRoomindex];
             
             var sqr = RoomPrefab.gameObject.GetComponent<BoxCollider>();
             Vector3 roomSize = new Vector3(sqr.size.x, 0, sqr.size.z);
@@ -119,7 +178,7 @@ public class MapGenerate2D : MonoBehaviour
         }
         Debug.Log("get rooms information..");
 
-        MapManager mm = map.GetComponent<MapManager>();
+        Map mm = map.GetComponent<Map>();
         RoomTrList = mm.returnList();
 
         Debug.Log(RoomTrList.Count);
@@ -367,11 +426,11 @@ public class MapGenerate2D : MonoBehaviour
         r.transform.parent = map.transform;
         
 
-        MapManager mapManager = map.GetComponent<MapManager>();
+        Map Map = map.GetComponent<Map>();
 
         
         
-        while (mapManager.returnBool())
+        while (Map.returnBool())
         {
             Debug.Log("wating...");
             yield return null;

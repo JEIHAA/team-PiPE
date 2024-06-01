@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\mapmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\mapmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\maptransfor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\maptransfor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\mapmaker\\scripts\\mapgenerate2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\mapmaker\\scripts\\mapgenerate2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\vrplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\vrplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\admin\\documents\\github\\team-pipe\\assets\\mapmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\mapmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\assets\\asset\\vr body\\iktargetfollowvrrig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,32 +75,82 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T06:04:57.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MapTransfor.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MapTransfor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MapTransfor.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\MapTransfor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MapTransfor.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAswD8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T05:17:06.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VRPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\VRPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\VRPlayer.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\VRPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\VRPlayer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T02:37:48.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Map.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Map.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Map.cs",
+              "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Map.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Map.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T02:34:46.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MapGenerate2D.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
               "RelativeDocumentMoniker": "Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
               "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
               "RelativeToolTip": "Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-01T00:56:56.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "MapManager.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\MapManager.cs",
               "RelativeDocumentMoniker": "Assets\\MapManager.cs",
               "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\MapManager.cs",
               "RelativeToolTip": "Assets\\MapManager.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwDIAAAAAAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAwAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T00:56:34.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-01T00:56:34.956Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "PhotonView.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonView.cs",
               "RelativeDocumentMoniker": "Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonView.cs",
@@ -96,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "XRSystem.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Library\\PackageCache\\com.unity.render-pipelines.core@14.0.10\\Runtime\\XR\\XRSystem.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.core@14.0.10\\Runtime\\XR\\XRSystem.cs",
@@ -108,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "XRPlayerController.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRPlayerController.cs",
@@ -120,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "BoomHit.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\BoomHit.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BoomHit.cs",
@@ -132,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "XRBoidsTrigger.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
@@ -144,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "AnimateOnInput.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Asset\\VR Body\\AnimateOnInput.cs",
               "RelativeDocumentMoniker": "Assets\\Asset\\VR Body\\AnimateOnInput.cs",
@@ -156,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "VRFootIK.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\VRFootIK.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\VRFootIK.cs",
@@ -168,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "IKTargetFollowVRRig.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Asset\\VR Body\\IKTargetFollowVRRig.cs",
               "RelativeDocumentMoniker": "Assets\\Asset\\VR Body\\IKTargetFollowVRRig.cs",
@@ -180,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "ConnManager.cs",
               "DocumentMoniker": "C:\\Users\\admin\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\ConnManager.cs",

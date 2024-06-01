@@ -72,8 +72,8 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Room.cs" />
     <Compile Include="Assets\mapMaker\Scripts\PathFinder2D.cs" />
+    <Compile Include="Assets\Scripts\Map.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\CollidRoom.cs" />
-    <Compile Include="Assets\MapManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Tetrahedron.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Face.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\UI\VRCanvas.cs" />
     <Compile Include="Assets\ZerinLabs_lowpolyPack_SciFi\ScriptsEditor\scrEdit_objectSnap.cs" />
     <Compile Include="Assets\Scripts\Player\XRBoidsTrigger.cs" />
+    <Compile Include="Assets\Scripts\MapManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Grid2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPlayerController.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Assets\mapMaker\Scripts\Help\Edge.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
+    <Compile Include="Assets\Scripts\MapTransfor.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidManager.cs" />
@@ -1137,12 +1139,12 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
