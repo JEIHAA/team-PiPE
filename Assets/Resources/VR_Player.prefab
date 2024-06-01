@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097820259743849023, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
       propertyPath: m_Height
-      value: 1.7
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7097820259743849023, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
       propertyPath: m_Center.y
-      value: 0.4
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 7458146000357747293, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
       propertyPath: m_UseGravity
@@ -153,8 +153,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 1849871728034790529, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
-    - {fileID: 7458146000357747293, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 1565652771775311376, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7529482630578750176, guid: 595fe578d5abb5044a32147cfee65c03, type: 3}
