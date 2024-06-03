@@ -9,7 +9,7 @@ public class ConnManager : MonoBehaviourPunCallbacks
 {
     public bool isVR;
     public GameObject XROrigin;
-
+    public GameObject PCOrigin;
     public Transform LeftHandController;
     public Transform RightHandController;
 
@@ -72,6 +72,7 @@ public class ConnManager : MonoBehaviourPunCallbacks
         if (isVR == true)
         {
             go = PhotonNetwork.Instantiate("VR_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+            PCOrigin.SetActive(false);
         }
         else
         {

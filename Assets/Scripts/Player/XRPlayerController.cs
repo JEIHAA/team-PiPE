@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRPlayerController : MonoBehaviour
 {
 
-    private CharacterController cc;
+    private CharacterController xrCC;
     private GameObject origin;
     [SerializeField] private InputActionAsset actionAsset;
     [SerializeField] private float moveSpeed = 6f;
@@ -17,6 +17,7 @@ public class XRPlayerController : MonoBehaviour
     [SerializeField] private float currentMoveSpeed;
     [SerializeField] private float addWeight;
     [SerializeField] private float gravitationalAcceleration;
+    private int playerID;
     private float rayDistance;
     private RaycastHit slopeHit;
     private int groundLayer;
@@ -29,7 +30,8 @@ public class XRPlayerController : MonoBehaviour
 
     private void Awake()
     {
-        cc = GetComponent<CharacterController>();
+        playerID = PhotonNetwork.LocalPlayer.ActorNumber;
+        xrCC = GetComponent<CharacterController>();
         groundLayer = LayerMask.GetMask("Ground");
         origin = GameObject.FindGameObjectWithTag("XROrigin");
         photonView = GetComponent<PhotonView>();
@@ -58,8 +60,6 @@ public class XRPlayerController : MonoBehaviour
         isGrounded = IsGrounded();
         isSlope = OnSlope();
 
-        Debug.Log("isGrounded : " + isGrounded);
-        Debug.Log("isSlope : " + isSlope);
         if (isSlope)
         {
             velocity = AdjustDirectionToSlope(direction);
@@ -71,7 +71,7 @@ public class XRPlayerController : MonoBehaviour
         
        
         currentMoveSpeed = moveSpeed - addWeight;
-        cc.Move(velocity * currentMoveSpeed * Time.deltaTime);
+        xrCC.Move(velocity * currentMoveSpeed * Time.deltaTime);
     }
 
     private bool OnSlope()
@@ -80,11 +80,14 @@ public class XRPlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out slopeHit, Mathf.Infinity, groundLayer))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle != 0f && angle < cc.slopeLimit;
+            return angle != 0f && angle < xrCC.slopeLimit;
         }
         return false;
     }
-
+    public int SendId()
+    {
+        return playerID;
+    }
 
 
     private Vector3 AdjustDirectionToSlope(Vector3 slopeDir)
@@ -94,10 +97,9 @@ public class XRPlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Debug.Log(cc.height);
         float sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
         float sphereRadius = sphereScale / 3;
-        float sphereCastDistance = (cc.height / 2) + protrusionDistance - sphereRadius;
+        float sphereCastDistance = (xrCC.height / 2) + protrusionDistance - sphereRadius;
         return Physics.SphereCast(transform.position, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
 

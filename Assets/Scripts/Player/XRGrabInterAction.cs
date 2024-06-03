@@ -40,6 +40,11 @@ public class XRGrabInterAction : MonoBehaviour
         grabrb.freezeRotation = false;
     }
 
+    public void XRChangeSize(float _charge)
+    {
+        transform.localScale = Vector3.one * _charge;
+    }
+
     public void Throw(Transform _controller,float _throwPower)
     {
         if (grabrb == null)

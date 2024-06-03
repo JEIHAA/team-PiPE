@@ -13,15 +13,20 @@ public class XRBoidsTrigger : MonoBehaviour
     private GameObject instantiatedBoom;
     [SerializeField] private InputActionAsset actionAsset;
     [SerializeField] private float throwPower = 20f;
+    private PhotonView PV;
     private GameObject controller;
     private void Awake()
     {
-        
+        PV = GetComponentInParent<PhotonView>();
     }
 
     private void Update()
     {
-        XRTriggerCheck();
+        if (PV.IsMine)
+        {
+            XRTriggerCheck();
+        }
+        
     }
     private void XRTriggerCheck()
     {
@@ -60,7 +65,8 @@ public class XRBoidsTrigger : MonoBehaviour
     {
         while (isTriggerOn)
         {
-            chargeGage += Time.deltaTime * 5f;
+            chargeGage += Time.deltaTime;
+            chargeGage = Mathf.Clamp(chargeGage, 0.1f, 2f);
             yield return null;
         }
         yield break;
@@ -69,25 +75,24 @@ public class XRBoidsTrigger : MonoBehaviour
     {
         if (other.CompareTag("Controller"))
         {
+            Debug.Log("Controller!! Enter!1");
             controller = other.gameObject;
             isTriggerOn = true;
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Controller"))
         {
+            Debug.Log("Controller!! EXit!!");
             isTriggerOn = false;
             if(chargeGage>=1 && instantiatedBoom ==null)
             {
                 instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(controller.transform.position.x, controller.transform.position.y, controller.transform.position.z), Quaternion.identity);
                 boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
                 boom.XRGrab();
+                boom.XRChangeSize(chargeGage);
                 // 차지 게이지 보내주면됨
                 chargeGage = 0;
             }

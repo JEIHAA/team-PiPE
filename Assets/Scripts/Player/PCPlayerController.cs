@@ -3,20 +3,25 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-
-public class PlayerController : MonoBehaviour
+public class PCPlayerController : MonoBehaviourPun
 {
-    private Rigidbody rb;
+    private CharacterController pcCC;
     private Camera maincam;
+    private GameObject pcOrigin;
+    [SerializeField] private Transform myHeadPos;
+    [SerializeField] private GameObject head;
     [SerializeField] protected float moveSpeed;
     [SerializeField] private float currentMoveSpeed;
     [SerializeField] private float maxSlopeAngle = 30f;
+    [SerializeField] private float protrusionDistance = 0.05f;
     [SerializeField] private float addWeight;
     [SerializeField] private float mouseSpeed;
+    [SerializeField] private float gravitationalAcceleration;
+    private int playerID;
     private float yRotation;
     private float xRotation;
-    private float rayDistance = 2f;
     private RaycastHit slopeHit;
     private int groundLayer;
     private bool isSlope;
@@ -27,31 +32,28 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        maincam = GetComponentInChildren<Camera>();
+        playerID = PhotonNetwork.LocalPlayer.ActorNumber;
+        pcOrigin = GameObject.FindGameObjectWithTag("PCOrigin");
+        maincam = pcOrigin.GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");
+        pcCC = GetComponentInChildren<CharacterController>();
         photonView = GetComponent<PhotonView>();
-
     }
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   // 마우스 커서를 화면 안에서 고정
         Cursor.visible = false;
-        rb.freezeRotation = true;
-
     }
 
  
     private void Update()
     {
-       if (photonView.IsMine)
+        pcOrigin.transform.position = myHeadPos.transform.position;
+        if (photonView.IsMine)
         {
+            head.transform.localScale = Vector3.zero;
             Rotate();
             Move();
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
         }
         
     }
@@ -65,25 +67,21 @@ public class PlayerController : MonoBehaviour
         Vector3 right = transform.right * h;
         direction = forward + right;
         Vector3 velocity = direction;
-        Vector3 gravity = Vector3.down * Mathf.Abs(rb.velocity.y);
-
         isGrounded = IsGrounded();
         isSlope = OnSlope();
 
-        if(isGrounded)
+        if (isSlope)
         {
             velocity = AdjustDirectionToSlope(direction);
-            gravity = Vector3.zero;
-            rb.useGravity = false;
         }
-        else
+        if (!isGrounded)
         {
-            rb.useGravity = true;
-            rb.AddForce(Vector3.down * 200f, ForceMode.Force);
+            velocity.y = velocity.y - gravitationalAcceleration * Time.fixedDeltaTime;
         }
-        Debug.Log("Gravity : "+ gravity);
+
+
         currentMoveSpeed = moveSpeed - addWeight;
-        rb.velocity = velocity * currentMoveSpeed;
+        pcCC.Move(velocity * currentMoveSpeed * Time.deltaTime);
     }
 
 
@@ -94,41 +92,44 @@ public class PlayerController : MonoBehaviour
         yRotation += mouseX;    // 마우스 X축 입력에 따라 수평 회전 값을 조정
         xRotation -= mouseY;    // 마우스 Y축 입력에 따라 수직 회전 값을 조정
 
-        xRotation = Mathf.Clamp(xRotation, -50f, 70f);  // 수직 회전 값을 -90도에서 90도 사이로 제한
+        xRotation = Mathf.Clamp(xRotation, -35f, 70f);  // 수직 회전 값을 -35도에서 70도 사이로 제한
 
         maincam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0); // 카메라의 회전을 조절
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
-    private void Jump()
-    {
-        rb.AddForce(Vector3.up*60f, ForceMode.Impulse);
-    }
-    
 
     private bool OnSlope()
-    { 
+    {
         Ray ray = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(ray, out slopeHit , rayDistance, groundLayer))
+        if (Physics.Raycast(ray, out slopeHit, Mathf.Infinity, groundLayer))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle != 0f && angle < maxSlopeAngle;
+            return angle != 0f && angle < pcCC.slopeLimit;
         }
         return false;
     }
 
     private Vector3 AdjustDirectionToSlope(Vector3 slopeDir)
     {
-        Debug.Log(Vector3.ProjectOnPlane(slopeDir, slopeHit.normal).normalized);
         return Vector3.ProjectOnPlane(slopeDir, slopeHit.normal).normalized;
     }
 
     private bool IsGrounded()
     {
         float sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
-        Debug.Log(sphereScale + "  :   " + sphereScale / 3);
-        return Physics.SphereCast(transform.position, sphereScale/3, -transform.up, out spherCasthit, sphereScale-0.31f, groundLayer); ;
+        float sphereRadius = sphereScale / 3;
+        float sphereCastDistance = (pcCC.height / 2) + protrusionDistance - sphereRadius;
+        Vector3 castPos = transform.position;
+        castPos.y = transform.position.y + pcCC.center.y;
+        return Physics.SphereCast(castPos, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
+
+    public int SendId()
+    {
+        return playerID;
+    }
+
 
     private void OnDrawGizmos()
     {

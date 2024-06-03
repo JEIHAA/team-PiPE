@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - XROrigin
   - Controller
+  - PCOrigin
   layers:
   - Default
   - TransparentFX
