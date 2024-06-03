@@ -61,7 +61,7 @@ namespace BoidsSimulationOnGPU
 			for (int i = 0; i < subMeshCount; ++i)
 			{
 				
-				Debug.Log(i);
+				//Debug.Log(i);
 				if (i >= InstanceRenderMaterial.Count)
 				{
 					material = InstanceRenderMaterial[0];
@@ -80,7 +80,7 @@ namespace BoidsSimulationOnGPU
 				args[0] = numIndices; // 메쉬 인덱스 수 설정(초기화)
 				args[1] = (uint)GPUBoidsScript.GetMaxObjectNum(); // 인스턴스 수 초기
 
-				Debug.Log(InstanceRenderMaterial[i]);
+				//Debug.Log(InstanceRenderMaterial[i]);
 
 				material.SetBuffer("_BoidDataBuffer", GPUBoidsScript.GetBoidDataBuffer()); // Boid 데이터를 저장하는 버퍼를 머티리얼에 설정(초기화)
         //material.SetBuffer("_BoidDataBuffer", GPUBoidsScript.GetBoidTargetBuffer());

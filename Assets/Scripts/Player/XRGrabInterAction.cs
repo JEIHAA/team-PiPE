@@ -42,7 +42,8 @@ public class XRGrabInterAction : MonoBehaviour
 
     public void XRChangeSize(float _charge)
     {
-        transform.localScale = Vector3.one * _charge;
+      _charge = Mathf.Clamp(_charge, 0.1f, 20f);
+      transform.localScale = Vector3.one * _charge * 0.1f;
     }
 
     public void Throw(Transform _controller,float _throwPower)

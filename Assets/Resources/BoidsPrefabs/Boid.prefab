@@ -96,8 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownerID: -1
   boidID: 0
-  GPUBoidCS: {fileID: 0}
-  player: []
+  players: []
   playerGo: []
-  owner: []
+  owner: {fileID: 0}
   tagetPos: {x: 0, y: 0, z: 0}

@@ -16,6 +16,7 @@ public class PickingAction : MonoBehaviour
     [SerializeField] private float throwPower;
     [SerializeField] private Transform grabPos;
     [SerializeField] private float pickRange;
+  [SerializeField] private GameObject prefab;
 
     private void Awake()
     {
@@ -25,35 +26,36 @@ public class PickingAction : MonoBehaviour
 
     private void Update()
     {
-        if (PV.IsMine)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
-                boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
-                boom.XRGrab();
-            }
-            if (Input.GetMouseButton(0))
-            {
-                chargeGage += Time.deltaTime;
-                chargeGage = Mathf.Clamp(chargeGage, 0.1f, 2f);
-                boom.XRChangeSize(chargeGage);
-                HoldObject(instantiatedBoom);
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                boom.XRRealease();
-                boom.Throw(mainCam.transform, throwPower);
-                instantiatedBoom = null;
-                chargeGage = 0;
-            }
-            if (Input.GetMouseButton(1))
-            {
+    /*if (PV.IsMine)
+    {
 
-            }
-        }
-        
+    }*/
+    if (Input.GetMouseButtonDown(0))
+    {
+      instantiatedBoom = Instantiate(prefab, new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
+      //instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
+      boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
+      boom.XRGrab();
     }
+    if (Input.GetMouseButton(0))
+    {
+      chargeGage += Time.deltaTime;
+      chargeGage = Mathf.Clamp(chargeGage, 0.1f, 2f);
+      boom.XRChangeSize(chargeGage);
+      HoldObject(instantiatedBoom);
+    }
+    if (Input.GetMouseButtonUp(0))
+    {
+      boom.XRRealease();
+      boom.Throw(mainCam.transform, throwPower);
+      instantiatedBoom = null;
+      chargeGage = 0;
+    }
+    if (Input.GetMouseButton(1))
+    {
+
+    }
+  }
 
     /*private void Picking()
     {

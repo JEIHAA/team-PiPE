@@ -13,28 +13,19 @@ public class BoidManager : MonoBehaviour
   [SerializeField] private int boidID = 0;
   public int BoidID { get { return boidID; } set { boidID = value; } }
 
-  [SerializeField] private GPUBoids GPUBoidCS;
-
-  [SerializeField] private List<BoidsPlayerController> player = new List<BoidsPlayerController>();
+  [SerializeField] private List<BoidsPCPlayerControllerntroller> players = new List<BoidsPCPlayerControllerntroller>();
   [SerializeField] private GameObject[] playerGo;
-  [SerializeField] private GameObject[] owner;
+  [SerializeField] private GameObject owner;
   [SerializeField] private Vector3 tagetPos;
   public Vector3 TagetPos { get { return tagetPos; } }
 
-  static private int[] ownerHasBoidNum;
-  public static int[] OwnerHasBoidNum { get { return ownerHasBoidNum; } set { ownerHasBoidNum = value; } }
-
   private void Awake()
   {
-    playerGo = GameObject.FindGameObjectsWithTag("Player");
-    owner = new GameObject[playerGo.Length];
+    playerGo = GameObject.FindGameObjectsWithTag("Player");;
     tagetPos = this.transform.position;
-    ownerHasBoidNum = new int[playerGo.Length];
 
     for (int i = 0; i < playerGo.Length; i++) {
-        player.Add(playerGo[i].GetComponent<BoidsPlayerController>());
-        owner[player[i].OwnerID] = player[i].gameObject;
-        ownerHasBoidNum[player[i].OwnerID] = 0;
+        players.Add(playerGo[i].GetComponent<BoidsPCPlayerControllerntroller>());
     }
   }
 
@@ -45,10 +36,9 @@ public class BoidManager : MonoBehaviour
     Debug.Log("OnCollisionEnter");
     if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
     {
-      OwnerID = _other.gameObject.GetComponent<BoidsPlayerController>().OwnerID;
+      OwnerID = _other.gameObject.GetComponent<BoidsPCPlayerControllerntroller>().PlayerID;
       _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
-      /*Debug.Log($"ownerHasBoidNum[{OwnerID}]: {ownerHasBoidNum[OwnerID]}");
-      Debug.Log($"total Boid: {ownerHasBoidNum[0] + ownerHasBoidNum[1]}");*/
+      owner = players[ownerID].gameObject;
     }
     if (_other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
     }
@@ -64,7 +54,8 @@ public class BoidManager : MonoBehaviour
   public Vector3 GetBoidPos() { return this.transform.position; }
 
   private void SetOwnerPos() {
-    tagetPos = owner[OwnerID].transform.position;
+    tagetPos = owner.transform.position;
+    Debug.Log("owner"+tagetPos);
     tagetPos.y -= 0.5f;
   }
 

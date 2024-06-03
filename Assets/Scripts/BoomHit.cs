@@ -1,27 +1,22 @@
+using BoidsSimulationOnGPU;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static BoidsSimulationOnGPU.GPUBoids;
 
 public class BoomHit : MonoBehaviour
 {
+    private GPUBoids boid;
     private PCPlayerController pcController;
     private XRPlayerController xrController;
-    DataStruct dataStr;
-    public struct DataStruct
+
+    BoidBomb dataStr = new BoidBomb();
+
+
+  private void Awake()
     {
-
-        private bool isPerson;
-        private int hitPlayerId;
-
-        public int hitPlayerID { get { return hitPlayerId; } set {hitPlayerId = value; } }
-
-        
-    }
-
-    private void Awake()
-    {
-        dataStr = new DataStruct();
+        boid = GameObject.FindGameObjectWithTag("Boid").GetComponentInChildren<GPUBoids>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,8 +31,10 @@ public class BoomHit : MonoBehaviour
             {
                 // contact.point는 충돌 지점의 월드 좌표를 나타냅니다.
                 Debug.Log("       " + contact);
-                Vector3 collisionPoint = contact.point;
-                Debug.Log("Collision point: " + collisionPoint);
+                dataStr.DropPos = contact.point;
+                dataStr.HitPlayer = false;
+                Debug.Log("Collision point: ");
+                Debug.Log("Collision point: " + dataStr.DropPos);
             }
         }
         
@@ -49,14 +46,20 @@ public class BoomHit : MonoBehaviour
 
             if(xrController != null )
             {
-                dataStr.hitPlayerID = xrController.SendId();
+                dataStr.HitPlayer = true;
+                dataStr.HitPlayerID = xrController.SendId();
             }
             else if(pcController != null)
             {
-                dataStr.hitPlayerID = pcController.SendId();
+                dataStr.HitPlayer = true;
+                dataStr.HitPlayerID = pcController.SendId();
 
             }
         }
-        Destroy(gameObject);
+        boid.SetBoidBomb(dataStr);
+        
+    Destroy(gameObject);
     }
+
+    
 }

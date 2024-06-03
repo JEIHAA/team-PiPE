@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 4166659732479269780}
   - component: {fileID: 6898375018993792937}
   - component: {fileID: 4092430462377046527}
-  - component: {fileID: 9196702948401639893}
-  - component: {fileID: -3043021169644145342}
   m_Layer: 8
   m_Name: BoidsPlayer
   m_TagString: Untagged
@@ -138,33 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &9196702948401639893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534699971306687943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e76024e65f76a745a27fd2f43b3d67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OwnerID: 0
-  MoveSpeed: 5
-  boids: {fileID: 0}
---- !u!114 &-3043021169644145342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534699971306687943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab653645043cab34d96d5969310324fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6338817673881732286
 GameObject:
   m_ObjectHideFlags: 0

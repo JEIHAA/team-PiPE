@@ -47,20 +47,23 @@ public class PCPlayerController : MonoBehaviourPun
 
  
     private void Update()
-    {
-        pcOrigin.transform.position = myHeadPos.transform.position;
-        if (photonView.IsMine)
-        {
-            head.transform.localScale = Vector3.zero;
-            Rotate();
-            Move();
-        }
-        
-    }
+  {
+    pcOrigin.transform.position = myHeadPos.transform.position;
+    head.transform.localScale = Vector3.zero;
+    Rotate();
+    Move();
+    /* if (photonView.IsMine)
+     {
+
+     }*/
 
 
-    protected void Move()
+  }
+
+
+  protected void Move()
     {
+    Debug.Log("ししししし");
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         Vector3 forward = transform.forward * v;

@@ -8,6 +8,8 @@ TagManager:
   - XROrigin
   - Controller
   - PCOrigin
+  - GameManager
+  - Boid
   layers:
   - Default
   - TransparentFX

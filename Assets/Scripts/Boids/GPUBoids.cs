@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
+using static BoidsSimulationOnGPU.GPUBoids;
 
 namespace BoidsSimulationOnGPU
 {
@@ -30,6 +31,19 @@ namespace BoidsSimulationOnGPU
 
         public int OwnerID { get { return ownerID; } set { ownerID = value; } }
         public Vector3 TargetPos { get { return targetPos; } set { targetPos = value; } }
+    }
+
+    public struct BoidBomb
+    {
+      private bool hitPlayer;
+      private int hitPlayerId;
+      private int chargeGage;
+      private Vector3 dropPos;
+
+      public bool HitPlayer { get { return hitPlayer; } set { hitPlayer = value; } }
+      public int HitPlayerID { get { return hitPlayerId; } set { hitPlayerId = value; } }
+      public int ChargeGage { get { return chargeGage; } set { chargeGage = value; } }
+      public Vector3 DropPos { get { return dropPos; } set { dropPos = value; } }
     }
 
     // 스레드 그룹의 크기
@@ -97,9 +111,10 @@ namespace BoidsSimulationOnGPU
     private ComputeBuffer _boidTargetBuffer;
 
     // Boid 데이터, Force 버퍼 업데이트 용 배열
-    BoidData[] boidDataArr;
-    Vector3[] forceArr;
-    BoidTarget[] boidTargetArr;
+    private BoidData[] boidDataArr;
+    private Vector3[] forceArr;
+    private BoidTarget[] boidTargetArr;
+    private static BoidBomb boidBomb;
     #endregion
 
 
@@ -138,6 +153,23 @@ namespace BoidsSimulationOnGPU
     {
         return stayOwnerRadius;
     }*/
+
+    public BoidBomb GetBoidBomb()
+    {
+      Debug.Log($"BoidBomb.hitPlayer: {boidBomb.HitPlayer}, BoidBomb.hitPlayerID: {boidBomb.HitPlayerID}, BoidBomb.chargeGage: {boidBomb.ChargeGage}, BoidBomb.DropPos: {boidBomb.DropPos}");
+      return boidBomb;
+    }
+
+    public void SetBoidBomb(BoidBomb _boidBomb)
+    {
+      boidBomb = _boidBomb;
+    }
+
+    public void SetBoidBombChargeGage(int _chargeGage)
+    {
+      boidBomb.ChargeGage = _chargeGage;
+    }
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -152,6 +184,7 @@ namespace BoidsSimulationOnGPU
     private void Update()
     {
       Simulation();
+      GetBoidBomb();
     }
 
     private void FixedUpdate()
@@ -216,16 +249,16 @@ namespace BoidsSimulationOnGPU
     }
 
     #region Setting Functions
-    public void UpdateBoidDataArr(int index)
+    public void UpdateBoidDataArr(int _index)
     {
       Vector3 boidPos;
-      boidPos = boidList[index].transform.position;
-      boidDataArr[index].Position = boidPos;
+      boidPos = boidList[_index].transform.position;
+      boidDataArr[_index].Position = boidPos;
     }
-    public void UpdateBoidTargetArr( int index, int ownerID, Vector3 targetPos)
+    public void UpdateBoidTargetArr( int _index, int ownerID, Vector3 targetPos)
     {
-      boidTargetArr[index].OwnerID = ownerID;
-      boidTargetArr[index].TargetPos = targetPos;
+      boidTargetArr[_index].OwnerID = ownerID;
+      boidTargetArr[_index].TargetPos = targetPos;
     }
 
     public void UpdateBoidTargetPos() 
@@ -237,10 +270,10 @@ namespace BoidsSimulationOnGPU
       UpdateBoidTargetBuffer();
     }
 
-    public void UpdateCSMeshPos(int index)
+    public void UpdateCSMeshPos(int _index)
     {  
       _boidDataBuffer.GetData(boidDataArr);
-      boidList[index].transform.position = boidDataArr[index].Position;
+      boidList[_index].transform.position = boidDataArr[_index].Position;
     }
 
     private void SyncToGameObjects()
