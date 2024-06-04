@@ -20,6 +20,7 @@ public class PCPlayerController : MonoBehaviourPun
     [SerializeField] private float mouseSpeed;
     [SerializeField] private float gravitationalAcceleration;
     private int playerID;
+    public int PlayerID { get { return playerID; } }
     private float yRotation;
     private float xRotation;
     private RaycastHit slopeHit;
@@ -32,7 +33,7 @@ public class PCPlayerController : MonoBehaviourPun
 
     private void Awake()
     {
-        playerID = PhotonNetwork.LocalPlayer.ActorNumber;
+        playerID = PhotonNetwork.LocalPlayer.ActorNumber-1;
         pcOrigin = GameObject.FindGameObjectWithTag("PCOrigin");
         maincam = pcOrigin.GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");
@@ -47,23 +48,21 @@ public class PCPlayerController : MonoBehaviourPun
 
  
     private void Update()
-  {
-    pcOrigin.transform.position = myHeadPos.transform.position;
-    head.transform.localScale = Vector3.zero;
-    Rotate();
-    Move();
-    /* if (photonView.IsMine)
-     {
-
-     }*/
-
-
-  }
-
-
-  protected void Move()
     {
-    Debug.Log("ししししし");
+        
+        if (photonView.IsMine)
+        {
+            pcOrigin.transform.position = myHeadPos.transform.position;
+            head.transform.localScale = Vector3.zero;
+            Rotate();
+            Move();
+        }
+        
+    }
+
+
+    protected void Move()
+    {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         Vector3 forward = transform.forward * v;
@@ -127,12 +126,6 @@ public class PCPlayerController : MonoBehaviourPun
         castPos.y = transform.position.y + pcCC.center.y;
         return Physics.SphereCast(castPos, sphereRadius, -transform.up, out spherCasthit, sphereCastDistance, groundLayer);
     }
-
-    public int SendId()
-    {
-        return playerID;
-    }
-
 
     private void OnDrawGizmos()
     {

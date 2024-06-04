@@ -1,17 +1,32 @@
+using BoidsSimulationOnGPU;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class BoidsGameManager : MonoBehaviour
+public class BoidsGameManager : MonoBehaviourPun
 {
   [SerializeField] private BoidsPlayerManager[] pm;
+    [SerializeField] private BoidsGameObjectGenerator generate;
+    [SerializeField] private GPUBoids boid;
 
-  private void FixedUpdate()
-  {
-    GetPlayerHasTotalBoids();
-  }
+    private void Awake()
+    {
+        generate.OnFinishedGenerateCallBack = ActiveBoids;
+        boid.gameObject.SetActive(false);
+    }
 
-  private int GetPlayerHasTotalBoids() {
+    
+    public void ActiveBoids()
+    {
+        photonView.RPC("ObjectCtrl", RpcTarget.All);
+    }
+    [PunRPC]
+    private void ObjectCtrl()
+    {
+        boid.gameObject.SetActive(true);
+    }
+    private int GetPlayerHasTotalBoids() {
     int totalBoids = 0;
     for (int i = 0; i < pm.Length; i++)
     {

@@ -38,7 +38,7 @@ public class DelaunayTriangulation : MonoBehaviour
             {
                 Debug.Log(t);
                 
-                rooms.Add(new Room(t.transform, t.localScale));
+                rooms.Add(new Room(t.transform.position, t.localScale));
             }
 
         }

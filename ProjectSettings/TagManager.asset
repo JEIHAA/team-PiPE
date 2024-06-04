@@ -10,6 +10,8 @@ TagManager:
   - PCOrigin
   - GameManager
   - Boid
+  - Room
+  - Boids
   layers:
   - Default
   - TransparentFX

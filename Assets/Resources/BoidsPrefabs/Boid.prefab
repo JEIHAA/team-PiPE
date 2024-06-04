@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2598869426605100432}
   - component: {fileID: 1927571401936069997}
   - component: {fileID: 6256510153167553403}
+  - component: {fileID: 956224093799764731}
   m_Layer: 10
   m_Name: Boid
-  m_TagString: Untagged
+  m_TagString: Boids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +97,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownerID: -1
   boidID: 0
-  players: []
   playerGo: []
+  players: []
   owner: {fileID: 0}
-  tagetPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &956224093799764731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037650543339943439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 0}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

@@ -10,6 +10,8 @@ public class ConnManager : MonoBehaviourPunCallbacks
     public bool isVR;
     public GameObject XROrigin;
     public GameObject PCOrigin;
+    public MapGenerate2D maps;
+    public BoidsGameObjectGenerator boids;
     public Transform LeftHandController;
     public Transform RightHandController;
 
@@ -79,5 +81,29 @@ public class ConnManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate("PC_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
             XROrigin.SetActive(false);
         }
+
+        //PhotonNetwork.Instantiate("ObjectPool", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
+            photonView.RPC("StartBoidsGenerate", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    public void GenerateMap()
+    {
+        Debug.Log("ConnManager Map Generate");
+        maps.StartMapGenerator();
+    }
+
+    [PunRPC]
+    public void StartBoidsGenerate()
+    {
+        boids.StartSpawnBoids();
     }
 }

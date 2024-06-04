@@ -7,7 +7,7 @@ public class PCGrabInterAction : MonoBehaviour
     private SphereCollider sphereCollider;
     private Rigidbody grabrb;
 
-    private void AWake()
+    private void Awake()
     {
         sphereCollider = GetComponent<SphereCollider>();
         grabrb = GetComponent<Rigidbody>();

@@ -74,13 +74,12 @@
     <Compile Include="Assets\mapMaker\Scripts\Help\Room.cs" />
     <Compile Include="Assets\mapMaker\Scripts\PathFinder2D.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\CollidRoom.cs" />
-    <Compile Include="Assets\MapManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Tetrahedron.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Face.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
     <Compile Include="Assets\Scripts\Rewind\Moving.cs" />
-    <Compile Include="Assets\Scripts\Command Patterns\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPCPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Command Patterns\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Player\XRPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PCGrabInterAction.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\Health.cs" />
@@ -106,6 +105,7 @@
     <Compile Include="Assets\mapMaker\Scripts\PriorityQueue.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Triangle2D.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Network\FPSCounter.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
     <Compile Include="Assets\mapMaker\Scripts\primMst.cs" />
     <Compile Include="Assets\mapMaker\Scripts\BoywerWaston.cs" />
@@ -119,14 +119,15 @@
     <Compile Include="Assets\Scripts\Player\XRBoidsTrigger.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Grid2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
-    <Compile Include="Assets\Scripts\Boids\BoidsPlayerController.cs" />
     <Compile Include="Assets\Scripts\BoomHit.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsGameManager.cs" />
+    <Compile Include="Assets\Scripts\Player\ObjectPool.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Point.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
     <Compile Include="Assets\Asset\VR Body\AnimateOnInput.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPlayerManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Sphere.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Map.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Circumscriber2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\NonNativeKeyboard.cs" />
     <Compile Include="Assets\Scripts\Network\ConnManager.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Assets\Scripts\Player\PCPlayer.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\Help\colidRoomParents.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />

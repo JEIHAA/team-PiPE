@@ -15,19 +15,21 @@ public class Room
     public float xMax;
     public float zMin;
     public float zMax;
+
+    public Transform door;
     public Transform tr;
     public GameObject g;
     //크기와 위치 저장용
-    public Room(Transform transform, Vector3 size)
+    public Room(Vector3 position, Vector3 size)
     {
-        point = new Point(transform.position);
+        point = new Point(position);
         Size = size - new Vector3(2, 0 ,2);
 
 
-        xMin = transform.position.x - Size.x/2;
-        xMax = transform.position.x + Size.x/2;
-        zMin = transform.position.z - Size.z/2;
-        zMax = transform.position.z + Size.z/2;
+        xMin = position.x - Size.x/2;
+        xMax = position.x + Size.x/2;
+        zMin = position.z - Size.z/2;
+        zMax = position.z + Size.z/2;
     }
     public static bool Intersect(Room a, Room b)
     {
@@ -41,6 +43,11 @@ public class Room
         tr.Translate(distance);
 
         point = new Point(tr.position);
+
+        xMin = tr.position.x - Size.x / 2;
+        xMax = tr.position.x + Size.x / 2;
+        zMin = tr.position.z - Size.z / 2;
+        zMax = tr.position.z + Size.z / 2;
     }
 
 }

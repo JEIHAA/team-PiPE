@@ -8,24 +8,31 @@ public class CollidRoom : MonoBehaviour
 {
     public bool colid = false;
 
+
+
+
+
     private void OnCollisionStay(Collision collision)
     {
-        setbool(true);
         int a = Random.Range(-20, 20);
 
         int b = Random.Range(-20, 20);
 
         transform.Translate(new Vector3(a, 0, b));
-        
+        setbool(true);
+
+
     }
+
+
 
     private void OnCollisionExit(Collision collision)
     {
         setbool(false);
-        
+
     }
 
-    public void setbool(bool col)
+    private void setbool(bool col)
     {
         colid = col;
     }
@@ -34,15 +41,10 @@ public class CollidRoom : MonoBehaviour
     {
         return colid;
     }
-
-    public Transform getTr()
-    {
-        return transform;
-    }
-    public Vector3 getBX()
+    public Vector3 getBoX()
     {
         BoxCollider bx = transform.GetComponent<BoxCollider>();
-        
+
         return bx.size;
     }
 

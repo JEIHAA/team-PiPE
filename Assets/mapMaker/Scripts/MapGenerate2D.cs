@@ -6,25 +6,25 @@ using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-using static UnityEditor.PlayerSettings;
-
-public class MapGenerate2D : MonoBehaviour
+using Photon.Pun;
+public class MapGenerate2D : MonoBehaviourPun
 {
+
     enum CellType //grid방식을 응용하기위해서 cell의 타입을 room(방) none(아무것도없음) hallway(복도) 3가지로 나누었다.
     {
         None, Room , Hallway, Wall
     }
-    
+    private List<Vector3> roadpath = new List<Vector3>(); 
     
     private Transform[] transforms;
 
     private List<Vector3> points = new List<Vector3>();
-
+    private List<int> roomIndexList = new List<int>();
     private Vector3 size;
     [SerializeField]
     private GameObject map;
-
+    [SerializeField]
+    private GameObject route;
 
 
     [SerializeField]
@@ -53,22 +53,73 @@ public class MapGenerate2D : MonoBehaviour
 
     [SerializeField]
     GameObject roadPrefab;
-
+    [SerializeField]
+    GameObject roadrotatePrefab;
 
     Grid2D<CellType> grid;
     // using incremental algorithm
 
-    private IEnumerator Start()
+    private bool isFinished = false;
+    public void StartMapGenerator()
     {
+        StartCoroutine(MapGenerate());  
+    }
+
+    private IEnumerator WaitForMaster()
+    {
+        Debug.Log("Waiting Acitive");
+        while (isFinished == false)
+        {
+            Debug.Log("Waiting...");
+            yield return null;
+        }
+        yield break;
+    }
+    [PunRPC]
+    public void SetStatus(bool _input)
+    {
+        Debug.Log("SetStatus Active");
+        isFinished = _input;
+    }
+    private IEnumerator MapGenerate()
+    {
+        Debug.Log("Start Generate Coroutine");
         rooms = new List<Room>(); //방의 크기와 위치 저장하는곳
         transforms = GetComponentsInChildren<Transform>();
 
         //방의 위치배치만 하는 함수
-        yield return StartCoroutine(PlaceRooms());
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Master Start Generate");
+            yield return StartCoroutine(PlaceRooms());
+
+            for (int i = 0; i < RoomTrList.Count; i++)
+            {
+                GameObject A = PhotonNetwork.Instantiate(RoomsPrefab[roomIndexList[i]].name, RoomTrList[i].point.Position, Quaternion.identity);
+                
+            }
+            photonView.RPC("SetStatus", RpcTarget.AllBuffered, true);
+        }
+        else
+        {
+            Debug.Log("Normal Player Wait For Master");
+            yield return StartCoroutine(WaitForMaster());
+        }
+        // 여기서 일반 클라이언트는 기다려함 호스트가 인스턴스 할때까지
+        MakeRooms();
+
+        foreach(Room r in rooms)
+        {
+            Debug.Log(r + " " + r.point.Position);
+        }
+        delaunay = BoywerWatson2D.Triangulate(rooms);
         /////////////////////////////////////////////////(destroy)
 
+        GenerateRoads(PlayMST());
+
+        
         //delaunay에 델로니 삼각함수의 결과값을 가져옴
-        delaunay = BoywerWatson2D.Triangulate(rooms); // 삼각분할
+        // 삼각분할
 
 
         //delaunay한값을 MST로 경로를 바꾸고, 거기에 랜덤한 경로를 20%확률로 추가
@@ -78,13 +129,71 @@ public class MapGenerate2D : MonoBehaviour
 
         
             //그리드형식으로 도로를 깔아줌
-        GenerateRoads(PlayMST());
+        
 
-            //방의 위치가 맞는지 재확인
+        //방의 위치가 맞는지 재확인
+        makeroad(roadpath);
+        }
+
+
+    private void MakeRooms()
+    {
+
+        GameObject[] roomobjectarr =  GameObject.FindGameObjectsWithTag("Room");
+        
+        foreach(var r in roomobjectarr)
+        {
+            r.transform.parent = map.transform;
+        }
+
+        colidRoomParents[] LM = map.GetComponentsInChildren<colidRoomParents>();
+
+        foreach (colidRoomParents t in LM)
+        {
+
+            Room newRoom = new Room(t.getTr().position, t.getBX());
+            newRoom.tr = t.getTr();
+
+            t.destroyCollidRoom();
+            rooms.Add(newRoom);
+            Destroy(t);
+        }
+        float maxX = 0f;
+        float maxZ = 0f;
+        foreach (Room r in rooms)
+        {
+            if (maxX < r.xMax)
+            {
+                maxX = r.xMax;
+            }
+            if (maxZ < r.zMax)
+            {
+                maxZ = r.zMax;
+            }
+        }
+
+        size = new Vector3(maxX + 1, 0, maxZ + 1);
+
+        grid = new Grid2D<CellType>(size, Vector3.zero);
+
+        for (int i = 0; i < rooms.Count; i++)
+        {
+
+            for (int x = (int)rooms[i].xMin; x <= (int)rooms[i].xMax; x++)
+            {
+                for (int z = (int)rooms[i].zMin; z <= (int)rooms[i].zMax; z++)
+                {
+                    grid[new Vector3(x, 0, z)] = CellType.Room;
+                }
+            }
+
+
 
 
 
         }
+    }
+
 
     private IEnumerator PlaceRooms() {
 
@@ -104,13 +213,15 @@ public class MapGenerate2D : MonoBehaviour
                 random.Next(20, 250)
                 );
             
-            GameObject RoomPrefab = RoomsPrefab[random.Next(2)];
             
-            var sqr = RoomPrefab.gameObject.GetComponent<BoxCollider>();
-            Vector3 roomSize = new Vector3(sqr.size.x, 0, sqr.size.z);
+            int randomRoomindex = random.Next(2);
+            roomIndexList.Add(randomRoomindex);
+            GameObject RoomPrefab = RoomsPrefab[randomRoomindex];
+
+            var sqr = RoomPrefab.gameObject.GetComponent<colidRoomParents>();
+            Vector3 roomSize = sqr.getBX();
 
 
-            Debug.Log(location);
 
             //grid에 해당 방의 위치와 크기를 고려한 방을 담는다.            
 
@@ -119,10 +230,9 @@ public class MapGenerate2D : MonoBehaviour
         }
         Debug.Log("get rooms information..");
 
-        MapManager mm = map.GetComponent<MapManager>();
+        Map mm = map.GetComponent<Map>();
         RoomTrList = mm.returnList();
 
-        Debug.Log(RoomTrList.Count);
         float minX = 9999;
         float minZ = 9999;
         float maxX = 0;
@@ -133,11 +243,11 @@ public class MapGenerate2D : MonoBehaviour
 
         foreach(Room room in RoomTrList)
         {
-            if(room.tr.position.x%2 == 1)
+            if (Mathf.Abs(room.point.Position.x) % 2 == 1)
             {
                 room.RoomMove(new Vector3(1, 0, 0));
             }
-            if(room.tr.position.z%2 == 1)
+            if (Mathf.Abs(room.point.Position.z) % 2 == 1)
             {
                 room.RoomMove(new Vector3(0, 0, 1));
             }
@@ -159,16 +269,12 @@ public class MapGenerate2D : MonoBehaviour
                 maxZ = room.zMax;
             }
 
-            Destroy(room.tr.gameObject.GetComponent<Rigidbody>());
-            Destroy(room.tr.gameObject.GetComponent<BoxCollider>());
+
 
         }
         
         if (minX < 0) {
-            if (minX % 2 == 1)
-            {
-                minX--;
-            }
+ 
             foreach (var room in RoomTrList)
             {
                 
@@ -178,10 +284,7 @@ public class MapGenerate2D : MonoBehaviour
             maxX = maxX + Mathf.Abs(minX);
             minX = 0; }
         if(minZ < 0) {
-            if (minZ % 2 == 1)
-            {
-                minZ--;
-            }
+
             foreach (var room in RoomTrList)
             {
                  //여기서 13f는 방의 크기 (여러방을 쓸경우 13f를 바꿀거임)
@@ -189,32 +292,18 @@ public class MapGenerate2D : MonoBehaviour
             }
             maxZ = maxZ + Mathf.Abs(minZ);
             minZ = 0; }
-        
 
-        
+        Transform[] mmarr = map.GetComponentsInChildren<Transform>();
 
-        size = new Vector3(maxX + 1, 0, maxZ + 1);
 
-        grid = new Grid2D<CellType>(size, Vector3.zero);
-
-        for (int i = 0; i < RoomTrList.Count; i++)
+        foreach (Transform t in mmarr)
         {
-            Debug.Log(RoomTrList[i].xMax + " "+ RoomTrList[i].xMin + " " + RoomTrList[i].zMax + " " + RoomTrList[i].zMin);
-            for (int x = (int)RoomTrList[i].xMin; x < (int)RoomTrList[i].xMax; x++)
+            if (t != map.transform)
             {
-                for (int z = (int)RoomTrList[i].zMin; z < (int)RoomTrList[i].zMax; z++)
-                {
-                    
-                    grid[new Vector3(x, 0, z)] = CellType.Room;
-                }
+                Destroy(t.gameObject);
             }
-
-            rooms.Add(RoomTrList[i]);
-            
-
-
-
         }
+
 
 
     }
@@ -323,18 +412,18 @@ public class MapGenerate2D : MonoBehaviour
                 for (int i =0; i < path.Count; i++)
                 {
                     var current = path[i];
-                    Debug.Log(path[i] + " " + grid[current]);
+                    
                     if (grid[current] == CellType.None)
                     {
                         grid[current] = CellType.Hallway;
                     }
-
+                   
                     if (i > 0)
                     {
                         var prev = path[i - 1];
                         var delta = current - prev;
 
-                        Debug.DrawLine(prev, current, UnityEngine.Color.red, 100, true);
+                        Debug.DrawLine(prev, current, UnityEngine.Color.red, 10000, true);
                     }
                 }
 
@@ -342,7 +431,7 @@ public class MapGenerate2D : MonoBehaviour
                 {
                     if (grid[pos] == CellType.Hallway)
                     {
-                        PlaceHallway(pos);
+                        roadpath.Add(pos);
                         
                         
                     }
@@ -354,27 +443,35 @@ public class MapGenerate2D : MonoBehaviour
         }
 
     }
-     
-
+   
+    //collider를 생성하여 각 좌표를 찍는단계
     private IEnumerator PlaceRoom(Vector3 location , Vector3 Size , GameObject RoomPrefab)
     {
-        
-        
-        GameObject r = Instantiate(RoomPrefab, location, Quaternion.identity);
+
+        GameObject r = new GameObject("RoomColid");
+        CollidRoom Cr = r.AddComponent<CollidRoom>();
+        Rigidbody Rigid = r.AddComponent<Rigidbody>();
+        Rigid.useGravity = false;
+        Rigid.constraints = RigidbodyConstraints.FreezeAll;
+        BoxCollider Bxcol = r.AddComponent<BoxCollider>();
 
         
+        Bxcol.size = Size;
+        
 
+        Map mapManager = map.GetComponent<Map>();
         r.transform.parent = map.transform;
-        
 
-        MapManager mapManager = map.GetComponent<MapManager>();
+        Debug.Log("create!");
 
-        
-        
-        while (mapManager.returnBool())
+        while (true)
         {
             Debug.Log("wating...");
-            yield return null;
+            yield return new WaitForSeconds(1f);
+            if (mapManager.returnBool() == false)
+            {
+                break;
+            }
         }
         
         
@@ -384,63 +481,130 @@ public class MapGenerate2D : MonoBehaviour
 
     }
     //  
+    private void makeroad(List<Vector3> road)
+    {
+       foreach(var pos in road)
+        {
+            PlaceHallway(pos);
+        }
+        foreach (var pos in road)
+        {
+            PlaceHallway2(pos);
+        }
+    }
+
     private void PlaceHallway(Vector3 pos)
 {
-    Debug.Log(grid[pos] + " " + pos.x + " " + pos.z);
     Vector3 adjustedLocation = new Vector3(pos.x, 0, pos.z);
+    Vector3 additionxPPPos = pos + new Vector3(2, 0, 2);
+    Vector3 additionxPMPos = pos + new Vector3(2, 0, -2);
+    Vector3 additionzMPPos = pos + new Vector3(-2, 0, 2);
+    Vector3 additionzMMPos = pos + new Vector3(-2, 0, -2);
+
     Vector3 additionxPlusPos = pos - new Vector3(2, 0, 0);
     Vector3 additionxMinusPos = pos + new Vector3(2, 0, 0);
     Vector3 additionzPlusPos = pos - new Vector3(0, 0, 2);
     Vector3 additionzMinusPos = pos + new Vector3(0, 0, 2);
     Vector3 hallwaySize = new Vector3(1, 1, 1);
 
-    
+
+    PlaceHallwayAndWalls(additionxPPPos);
+    PlaceHallwayAndWalls(additionxPMPos);
+    PlaceHallwayAndWalls(additionzMPPos);
+    PlaceHallwayAndWalls(additionzMMPos);
+
+
+
     PlaceHallwayAndWalls(additionxPlusPos);
     PlaceHallwayAndWalls(additionxMinusPos);
     PlaceHallwayAndWalls(additionzPlusPos);
     PlaceHallwayAndWalls(additionzMinusPos);
-}
+    
+    }
+    private void PlaceHallway2(Vector3 pos)
+    {
+        PlaceHallwayPos(pos);
+    }
+
+    private void PlaceHallwayPos(Vector3 pos)
+    {
+        GameObject hallway = Instantiate(roadPrefab, pos, Quaternion.identity);
+        hallway.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
+        hallway.transform.parent = route.transform;
+
+        Collider[] colliders = Physics.OverlapBox(pos+ new Vector3(0, 1 , 0), new Vector3(0.4f, 0.4f, 0.4f));
+        foreach (var collider in colliders)
+        {
+            // 오브젝트 제거
+            Destroy(collider.gameObject);
+        }
+
+        PlaceWall(pos);
+    }
+    private void PlaceWall(Vector3 pos)
+    {
+        Vector3[] walls =
+        {
+            
+            new Vector3(4, 0 , 0),
+            new Vector3(-4 , 0,0),
+            new Vector3(0,0,4),
+            new Vector3(0,0,-4)
+        };
+
+        for(int i =0; i<walls.Length; i++)
+        {
+            if (i == 0 && grid[pos + walls[i]] == CellType.None)
+            {
+                grid[pos + walls[i] - new Vector3(1, 0, 0)] = CellType.Wall;
+                GameObject wall = Instantiate(WallPrefab, pos + walls[i] - new Vector3(1, 0 , 0), Quaternion.Euler(0, -90, 0));
+                wall.transform.parent = route.transform;
+            }
+            else if(i == 1 && grid[pos + walls[i]] == CellType.None)
+            {
+                grid[pos + walls[i] + new Vector3(1, 0, 0)] = CellType.Wall;
+                GameObject wall = Instantiate(WallPrefab, pos + walls[i] + new Vector3(1, 0, 0), Quaternion.Euler(0, 90, 0));
+                wall.transform.parent = route.transform;
+            }
+            else if(i == 2 && grid[pos + walls[i]] == CellType.None)
+            {
+                grid[pos + walls[i] - new Vector3(0, 0, 1)] = CellType.Wall;
+                GameObject wall = Instantiate(WallPrefab, pos + walls[i] - new Vector3(0, 0, 1), Quaternion.Euler(0, 180, 0));
+                wall.transform.parent = route.transform;
+            }
+            else if(i == 3 && grid[pos + walls[i]] == CellType.None)
+            {
+                grid[pos + walls[i] + new Vector3(0, 0, 1)] = CellType.Wall;
+                GameObject wall = Instantiate(WallPrefab, pos + walls[i] + new Vector3(0, 0, 1), Quaternion.Euler(0,0,0));
+                wall.transform.parent = route.transform;
+            }
+        }
+    }
 
 private void PlaceHallwayAndWalls(Vector3 pos)
 {
+
+
+        Collider[] colliders = Physics.OverlapBox(pos + new Vector3(0, 1, 0), new Vector3(0.4f, 0.4f, 0.4f));
+        foreach (var collider in colliders)
+        {
+            // 오브젝트 제거
+            Destroy(collider.gameObject);
+        }
         
 
-    if (grid[pos] == CellType.Hallway)
-        {
+        if (grid[pos] == CellType.None)
+    {
+            grid[pos] = CellType.Hallway;   
             GameObject hallway = Instantiate(roadPrefab, pos, Quaternion.identity);
-            hallway.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-        }
-    else if (grid[pos] == CellType.None)
-    {
-        grid[pos] = CellType.Hallway; 
-        GameObject hallway = Instantiate(roadPrefab, pos, Quaternion.identity);
         hallway.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-        
+        hallway.transform.parent = route.transform;
     }
+
+        
 }
 
-private void PlaceWallsAroundHallway(Vector3 pos)
-{
-    Vector3[] adjacentPositions = {
-        pos + new Vector3(1, 0, 0),
-        pos - new Vector3(0, 0, 1),
-        pos - new Vector3(1, 0, 0),
-        pos + new Vector3(0, 0, 1),
-        
-    };
-        float rotate = -90f;
-    for(int i =0; i<adjacentPositions.Length; i++)
-    {
-            rotate = rotate + (i * 90);
-    
-        if (grid[adjacentPositions[i]] == CellType.None)
-        {
-            grid[adjacentPositions[i]] = CellType.Wall;
-            GameObject wall = Instantiate(WallPrefab, adjacentPositions[i], Quaternion.Euler(0,rotate,0));
-            wall.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
-        }
-    }
-}
+
    
 
     

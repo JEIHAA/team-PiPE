@@ -18,6 +18,7 @@ public class XRPlayerController : MonoBehaviour
     [SerializeField] private float addWeight;
     [SerializeField] private float gravitationalAcceleration;
     private int playerID;
+    public int PlayerID { get { return playerID; } }
     private float rayDistance;
     private RaycastHit slopeHit;
     private int groundLayer;
@@ -44,7 +45,7 @@ public class XRPlayerController : MonoBehaviour
             origin.transform.position = transform.position;
             transform.rotation = origin.transform.rotation;
         }
-        
+
     }
 
 
@@ -84,10 +85,7 @@ public class XRPlayerController : MonoBehaviour
         }
         return false;
     }
-    public int SendId()
-    {
-        return playerID;
-    }
+
 
 
     private Vector3 AdjustDirectionToSlope(Vector3 slopeDir)

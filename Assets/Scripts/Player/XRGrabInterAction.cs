@@ -1,3 +1,4 @@
+using BoidsSimulationOnGPU;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,6 @@ public class XRGrabInterAction : MonoBehaviour
     {
         sphereCollider = GetComponent<SphereCollider>();
         grabrb = GetComponent<Rigidbody>();
-        
     }
 
 
@@ -27,6 +27,7 @@ public class XRGrabInterAction : MonoBehaviour
         sphereCollider.enabled = false;
         grabrb.useGravity = false;
         grabrb.constraints = RigidbodyConstraints.FreezeRotation;
+        grabrb.velocity = Vector3.zero;
     }
     public void XRRealease()
     {
@@ -42,8 +43,10 @@ public class XRGrabInterAction : MonoBehaviour
 
     public void XRChangeSize(float _charge)
     {
-      _charge = Mathf.Clamp(_charge, 0.1f, 20f);
-      transform.localScale = Vector3.one * _charge * 0.1f;
+        _charge = _charge * 0.05f;
+        _charge = Mathf.Clamp(_charge, 0.05f, 0.3f);
+        
+        transform.localScale = Vector3.one * _charge;
     }
 
     public void Throw(Transform _controller,float _throwPower)
@@ -56,8 +59,4 @@ public class XRGrabInterAction : MonoBehaviour
         grabrb.AddForce(_controller.forward * _throwPower + Vector3.up * 5, ForceMode.Impulse);
     }
 
-    /*public void OnCollisionEnter(Collision collision)
-    {
-        
-    }*/
 }

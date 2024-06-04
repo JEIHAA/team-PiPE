@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEngine.UIElements;
 using JetBrains.Annotations;
 using static BoidsSimulationOnGPU.GPUBoids;
+using Unity.VisualScripting;
 
 namespace BoidsSimulationOnGPU
 {
@@ -12,7 +13,7 @@ namespace BoidsSimulationOnGPU
   public class GPUBoids : MonoBehaviour
   {
     [System.Serializable]
-    struct BoidData
+    public struct BoidData
     {
       private Vector3 velocity;
       private Vector3 position;
@@ -112,9 +113,12 @@ namespace BoidsSimulationOnGPU
 
     // Boid 데이터, Force 버퍼 업데이트 용 배열
     private BoidData[] boidDataArr;
+    public BoidData[] BoidDataArr { get { return boidDataArr; } set { boidDataArr = value; } }
     private Vector3[] forceArr;
     private BoidTarget[] boidTargetArr;
-    private static BoidBomb boidBomb;
+    private BoidBomb boidBomb;
+    private int chargeGage;
+    public int ChargeGage { get { return chargeGage; } set { chargeGage = value; } }
     #endregion
 
 
@@ -163,11 +167,7 @@ namespace BoidsSimulationOnGPU
     public void SetBoidBomb(BoidBomb _boidBomb)
     {
       boidBomb = _boidBomb;
-    }
-
-    public void SetBoidBombChargeGage(int _chargeGage)
-    {
-      boidBomb.ChargeGage = _chargeGage;
+      boidBomb.ChargeGage = this.chargeGage;
     }
 
     #endregion
@@ -181,28 +181,27 @@ namespace BoidsSimulationOnGPU
       InitBuffer();
     }
 
-    private void Update()
-    {
-      Simulation();
-      GetBoidBomb();
-    }
+        /*private void Update()
+        {
+            Simulation();
+            //GetBoidBomb();
+        }
 
-    private void FixedUpdate()
-    {
-      UpdateBoidTargetPos();
-      SyncToCSMesh();
-      SyncToGameObjects();
-    }
+        private void FixedUpdate()
+        {
+            UpdateBoidTargetPos();
+            SyncToCSMesh();
+            //SyncToGameObjects();
+        }*/
 
-    /*private void Update() // 총 개수 256개 이상일 때
-    {
-      UpdateBoidTargetPos();
-      Simulation();
-      SyncToCSMesh();
-      SyncToGameObjects();
-    }*/
+        private void Update() // 총 개수 256개 이상일 때
+        {
+            UpdateBoidTargetPos();
+            Simulation();
+            SyncToCSMesh();
+        }
 
-    private void OnDestroy()
+        private void OnDestroy()
     {
       // 버퍼 해제
       ReleaseBuffer();
@@ -239,7 +238,8 @@ namespace BoidsSimulationOnGPU
       {
         forceArr[i] = Vector3.zero;
         boidManager = boidList[i].GetComponent<BoidManager>();
-        UpdateBoidTargetArr(i, boidManager.OwnerID, boidManager.TagetPos);
+        boidTargetArr[i].OwnerID = boidManager.OwnerID;
+        boidTargetArr[i].TargetPos = boidManager.TargetPos;
         UpdateBoidDataArr(i);
         boidDataArr[i].Velocity = Random.insideUnitSphere * 0.1f;
       }
@@ -251,21 +251,20 @@ namespace BoidsSimulationOnGPU
     #region Setting Functions
     public void UpdateBoidDataArr(int _index)
     {
-      Vector3 boidPos;
-      boidPos = boidList[_index].transform.position;
-      boidDataArr[_index].Position = boidPos;
+      boidDataArr[_index].Position = boidList[_index].transform.position;
     }
-    public void UpdateBoidTargetArr( int _index, int ownerID, Vector3 targetPos)
+
+    /*public void InitBoidTargetArr( int _index, int ownerID, Vector3 targetPos)
     {
       boidTargetArr[_index].OwnerID = ownerID;
       boidTargetArr[_index].TargetPos = targetPos;
-    }
+    }*/
 
     public void UpdateBoidTargetPos() 
     {
       for (int i = 0; i < MaxObjectNum; i++) {
-        boidTargetArr[i].OwnerID = boidList[i].GetComponent<BoidManager>().GetOwnerID();
-        boidTargetArr[i].TargetPos = boidList[i].GetComponent<BoidManager>().GetTargetPos();      
+        boidTargetArr[i].OwnerID = boidList[i].GetComponent<BoidManager>().OwnerID;
+        boidTargetArr[i].TargetPos = boidList[i].GetComponent<BoidManager>().TargetPos;      
       }
       UpdateBoidTargetBuffer();
     }
@@ -276,14 +275,14 @@ namespace BoidsSimulationOnGPU
       boidList[_index].transform.position = boidDataArr[_index].Position;
     }
 
-    private void SyncToGameObjects()
+/*    private void SyncToGameObjects()
     {
       for (int i = 0; i < MaxObjectNum; i++)
       {
         UpdateBoidDataArr(i);
       }
       UpdateBoidDataBuffer();
-    }
+    }*/
 
     private void SyncToCSMesh()
     {

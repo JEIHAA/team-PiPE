@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class BoidsPCPlayerControllerntroller : MonoBehaviourPun
+public class BoidsPCPlayerController : MonoBehaviourPun
 {
     private CharacterController pcCC;
     private Camera maincam;
@@ -19,7 +19,7 @@ public class BoidsPCPlayerControllerntroller : MonoBehaviourPun
     [SerializeField] private float addWeight;
     [SerializeField] private float mouseSpeed;
     [SerializeField] private float gravitationalAcceleration;
-    private int playerID;
+    [SerializeField] private int playerID;
     public int PlayerID { get { return playerID; } }
     private float yRotation;
     private float xRotation;
@@ -34,7 +34,6 @@ public class BoidsPCPlayerControllerntroller : MonoBehaviourPun
     private void Awake()
     {
     //playerID = PhotonNetwork.LocalPlayer.ActorNumber;
-        playerID = 0;
         pcOrigin = GameObject.FindGameObjectWithTag("PCOrigin");
         maincam = pcOrigin.GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");

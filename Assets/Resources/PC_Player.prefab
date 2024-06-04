@@ -511,14 +511,14 @@ GameObject:
   - component: {fileID: 2097194225265429789}
   - component: {fileID: 5490946360422422567}
   - component: {fileID: 674270504724178351}
+  - component: {fileID: 8994429550502874194}
   - component: {fileID: 5169622009148306341}
   - component: {fileID: 302089691325683469}
   - component: {fileID: 8336207791567119193}
   - component: {fileID: 9196814154503603789}
-  - component: {fileID: 1050741126362066219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PC_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,6 +585,18 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8994429550502874194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880005651528970796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab653645043cab34d96d5969310324fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5169622009148306341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,18 +676,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!114 &1050741126362066219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2880005651528970796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab653645043cab34d96d5969310324fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3104973959877495929
 GameObject:
   m_ObjectHideFlags: 0

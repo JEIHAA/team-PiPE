@@ -1,3 +1,4 @@
+using BoidsSimulationOnGPU;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
@@ -13,49 +14,70 @@ public class PickingAction : MonoBehaviour
     private GameObject instantiatedBoom;
     private PhotonView PV;
     private XRGrabInterAction boom;
+    private BoidsPlayerManager boidsPlayerManager;
     [SerializeField] private float throwPower;
     [SerializeField] private Transform grabPos;
     [SerializeField] private float pickRange;
-  [SerializeField] private GameObject prefab;
+    private GPUBoids boid;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
         mainCam = GameObject.FindGameObjectWithTag("PCOrigin").GetComponentInChildren<Camera>();
+        boidsPlayerManager = GetComponent<BoidsPlayerManager>();
     }
 
     private void Update()
     {
-    /*if (PV.IsMine)
-    {
+        if (PV.IsMine)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
+                boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
+                PV.RPC("GrabBomb", RpcTarget.All);
+            }
+            if (Input.GetMouseButton(0))
+            {
+                chargeGage += Time.deltaTime * 5f;
+                Debug.Log(boidsPlayerManager.GetHasBoidsNum());
+                chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum());
+                boom.XRChangeSize(chargeGage);
+                HoldObject(boom.gameObject);
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                boom.XRRealease();
+                PV.RPC("ThrowBomb", RpcTarget.All);
+                instantiatedBoom = null;
+                boom = null;
+                boid.ChargeGage = (int)chargeGage;
+                chargeGage = 0;
+            }
+            if (Input.GetMouseButton(1))
+            {
 
-    }*/
-    if (Input.GetMouseButtonDown(0))
-    {
-      instantiatedBoom = Instantiate(prefab, new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
-      //instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
-      boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
-      boom.XRGrab();
+            }
+        }
+        
     }
-    if (Input.GetMouseButton(0))
-    {
-      chargeGage += Time.deltaTime;
-      chargeGage = Mathf.Clamp(chargeGage, 0.1f, 2f);
-      boom.XRChangeSize(chargeGage);
-      HoldObject(instantiatedBoom);
-    }
-    if (Input.GetMouseButtonUp(0))
-    {
-      boom.XRRealease();
-      boom.Throw(mainCam.transform, throwPower);
-      instantiatedBoom = null;
-      chargeGage = 0;
-    }
-    if (Input.GetMouseButton(1))
-    {
 
+    [PunRPC]
+    private void ThrowBomb()
+    {
+        boom.Throw(mainCam.transform, throwPower);
     }
-  }
+
+    [PunRPC]
+    private void GrabBomb()
+    {
+        boom.XRGrab();
+    }
+
+    private void HoldObject(GameObject _grabObject)
+    {
+        _grabObject.transform.position = grabPos.transform.position;
+    }
 
     /*private void Picking()
     {
@@ -71,11 +93,6 @@ public class PickingAction : MonoBehaviour
             pickReceiver.PCGrab();
         }
     }*/
-    private void HoldObject(GameObject _grabObject)
-    {
-        _grabObject.transform.position = grabPos.transform.position;
-
-    }
 
     /*private void RealeaseObject()
     {
