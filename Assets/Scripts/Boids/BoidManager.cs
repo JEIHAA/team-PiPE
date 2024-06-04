@@ -52,19 +52,11 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
             owner = players[ownerID].gameObject;
         }*/
 
-        if (photonView.IsMine && _other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             OwnerID = _other.gameObject.GetComponent<PCPlayerController>().PlayerID;
             _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
             owner = players[ownerID].gameObject;
-        }
-        else if (!photonView.IsMine && _other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            Debug.Log("1");
-            Debug.Log(ReceiveOwnerID);
-            OwnerID = ReceiveOwnerID;
-            _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
-            owner = players[ReceiveOwnerID].gameObject;
         }
 
         if (_other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
@@ -73,6 +65,11 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
 
     private void FixedUpdate()
   {
+        if (ReceiveOwnerID != -1)
+        {
+            OwnerID = ReceiveOwnerID;
+        }
+
     if (OwnerID != -1) {
       SetOwnerPos();
     }
