@@ -65,7 +65,7 @@ namespace BoidsSimulationOnGPU
     // 스폰 포인트
     [SerializeField] private BoidsGameObjectGenerator boidSpawner;
     //boid 게임 오브젝트
-    List<GameObject> boidList = new List<GameObject>();
+    [SerializeField] List<GameObject> boidList = new List<GameObject>();
 
     [Header("최대 속도와 힘")]
     // 최대 속도

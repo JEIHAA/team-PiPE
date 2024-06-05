@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: af3e5632-1586-4257-b896-7391d0a21ed5
+    AppIdRealtime: d3e22ed5-43ae-4e3a-ad61-4def39841039
     AppIdFusion: 
     AppIdChat: 
     AppIdVoice: 
@@ -50,6 +50,13 @@ MonoBehaviour:
   - ObjectCtrl
   - ThrowBomb
   - GrabBomb
+  - HoldObject
+  - SetPlayerID
+  - PlayerSetting
+  - ApplyPlayerList
+  - SpawnPlayer
+  - GenerateBoids
+  - EndProcess
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

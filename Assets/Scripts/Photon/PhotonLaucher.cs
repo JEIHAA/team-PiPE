@@ -62,6 +62,11 @@ public class PhotonLaucher : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = nickName;
     }
 
+    public override void OnConnected()
+    {
+
+    }
+
     public override void OnConnectedToMaster()
     {
         Debug.LogFormat("Connected to Master: {0}", nickName);

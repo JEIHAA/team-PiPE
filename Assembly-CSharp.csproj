@@ -60,20 +60,27 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Unity UI Samples\Scripts\PanelManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\PlusRandomEdge.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\HealthPresenter.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\Rewind\RewindManager.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\mapMaker\Scripts\PathFinder.cs" />
     <Compile Include="Assets\Scripts\Rewind\PointInTime.cs" />
     <Compile Include="Assets\Scripts\Player\VRFootIK.cs" />
     <Compile Include="Assets\Asset\VR Body\IKFootSolver.cs" />
     <Compile Include="Assets\Scripts\Player\PickingAction.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsRender.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ResizePanel.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\TiltWindow.cs" />
     <Compile Include="Assets\Scripts\Player\XRGrabInterAction.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Room.cs" />
     <Compile Include="Assets\mapMaker\Scripts\PathFinder2D.cs" />
+    <Compile Include="Assets\Scenes\VR_Interface.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\CollidRoom.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ApplicationManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Tetrahedron.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Face.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
@@ -84,6 +91,7 @@
     <Compile Include="Assets\Scripts\Player\PCGrabInterAction.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\Health.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\Scenes\LoddingBarController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\ICommand.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsGameObjectGenerator.cs" />
@@ -106,6 +114,7 @@
     <Compile Include="Assets\mapMaker\Scripts\Help\Triangle2D.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Network\FPSCounter.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\DragMe.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
     <Compile Include="Assets\mapMaker\Scripts\primMst.cs" />
     <Compile Include="Assets\mapMaker\Scripts\BoywerWaston.cs" />
@@ -119,20 +128,26 @@
     <Compile Include="Assets\Scripts\Player\XRBoidsTrigger.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Grid2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\DropMe.cs" />
     <Compile Include="Assets\Scripts\BoomHit.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsGameManager.cs" />
     <Compile Include="Assets\Scripts\Player\ObjectPool.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Point.cs" />
     <Compile Include="Assets\Scripts\Rewind\TimeBody.cs" />
     <Compile Include="Assets\Asset\VR Body\AnimateOnInput.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPlayerManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Sphere.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\DragPanel.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Map.cs" />
+    <Compile Include="Assets\Scenes\SceneLodeTester.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\Circumscriber2D.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\NonNativeKeyboard.cs" />
     <Compile Include="Assets\Scripts\Network\ConnManager.cs" />
     <Compile Include="Assets\mapMaker\Scripts\MapGenerate2D.cs" />
+    <Compile Include="Assets\Unity UI Samples\Scripts\ScrollDetailTexture.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scenes\UserInterface.cs" />
     <Compile Include="Assets\Scripts\Player\PCPlayerController.cs" />
     <Compile Include="Assets\Scripts\DontDestroyObject.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
@@ -140,6 +155,7 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Player\PCPlayer.cs" />
     <Compile Include="Assets\Scripts\Command Patterns\MoveCommand.cs" />
+    <Compile Include="Assets\Scenes\Scripts\ProgressChargingBar.cs" />
     <Compile Include="Assets\Scripts\UI\ShowKeyboard.cs" />
     <Compile Include="Assets\mapMaker\Scripts\Help\colidRoomParents.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />
@@ -150,6 +166,7 @@
     <Compile Include="Assets\Scripts\RayInteractor.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPickingAction.cs" />
+    <Compile Include="Assets\Scenes\Minimap.cs" />
     <Compile Include="Assets\Scripts\Network\InGameConsole.cs" />
   </ItemGroup>
   <ItemGroup>

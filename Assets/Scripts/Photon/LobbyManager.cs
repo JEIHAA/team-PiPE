@@ -7,14 +7,19 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.XR.CoreUtils;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
+    
+
     [SerializeField] TextMeshProUGUI[] curPlayerList;
     [SerializeField] Button startBtn;
+    
 
     private void Awake()
     {
+       
         if (PhotonNetwork.IsMasterClient)
         {
             photonView.RPC("ApplyPlayerListText", RpcTarget.All);
@@ -27,9 +32,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        SceneManager.LoadScene("Main_Test");
+        LoddingBarController.LoadScene("Main_Test");
+
     }
 
+    
 
     [PunRPC]
     public void ApplyPlayerListText()
@@ -81,4 +88,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("Title");
     }
+
+    
 }

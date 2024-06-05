@@ -16,14 +16,14 @@ public class Room
     public float zMin;
     public float zMax;
 
-    public Transform door;
     public Transform tr;
     public GameObject g;
+    public Point doorPoint;
     //크기와 위치 저장용
     public Room(Vector3 position, Vector3 size)
     {
         point = new Point(position);
-        Size = size - new Vector3(2, 0 ,2);
+        Size = size ;
 
 
         xMin = position.x - Size.x/2;

@@ -24,8 +24,8 @@ TagManager:
   - Player
   - Boid
   - OwnerCheck
-  - 
-  - 
+  - door
+  - flag
   - 
   - 
   - 

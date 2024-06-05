@@ -13,10 +13,11 @@ public class PathFinder2D
         public Node Previous { get; set; }
 
         public float Cost { get; set; }
-
+        public Vector3 Direction { get; set; }
         public Node(int x, int z)
         {
             Position = new Point(new Vector3(x, 0,z));
+            Direction = Vector3.zero;
         }
     }
 
@@ -115,7 +116,15 @@ public class PathFinder2D
 
                 var pathCost = costFunction(node, neighbor);
                 if (!pathCost.traversable) {  continue; }
-                
+
+                Vector3 newDirection = offset.normalized;
+
+                if (node.Direction != Vector3.zero && node.Direction != newDirection)
+                {
+
+                    pathCost.cost += 50;
+                }
+
                 float newCost = node.Cost + pathCost.cost;
                 
                 if (newCost < neighbor.Cost)
@@ -123,8 +132,8 @@ public class PathFinder2D
                     
                     neighbor.Previous = node;
                     neighbor.Cost = newCost;
-                    
-                    
+                    neighbor.Direction = newDirection;
+
 
                     if (queue.TryGetPriority(node, node.Cost))
                     {

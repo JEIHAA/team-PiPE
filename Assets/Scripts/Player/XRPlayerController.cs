@@ -18,7 +18,7 @@ public class XRPlayerController : MonoBehaviour
     [SerializeField] private float addWeight;
     [SerializeField] private float gravitationalAcceleration;
     private int playerID;
-    public int PlayerID { get { return playerID; } }
+    public int PlayerID { get { return playerID; } set { playerID = value; } }
     private float rayDistance;
     private RaycastHit slopeHit;
     private int groundLayer;

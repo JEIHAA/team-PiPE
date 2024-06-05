@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
     private colidRoomParents[] roomParents;
     private Transform[] roomPos;
     private List<Transform> roomList = new List<Transform>();
+    System.Random random = new System.Random();
     public List<Transform> GetCollidRoom()
     {
         roomPos = GetComponentsInChildren<Transform>();
@@ -62,6 +63,31 @@ public class Map : MonoBehaviour
 
         return ListRoom;
     }
-    
+    public List<Vector3> returnFlag()
+    {
+        List<Vector3> result = new List<Vector3>();
+        Transform[] flagarr = transform.GetComponentsInChildren<Transform>();
+        foreach (Transform t in flagarr)
+        {
+            if (t.gameObject.layer == 12)
+            {
+                double a = random.NextDouble();
+                if (a < 0.3)
+                {
+                    Destroy(t.gameObject);
+                }
+                else
+                {
+                    result.Add(t.position);
+                }
+            }
+        }
+
+
+
+
+
+        return result;
+    }
 
 }

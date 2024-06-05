@@ -634,6 +634,7 @@ MonoBehaviour:
   addWeight: 0
   mouseSpeed: 100
   gravitationalAcceleration: 40
+  playerID: 0
 --- !u!114 &8336207791567119193
 MonoBehaviour:
   m_ObjectHideFlags: 0

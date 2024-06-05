@@ -21,7 +21,7 @@ public class BoywerWatson2D
         List<Point> PointList = new List<Point>();
         foreach (Room room in rooms)
         {
-            PointList.Add(room.point);
+            PointList.Add(room.doorPoint);
         }
 
         delaunay.pointList = PointList;

@@ -43,7 +43,7 @@ public class PickingAction : MonoBehaviour
                 Debug.Log(boidsPlayerManager.GetHasBoidsNum());
                 chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum());
                 boom.XRChangeSize(chargeGage);
-                HoldObject(boom.gameObject);
+                PV.RPC("HoldObject", RpcTarget.All,boom.gameObject);
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -74,6 +74,7 @@ public class PickingAction : MonoBehaviour
         boom.XRGrab();
     }
 
+    [PunRPC]
     private void HoldObject(GameObject _grabObject)
     {
         _grabObject.transform.position = grabPos.transform.position;

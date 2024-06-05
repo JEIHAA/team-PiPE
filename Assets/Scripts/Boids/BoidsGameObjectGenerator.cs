@@ -54,6 +54,8 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
         {
             StartCoroutine(CheckBoids());
         }
+
+        onFinishedGenerateCallBack?.Invoke();
     }
 
     private void StartBoids()
@@ -87,7 +89,7 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
             boids[i].name = "boid" + i;
             boids[i].GetComponent<BoidManager>().BoidID = i;
         }
-        onFinishedGenerateCallBack?.Invoke();
+        
         yield break;
     }
     

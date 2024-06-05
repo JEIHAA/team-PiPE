@@ -19,8 +19,8 @@ public class PCPlayerController : MonoBehaviourPun
     [SerializeField] private float addWeight;
     [SerializeField] private float mouseSpeed;
     [SerializeField] private float gravitationalAcceleration;
-    private int playerID;
-    public int PlayerID { get { return playerID; } }
+    [SerializeField] private int playerID;
+    public int PlayerID { get { return playerID; } set { playerID = value; } }
     private float yRotation;
     private float xRotation;
     private RaycastHit slopeHit;
@@ -33,7 +33,7 @@ public class PCPlayerController : MonoBehaviourPun
 
     private void Awake()
     {
-        playerID = PhotonNetwork.LocalPlayer.ActorNumber-1;
+        
         pcOrigin = GameObject.FindGameObjectWithTag("PCOrigin");
         maincam = pcOrigin.GetComponentInChildren<Camera>();
         groundLayer = LayerMask.GetMask("Ground");

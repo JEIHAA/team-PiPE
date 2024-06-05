@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5640659913018036829}
   - component: {fileID: 3600421426041482454}
-  - component: {fileID: 2855898107143993869}
+  - component: {fileID: 7830853959420154051}
   m_Layer: 0
   m_Name: Generate
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   RoomCount: 15
   roadPrefab: {fileID: 2189019420079103572, guid: dbe0f711f869f09419cbb99993d0406b, type: 3}
   roadrotatePrefab: {fileID: 0}
---- !u!114 &2855898107143993869
+--- !u!114 &7830853959420154051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511064874602017258}
-  - component: {fileID: 860688820179704288}
+  - component: {fileID: 5956138088793817484}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -175,7 +175,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1143639401088660264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &860688820179704288
+--- !u!114 &5956138088793817484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,6 +184,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9182504096410976345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45bad13803a1fbf4dbfff6c8efe700f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 802198672e146d04495069c4740f6503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

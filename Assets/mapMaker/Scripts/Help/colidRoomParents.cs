@@ -9,17 +9,6 @@ public class colidRoomParents : MonoBehaviour
     CollidRoom collidroom;
     // Start is called before the first frame update
 
-    private void Update()
-    {
-        if(collidroom.returnbool() == true)
-        {
-            int a = Random.Range(-20, 20);
-
-            int b = Random.Range(-20, 20);
-
-            transform.Translate(new Vector3(a, 0, b));
-        }
-    }
 
 
 

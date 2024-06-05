@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.XR;
 
+
 public class ConnManager : MonoBehaviourPunCallbacks
 {
     public bool isVR;
@@ -14,6 +15,7 @@ public class ConnManager : MonoBehaviourPunCallbacks
     public BoidsGameObjectGenerator boids;
     public Transform LeftHandController;
     public Transform RightHandController;
+    private int setPlayerID = 0;
 
     public static bool isPresent()
     {
@@ -59,7 +61,7 @@ public class ConnManager : MonoBehaviourPunCallbacks
         {
             IsVisible = true,
             IsOpen = true,
-            MaxPlayers = 8
+            MaxPlayers = 2
         };
         PhotonNetwork.JoinOrCreateRoom("NetTest", ro, TypedLobby.Default);
     }
@@ -75,23 +77,39 @@ public class ConnManager : MonoBehaviourPunCallbacks
         {
             go = PhotonNetwork.Instantiate("VR_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
             PCOrigin.SetActive(false);
+            //go.GetComponent<XRPlayerController>().PlayerID = PhotonNetwork.LocalPlayer.ActorNumber;
+
         }
         else
         {
-            PhotonNetwork.Instantiate("PC_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
+
+            go = PhotonNetwork.Instantiate("PC_Player", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
             XROrigin.SetActive(false);
+
+           // go.GetComponent<PCPlayerController>().PlayerID = PhotonNetwork.LocalPlayer.ActorNumber;
+
         }
+
 
         //PhotonNetwork.Instantiate("ObjectPool", new Vector3(originPos.x, 0, originPos.y), Quaternion.identity);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient) // 이 내용들은 게임 스타트 버튼을 누르면 해야 함. 플레이어 생성도 고민해야 함
         {
             //photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
             photonView.RPC("StartBoidsGenerate", RpcTarget.AllBuffered);
+            photonView.RPC("PlayerSetting", RpcTarget.AllBuffered);
+            
         }
+    }
+
+    [PunRPC]
+    public void SetPlayerID() 
+    {
+        Debug.Log("SetPlayerID Active");
+        setPlayerID++;
     }
 
     [PunRPC]
@@ -106,4 +124,6 @@ public class ConnManager : MonoBehaviourPunCallbacks
     {
         boids.StartSpawnBoids();
     }
+
+
 }

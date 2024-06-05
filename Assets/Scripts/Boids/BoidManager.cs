@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PhotonView))]
-public class BoidManager : MonoBehaviourPun, IPunObservable
+public class BoidManager : MonoBehaviourPun
 {
   [SerializeField] private int ownerID = -1;
   public int OwnerID { get { return ownerID; } set { ownerID = value; } } // <
@@ -21,8 +21,6 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
   [SerializeField] private Vector3 targetPos;
   public Vector3 TargetPos { get { return targetPos; } set { targetPos = value; } }
 
-    private int ReceiveOwnerID = 0;
-    private int ReceiveBoidID = 0;
 
   private void Awake()
   {
@@ -32,12 +30,6 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
     for (int i = 0; i < playerGo.Length; i++) {
         players.Add(playerGo[i].GetComponent<PCPlayerController>());
     }
-
-        photonView.Synchronization = ViewSynchronization.UnreliableOnChange;
-        photonView.ObservedComponents[0] = this;
-
-        ReceiveOwnerID = OwnerID;
-        ReceiveBoidID = BoidID;
     }
 
   private void OnTriggerEnter(Collider _other) // 플레이어 부딫쳤을때
@@ -45,13 +37,7 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
     if (OwnerID != -1)
      return;
     Debug.Log("OnCollisionEnter");
-    /*if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            OwnerID = _other.gameObject.GetComponent<BoidsPCPlayerController>().PlayerID;
-            _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
-            owner = players[ownerID].gameObject;
-        }*/
-
+        Debug.Log("Colliosion Detected: " + _other.gameObject.GetComponent<PCPlayerController>().PlayerID);
         if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             OwnerID = _other.gameObject.GetComponent<PCPlayerController>().PlayerID;
@@ -65,10 +51,7 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
 
     private void FixedUpdate()
   {
-        if (ReceiveOwnerID != -1)
-        {
-            OwnerID = ReceiveOwnerID;
-        }
+
 
     if (OwnerID != -1) {
       SetOwnerPos();
@@ -81,18 +64,4 @@ public class BoidManager : MonoBehaviourPun, IPunObservable
     targetPos = owner.transform.position;
     targetPos.y -= 0.5f;
   }
-
-    public void OnPhotonSerializeView(PhotonStream _stream, PhotonMessageInfo _info)
-    {
-        if (_stream.IsWriting)
-        {
-            _stream.SendNext(OwnerID);
-            _stream.SendNext(BoidID);
-        }
-        else if (_stream.IsReading)
-        {
-            ReceiveOwnerID = (int)_stream.ReceiveNext();
-            ReceiveBoidID = (int)_stream.ReceiveNext();
-        }
-    }
 }

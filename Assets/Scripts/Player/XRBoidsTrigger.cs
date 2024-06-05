@@ -37,8 +37,7 @@ public class XRBoidsTrigger : MonoBehaviour
         // Bomb쏘기 전까지 위치 동기화
         if (boom != null)
         {
-            boom.transform.position = grabPos.transform.position;
-            boom.transform.rotation = grabPos.transform.rotation;
+            PV.RPC("HoldObject", RpcTarget.All);
         }
 
         // 트리거가 눌려있고 콜라이더 안에 들어와 있다면 차징시작
@@ -63,6 +62,13 @@ public class XRBoidsTrigger : MonoBehaviour
                 boom = null;
             }
         }
+    }
+
+    [PunRPC]
+    private void HoldObject()
+    {
+        boom.transform.position = grabPos.transform.position;
+        boom.transform.rotation = grabPos.transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
