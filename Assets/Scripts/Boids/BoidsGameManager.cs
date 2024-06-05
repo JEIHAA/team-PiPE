@@ -6,10 +6,10 @@ public class BoidsGameManager : MonoBehaviour
 {
   [SerializeField] private BoidsPlayerManager[] pm;
 
-  private void FixedUpdate()
+  /*private void FixedUpdate()
   {
     GetPlayerHasTotalBoids();
-  }
+  }*/
 
   private int GetPlayerHasTotalBoids() {
     int totalBoids = 0;

@@ -8,16 +8,21 @@ using static BoidsSimulationOnGPU.GPUBoids;
 public class BoomHit : MonoBehaviour
 {
     private GPUBoids boid;
+    private BoidsPlayerManager boidPM;
+    private BoidsPCPlayerController myID;
     private PCPlayerController pcController;
     private XRPlayerController xrController;
+    private int chargeGage;
 
     BoidBomb dataStr = new BoidBomb();
 
 
   private void Awake()
-    {
-        boid = GameObject.FindGameObjectWithTag("Boid").GetComponentInChildren<GPUBoids>();
-    }
+  {
+      boid = GameObject.FindGameObjectWithTag("Boid").GetComponentInChildren<GPUBoids>();
+      boidPM = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BoidsPlayerManager>();
+      myID = GetComponent<BoidsPCPlayerController>();
+  }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -44,22 +49,28 @@ public class BoomHit : MonoBehaviour
             pcController = collision.gameObject.GetComponent<PCPlayerController>();
             xrController = collision.gameObject.GetComponent<XRPlayerController>();
 
+            dataStr.HitPlayer = true;
+            Debug.Log(boid.ChargeGage);
+            Debug.Log(collision.gameObject.name);
+            //Debug.Log(myID.PlayerID);
             if(xrController != null )
             {
                 dataStr.HitPlayer = true;
                 dataStr.HitPlayerID = xrController.SendId();
-            }
+                 boidPM.StealBoids(boid.ChargeGage, xrController.gameObject, collision.gameObject, myID.PlayerID);
+             }
             else if(pcController != null)
             {
                 dataStr.HitPlayer = true;
                 dataStr.HitPlayerID = pcController.SendId();
-
+                boidPM.StealBoids(boid.ChargeGage, pcController.gameObject, collision.gameObject, myID.PlayerID);
             }
         }
         boid.SetBoidBomb(dataStr);
-        
+        if(!dataStr.HitPlayer)
+           boidPM.ShootMissBoid(boid.ChargeGage, dataStr.DropPos);
+
+
     Destroy(gameObject);
     }
-
-    
 }

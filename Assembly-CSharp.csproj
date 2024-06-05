@@ -79,8 +79,8 @@
     <Compile Include="Assets\mapMaker\Scripts\Help\Face.cs" />
     <Compile Include="Assets\Asset\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
     <Compile Include="Assets\Scripts\Rewind\Moving.cs" />
-    <Compile Include="Assets\Scripts\Command Patterns\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPCPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Command Patterns\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Player\XRPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PCGrabInterAction.cs" />
     <Compile Include="Assets\Scripts\MVP Patterns\Health.cs" />
