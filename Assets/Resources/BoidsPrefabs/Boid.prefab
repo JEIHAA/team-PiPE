@@ -98,7 +98,6 @@ MonoBehaviour:
   ownerID: -1
   boidID: 0
   playerGo: []
-  players: []
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &956224093799764731

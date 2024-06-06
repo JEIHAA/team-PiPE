@@ -19,8 +19,7 @@ public class PCPlayerController : MonoBehaviourPun
     [SerializeField] private float addWeight;
     [SerializeField] private float mouseSpeed;
     [SerializeField] private float gravitationalAcceleration;
-    [SerializeField] private int playerID;
-    public int PlayerID { get { return playerID; } set { playerID = value; } }
+
     private float yRotation;
     private float xRotation;
     private RaycastHit slopeHit;

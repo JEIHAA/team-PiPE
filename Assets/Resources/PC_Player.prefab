@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab653645043cab34d96d5969310324fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
 --- !u!114 &5169622009148306341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +635,6 @@ MonoBehaviour:
   addWeight: 0
   mouseSpeed: 100
   gravitationalAcceleration: 40
-  playerID: 0
 --- !u!114 &8336207791567119193
 MonoBehaviour:
   m_ObjectHideFlags: 0

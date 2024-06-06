@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boids\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\pcplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\pcplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\home\\documents\\github\\team-pipe\\assets\\scripts\\boids\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boids\\boidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,16 +23,16 @@
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boids\\boidsgameobjectgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boids\\boidsgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boids\\boidsgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\mapmaker\\scripts\\mapgenerate2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\mapmaker\\scripts\\mapgenerate2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\home\\documents\\github\\team-pipe\\assets\\scripts\\boids\\boidsrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boids\\boidsrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boids\\boidsrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boids\\boidsgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boids\\boidsgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boids\\gpuboids.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,16 +43,8 @@
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\xrboidstrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\mapmaker\\scripts\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\mapmaker\\scripts\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|c:\\users\\home\\documents\\github\\team-pipe\\assets\\scripts\\network\\connmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\connmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\photon\\lobbymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,24 +55,12 @@
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\photon\\photonlaucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\pcplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\pcplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scenes\\loddingbarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\loddingbarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\xrplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\player\\pickingaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\pickingaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\network\\fpscounter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\fpscounter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05310E10-1F72-FD5B-560D-DD2DBB35686F}|Assembly-CSharp.csproj|C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\assets\\scripts\\boomhit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,99 +74,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LobbyManager.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\LobbyManager.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Photon\\LobbyManager.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAgwBgAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T04:15:35.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
               "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAADgvx4AAAAOAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAYwKEAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T04:25:50.749Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "BoidsGameManager.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidsGameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boids\\BoidsGameManager.cs",
               "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidsGameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Boids\\BoidsGameManager.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBMAAAAEAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAiwBMAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T03:08:12.777Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "XRBoidsTrigger.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T00:33:49.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "PCPlayerController.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\PCPlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PCPlayerController.cs",
               "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\PCPlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PCPlayerController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAnAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T11:13:42.891Z"
+              "WhenOpened": "2024-06-04T11:13:42.891Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "BoidManager.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boids\\BoidManager.cs",
               "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Boids\\BoidManager.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAkwCoAAABHAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAkwE8AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T09:13:57.298Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "FPSCounter.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\FPSCounter.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\FPSCounter.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\FPSCounter.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Network\\FPSCounter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T11:04:37.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BoidsRender.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidsRender.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boids\\BoidsRender.cs",
@@ -187,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MapGenerate2D.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
               "RelativeDocumentMoniker": "Assets\\mapMaker\\Scripts\\MapGenerate2D.cs",
@@ -200,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "BoidsGameObjectGenerator.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\BoidsGameObjectGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boids\\BoidsGameObjectGenerator.cs",
@@ -213,20 +169,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "XRPlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRPlayerController.cs",
+              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\XRPlayerController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwBwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T08:31:36.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LobbyManager.cs",
+              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Photon\\LobbyManager.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAgwBgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T04:15:35.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "GPUBoids.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\GPUBoids.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Boids\\GPUBoids.cs",
               "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Boids\\GPUBoids.cs",
               "RelativeToolTip": "Assets\\Scripts\\Boids\\GPUBoids.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAUwLIAAAAGAAAA",
+              "ViewState": "AQIAAOAAAAAAAAAAAAAiwPIAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T09:13:43.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
+              "Title": "XRBoidsTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
+              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\XRBoidsTrigger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T00:33:49.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Map.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\mapMaker\\Scripts\\Map.cs",
               "RelativeDocumentMoniker": "Assets\\mapMaker\\Scripts\\Map.cs",
@@ -250,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "PhotonLaucher.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Photon\\PhotonLaucher.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\PhotonLaucher.cs",
@@ -262,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "BoomHit.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\BoomHit.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BoomHit.cs",
@@ -274,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "PickingAction.cs",
               "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\PickingAction.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PickingAction.cs",
@@ -283,52 +276,6 @@
               "ViewState": "AQIAADQAAAAAAAAAAAD4v0MAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T08:34:41.157Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "XRPlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\XRPlayerController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T08:31:36.897Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "f448d0ab-e81f-4a44-b909-7082ca5d0143",
-        "Display": 0,
-        "X": -81,
-        "Y": 242,
-        "Width": 951,
-        "Height": 751,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ConnManager.cs",
-              "DocumentMoniker": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\ConnManager.cs",
-              "ToolTip": "C:\\Users\\Home\\Documents\\GitHub\\team-PiPE\\Assets\\Scripts\\Network\\ConnManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Network\\ConnManager.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAgwG8AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T08:37:21.889Z",
-              "EditorCaption": ""
             }
           ]
         }

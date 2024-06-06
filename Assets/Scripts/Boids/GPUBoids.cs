@@ -238,9 +238,9 @@ namespace BoidsSimulationOnGPU
       for (var i = 0; i < MaxObjectNum; i++)
       {
         forceArr[i] = Vector3.zero;
-                Debug.Log(boidList[i].GetComponent<BoidManager>().BoidID);
+                //Debug.Log(boidList[i].GetComponent<BoidManager>().BoidID);
         boidManager = boidList[i].GetComponent<BoidManager>();
-                Debug.Log(boidManager);
+                //Debug.Log(boidManager);
         boidTargetArr[i].OwnerID = boidManager.OwnerID;
         boidTargetArr[i].TargetPos = boidManager.TargetPos;
         UpdateBoidDataArr(i);

@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Unity.XR.CoreUtils;
 using ExitGames.Client.Photon;
+using Photon.Pun.Demo.PunBasics;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject player;
     private List<GameObject> playerGoList = new List<GameObject>();
 
+    [SerializeField] private int PlayerID = 0;
     private bool isFinished = false;
     private bool GenerateFinished = false;
 
@@ -95,7 +97,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.Destroy(player);
     }
 
-    [PunRPC]
+    /*[PunRPC]
     public void ApplyPlayerList()
     {
         // 현재 방에 접속해 있는 플레이어의 수
@@ -111,6 +113,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         // 액터넘버를 기준으로 플레이어 게임오브젝트 배열을 채움
         for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
         {
+            Debug.Log("PlayerCount: " + PhotonNetwork.CurrentRoom.PlayerCount);
             // 키는 0이 아닌 1부터 시작
             int key = i + 1;
             for (int j = 0; j < photonViews.Length; ++j)
@@ -120,14 +123,17 @@ public class GameManager : MonoBehaviourPunCallbacks
                 // 만약 현재 키 값이 딕셔너리 내에 존재하지 않는다면 넘김
                 if (PhotonNetwork.CurrentRoom.Players.ContainsKey(key) == false) continue;
 
+                Debug.Log("photonView Name: " + photonViews[j].name);
                 // 포톤뷰의 액터넘버
-                int viewNum = photonViews[j].Owner.ActorNumber;
+                int viewNum = photonViews[j].CreatorActorNr;
                 // 접속중인 플레이어의 액터넘버
-                int playerNum = PhotonNetwork.CurrentRoom.Players[key].ActorNumber;  
-
+                int playerNum = PhotonNetwork.CurrentRoom.Players[key].ActorNumber;
+                //Debug.Log("J: " + j + " key: " + key);
+                //Debug.Log("photonView Owner ActorNumber: " + viewNum + " currentRoom player actornumber: " + playerNum);
                 // 액터넘버가 같은 오브젝트가 있다면,
                 if (viewNum == playerNum && photonViews[j].gameObject.TryGetComponent<CharacterController>(out CharacterController Con))
                 {
+                    Debug.Log(photonViews[j].gameObject);
                     // 실제 게임오브젝트를 배열에 추가
                     playerGoList.Add(photonViews[j].gameObject);
                     // 게임오브젝트 이름도 알아보기 쉽게 변경
@@ -138,10 +144,63 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < playerGoList.Count; i++)
         {
-           playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr;
+           playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
         }
         EndProcess();
     }
+*/
+    /*[PunRPC]
+    public void ApplyPlayerList()
+    {
+        int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+        Player[] sortedPlayers = PhotonNetwork.PlayerList;
+
+        for (int i = 0; i < sortedPlayers.Length; i += 1)
+        {
+            if (sortedPlayers[i].ActorNumber == actorNumber)
+            {
+                PlayerID = i; // 자기 자신의 번호는 잘 찾는다.
+                break;
+            }
+        }
+
+        photonView.RPC("ApplyPlayerID", RpcTarget.All, PlayerID);
+
+        
+       *//* for (int i = 0; i < playerGoList.Count; i++)
+        {
+             = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
+        }*//*
+        EndProcess();
+    }*/
+
+    /*[PunRPC]
+    public void ApplyPlayerID(int _id)
+    {
+        if (photonView.IsMine)
+        {
+            foreach (GameObject go in playerGoList)
+            {
+                if (go.GetComponent<PhotonView>().CreatorActorNr - 1 == PlayerID)
+                {
+                    go.GetComponent<BoidsPlayerManager>().PlayerID = PlayerID;
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject go in playerGoList)
+            {
+                if (go.GetComponent<PhotonView>().CreatorActorNr - 1 == _id)
+                {
+                    go.GetComponent<BoidsPlayerManager>().PlayerID = _id;
+                }
+            }
+        }
+
+    }*/
+
+
     [PunRPC]
     public void SpawnPlayer()
     {
