@@ -138,14 +138,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < playerGoList.Count; i++)
         {
-            if (client != null && client.isPc == true)
-            {
-                playerGoList[i].GetComponent<PCPlayerController>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr;
-            }
-            else if (client != null && client.isPc == false)
-            {
-                playerGoList[i].GetComponent<XRPlayerController>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr;
-            }
+           playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr;
         }
         EndProcess();
     }

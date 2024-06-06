@@ -10,8 +10,6 @@ public class BoomHit : MonoBehaviourPun
 {
     private GPUBoids boid;
     private BoidsPlayerManager boidPM;
-    private PCPlayerController pcController;
-    private XRPlayerController xrController;
     private XRGrabInterAction bombGrab;
     private PhotonView pv;
     BoidBomb dataStr = new BoidBomb();
@@ -49,19 +47,12 @@ public class BoomHit : MonoBehaviourPun
         }
         if (collision.gameObject.CompareTag("Player") && !collision.gameObject.GetPhotonView().IsMine)
         {
-            pcController = collision.gameObject.GetComponent<PCPlayerController>();
-            xrController = collision.gameObject.GetComponent<XRPlayerController>();
-            if (xrController != null)
+            
+            if (boidPM != null)
             {
                 dataStr.HitPlayer = true;
-                dataStr.HitPlayerID = xrController.PlayerID;
-                boidPM.StealBoids(boid.ChargeGage, xrController.gameObject, collision.gameObject, xrController.PlayerID);
-            }
-            else if (pcController != null)
-            {
-                dataStr.HitPlayer = true;
-                dataStr.HitPlayerID = pcController.PlayerID;
-                boidPM.StealBoids(boid.ChargeGage, pcController.gameObject, collision.gameObject, pcController.PlayerID);
+                dataStr.HitPlayerID = boidPM.PlayerID;
+                boidPM.StealBoids(boid.ChargeGage, boidPM.gameObject, collision.gameObject, boidPM.PlayerID);
             }
             PhotonNetwork.Destroy(photonView);
         }

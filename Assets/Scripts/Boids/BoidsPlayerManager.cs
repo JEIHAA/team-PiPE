@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class BoidsPlayerManager : MonoBehaviour
 {
+  [SerializeField] private int playerID;
+  public int PlayerID { get { return playerID; } set { playerID = value; } }
+
   private Queue<GameObject> assignBoidQueue = new Queue<GameObject>();
   public Queue<GameObject> AssignBoidQueue { get { return assignBoidQueue; } set { assignBoidQueue = value; } }
 
