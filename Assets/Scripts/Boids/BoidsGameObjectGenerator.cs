@@ -13,6 +13,13 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
         set { onFinishedGenerateCallBack = value; }
     }
 
+    public delegate void ActivateBoids();
+    private ActivateBoids activateBoidsCallback = null;
+    public ActivateBoids ActivateBoidsCallback
+    {
+        set { activateBoidsCallback = value; }
+    }
+
     [SerializeField] private GPUBoids maxObjectNum;
     [SerializeField] private Transform boidSpawnerParent;
     [SerializeField] private GameObject prefab;
@@ -55,7 +62,7 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
             StartCoroutine(CheckBoids());
         }
 
-        onFinishedGenerateCallBack?.Invoke();
+        
     }
 
     private void StartBoids()
@@ -89,7 +96,9 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
             boids[i].name = "boid" + i;
             boids[i].GetComponent<BoidManager>().BoidID = i;
         }
-        
+        Debug.Log("Check Boids Count: " + boids.Count);
+        onFinishedGenerateCallBack?.Invoke();
+        activateBoidsCallback?.Invoke();
         yield break;
     }
     
@@ -111,6 +120,7 @@ public class BoidsGameObjectGenerator : MonoBehaviourPun
 
     public List<GameObject> GetBoidsList()
     {
+        Debug.Log("GetBoidsList: " + boids.Count);
         return boids;
     }
 }

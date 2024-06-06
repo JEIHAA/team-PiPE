@@ -177,6 +177,7 @@ namespace BoidsSimulationOnGPU
     {
       // 생성된 boids GameObject 가져오기
       boidList = boidSpawner.GetBoidsList();
+            Debug.Log(boidList.Count);
       // 버퍼 초기화
       InitBuffer();
     }
@@ -237,7 +238,9 @@ namespace BoidsSimulationOnGPU
       for (var i = 0; i < MaxObjectNum; i++)
       {
         forceArr[i] = Vector3.zero;
+                Debug.Log(boidList[i].GetComponent<BoidManager>().BoidID);
         boidManager = boidList[i].GetComponent<BoidManager>();
+                Debug.Log(boidManager);
         boidTargetArr[i].OwnerID = boidManager.OwnerID;
         boidTargetArr[i].TargetPos = boidManager.TargetPos;
         UpdateBoidDataArr(i);

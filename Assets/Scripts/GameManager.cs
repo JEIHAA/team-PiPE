@@ -66,12 +66,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void EndProcess()
     {
-        Debug.Log("EndProcess");
         isFinished = true;
     }
     private void EndForMaster()
     {
-        Debug.Log("EndForMaster");
         GenerateFinished = true;
     }
 
@@ -79,7 +77,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         while (isFinished == false)
         {
-            Debug.Log("Waiting...");
             yield return null;
         }
         yield break;
@@ -89,7 +86,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         while (GenerateFinished == false)
         {
-            Debug.Log("Waiting Master...");
             yield return null;
         }
         yield break;
@@ -102,8 +98,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ApplyPlayerList()
     {
-        Debug.Log("ApplyPlayerList");
-        Debug.Log("Current Room Player Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
         // 현재 방에 접속해 있는 플레이어의 수
 
         // 현재 생성되어 있는 모든 포톤뷰 가져오기
@@ -142,11 +136,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
 
-        foreach( var g in playerGoList)
-        {
-            Debug.Log(g);
-        }
-
         for (int i = 0; i < playerGoList.Count; i++)
         {
             if (client != null && client.isPc == true)
@@ -163,7 +152,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void SpawnPlayer()
     {
-        Debug.Log("Player Start");
         Vector2 pos = Random.insideUnitCircle * 2.0f;
         if (client != null && client.isPc == false)
         {
@@ -182,7 +170,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void GenerateMap()
     {
-        Debug.Log("ConnManager Map Generate");
         maps.StartMapGenerator();
     }
 

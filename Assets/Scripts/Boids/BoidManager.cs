@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(PhotonView))]
 public class BoidManager : MonoBehaviourPun
@@ -34,20 +35,24 @@ public class BoidManager : MonoBehaviourPun
 
   private void OnTriggerEnter(Collider _other) // 플레이어 부딫쳤을때
   {
-    if (OwnerID != -1)
-     return;
-    Debug.Log("OnCollisionEnter");
+        if (OwnerID != -1)
+            return;
+        Debug.Log("OnCollisionEnter");
         Debug.Log("Colliosion Detected: " + _other.gameObject.GetComponent<PCPlayerController>().PlayerID);
-        if (_other.gameObject.layer == LayerMask.NameToLayer("Player"))
+
+        photonView.RPC("OwnerCheck", RpcTarget.All, _other.gameObject);
+
+   }
+    [PunRPC]
+    public void OwnerCheck(GameObject _target)
+    {
+        if (_target.layer == LayerMask.NameToLayer("Player"))
         {
-            OwnerID = _other.gameObject.GetComponent<PCPlayerController>().PlayerID;
-            _other.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
+            OwnerID = _target.GetComponent<PCPlayerController>().PlayerID;
+            _target.GetComponent<BoidsPlayerManager>().AssignBoidQueue.Enqueue(this.gameObject);
             owner = players[ownerID].gameObject;
         }
-
-        if (_other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
     }
-  }
 
     private void FixedUpdate()
   {

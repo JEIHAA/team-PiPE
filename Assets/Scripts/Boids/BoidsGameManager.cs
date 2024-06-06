@@ -12,7 +12,8 @@ public class BoidsGameManager : MonoBehaviourPun
 
     private void Awake()
     {
-        generate.OnFinishedGenerateCallBack = ActiveBoids;
+        //generate.OnFinishedGenerateCallBack = ActiveBoids;
+        generate.ActivateBoidsCallback = ActiveBoids;
         boid.gameObject.SetActive(false);
     }
 
@@ -22,7 +23,7 @@ public class BoidsGameManager : MonoBehaviourPun
         photonView.RPC("ObjectCtrl", RpcTarget.All);
     }
     [PunRPC]
-    private void ObjectCtrl()
+    public void ObjectCtrl()
     {
         boid.gameObject.SetActive(true);
     }

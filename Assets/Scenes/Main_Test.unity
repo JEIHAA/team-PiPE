@@ -1210,6 +1210,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4195526398056871121, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4611599807496066955, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: m_Name
       value: BoidsManager

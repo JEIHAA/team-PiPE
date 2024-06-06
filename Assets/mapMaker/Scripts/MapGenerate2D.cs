@@ -73,10 +73,8 @@ public class MapGenerate2D : MonoBehaviourPun
 
     private IEnumerator WaitForMaster()
     {
-        Debug.Log("Waiting Acitive");
         while (isFinished == false)
         {
-            Debug.Log("Waiting...");
             yield return null;
         }
         yield break;
@@ -84,19 +82,16 @@ public class MapGenerate2D : MonoBehaviourPun
     [PunRPC]
     public void SetStatus(bool _input)
     {
-        Debug.Log("SetStatus Active");
         isFinished = _input;
     }
     private IEnumerator MapGenerate()
     {
-        Debug.Log("Start Generate Coroutine");
         rooms = new List<Room>(); //방의 크기와 위치 저장하는곳
         transforms = GetComponentsInChildren<Transform>();
 
         //방의 위치배치만 하는 함수
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("Master Start Generate");
             yield return StartCoroutine(PlaceRooms());
 
             for (int i = 0; i < RoomTrList.Count; i++)
@@ -108,7 +103,6 @@ public class MapGenerate2D : MonoBehaviourPun
         }
         else
         {
-            Debug.Log("Normal Player Wait For Master");
             yield return StartCoroutine(WaitForMaster());
         }
         // 여기서 일반 클라이언트는 기다려함 호스트가 인스턴스 할때까지
