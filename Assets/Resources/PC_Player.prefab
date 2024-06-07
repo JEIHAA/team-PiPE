@@ -651,6 +651,8 @@ MonoBehaviour:
   throwPower: 20
   grabPos: {fileID: 3955725284404087774}
   pickRange: 0
+  bombPrefab: {fileID: 5024612196446638584, guid: 310c2acef40d88a458dd0d12fb1c30b5, type: 3}
+  boid: {fileID: 0}
 --- !u!143 &9196814154503603789
 CharacterController:
   m_ObjectHideFlags: 0

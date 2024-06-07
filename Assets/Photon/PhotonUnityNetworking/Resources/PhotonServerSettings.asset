@@ -61,6 +61,9 @@ MonoBehaviour:
   - SetOwner
   - ApplyPlayerID
   - StartPlayerSpawn
+  - ExitClicked
+  - OnClicked
+  - UpdateOtherPlayerCamPos
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -19,7 +19,7 @@ public class PickingAction : MonoBehaviour
     [SerializeField] private Transform grabPos;
     [SerializeField] private float pickRange;
     [SerializeField] private GameObject bombPrefab;
-    private GPUBoids boid;
+    [SerializeField] private GPUBoids boid;
     private bool isbuttonClicked=false;
     private Transform otherPlayerCamPos;
 
@@ -28,21 +28,25 @@ public class PickingAction : MonoBehaviour
         PV = GetComponent<PhotonView>();
         mainCam = GameObject.FindGameObjectWithTag("PCOrigin").GetComponentInChildren<Camera>();
         boidsPlayerManager = GetComponent<BoidsPlayerManager>();
-    }
+        boid = GameObject.FindGameObjectWithTag("Boid").GetComponent<GPUBoids>();
+   }
 
-    private void Update()
+   private void Update()
     {
         if (PV.IsMine)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (boidsPlayerManager.GetHasBoidsNum() > 0)
             {
-                PV.RPC("OnClicked", RpcTarget.All);
+               if (Input.GetMouseButtonDown(0))
+               {
+                  PV.RPC("OnClicked", RpcTarget.All);
+               }
+               if (Input.GetMouseButtonUp(0))
+               {
+                  PV.RPC("ExitClicked", RpcTarget.All);
+               }
             }
-            if (Input.GetMouseButtonUp(0))
-            {
-                PV.RPC("ExitClicked", RpcTarget.All);
-            }
-            PV.RPC("UpdateOtherPlayerCamPos", RpcTarget.Others, mainCam.transform.position, mainCam.transform.rotation);
+         PV.RPC("UpdateOtherPlayerCamPos", RpcTarget.Others, mainCam.transform.position, mainCam.transform.rotation);
         }
         SpawnBomb();
     }

@@ -1202,17 +1202,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2006774840238895098, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3855869027018869199, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4195526398056871121, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4611599807496066955, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: m_Name
@@ -1220,11 +1212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366269086966312689, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: sceneViewId
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8590171366056700485, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

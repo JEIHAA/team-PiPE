@@ -13,8 +13,12 @@ public class BoidsPlayerManager : MonoBehaviour
   public Queue<GameObject> AssignBoidQueue { get { return assignBoidQueue; } set { assignBoidQueue = value; } }
 
 
+   private void FixedUpdate()
+   {
+      GetHasBoidsNum();
+   }
 
-  public int GetHasBoidsNum() {
+   public int GetHasBoidsNum() {
     Debug.Log($"{this.gameObject.name}'s has boid: {assignBoidQueue.Count}");
     return assignBoidQueue.Count;
   }
@@ -38,15 +42,15 @@ public class BoidsPlayerManager : MonoBehaviour
     return boidsID;
   }
 
-    public void StealBoids(int _chargeGage, GameObject shooter, GameObject _otherPlayer, int _ownerID)
+    public void StealBoids(int _chargeGage, GameObject shooter, int _shooterID, GameObject _hitPlayer)
     {
         GameObject boid = new GameObject();
         BoidManager bm = new BoidManager();
         for (int i = 0; i < _chargeGage; ++i)
         {
-            boid = _otherPlayer.GetComponent<BoidsPlayerManager>().assignBoidQueue.Dequeue();
+            boid = _hitPlayer.GetComponent<BoidsPlayerManager>().assignBoidQueue.Dequeue();
             bm = boid.GetComponent<BoidManager>();
-            bm.OwnerID = _ownerID;
+            bm.OwnerID = _shooterID;
             shooter.GetComponent<BoidsPlayerManager>().assignBoidQueue.Enqueue(boid);
             Debug.Log($"boidID: {bm.BoidID}, ownerID: {bm.OwnerID}");
         }

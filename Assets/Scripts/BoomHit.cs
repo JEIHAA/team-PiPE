@@ -10,25 +10,13 @@ public class BoomHit : MonoBehaviourPun
 {
     private GPUBoids boid;
     private BoidsPlayerManager boidPM;
-    private PCPlayerController pcController;
-    private XRPlayerController xrController;
     private XRGrabInterAction bombGrab;
     private PhotonView pv;
     BoidBomb dataStr = new BoidBomb();
     private void Awake()
     {
         boid = GameObject.FindGameObjectWithTag("Boid").GetComponentInChildren<GPUBoids>();
-        boidPM = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<BoidsPlayerManager>();
-
     }
-    
-
-    [PunRPC]
-    private void OnDamage()
-    {
-
-    }
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -48,21 +36,14 @@ public class BoomHit : MonoBehaviourPun
             }
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Player") && !collision.gameObject.GetPhotonView().IsMine)
+/*        if (collision.gameObject.CompareTag("Player") && !collision.gameObject.GetPhotonView().IsMine)
         {
-            pcController = collision.gameObject.GetComponent<PCPlayerController>();
-            xrController = collision.gameObject.GetComponent<XRPlayerController>();
-            if (xrController != null)
+            boidPM = collision.gameObject.GetComponent<BoidsPlayerManager>();
+            if (boidPM != null)
             {
                 dataStr.HitPlayer = true;
-                dataStr.HitPlayerID = xrController.PlayerID;
-                boidPM.StealBoids(boid.ChargeGage, xrController.gameObject, collision.gameObject, xrController.PlayerID);
-            }
-            else if (pcController != null)
-            {
-                dataStr.HitPlayer = true;
-                dataStr.HitPlayerID = pcController.PlayerID;
-                boidPM.StealBoids(boid.ChargeGage, pcController.gameObject, collision.gameObject, pcController.PlayerID);
+                dataStr.HitPlayerID = boidPM.PlayerID;
+                boidPM.StealBoids(boid.ChargeGage, boidPM.gameObject, boidPM.PlayerID, collision.gameObject );
             }
             Destroy(gameObject);
         }
@@ -72,7 +53,7 @@ public class BoomHit : MonoBehaviourPun
         if (!dataStr.HitPlayer)
         {
             boidPM.ShootMissBoid(boid.ChargeGage, dataStr.DropPos);
-        }
+        }*/
         
     }
 }
