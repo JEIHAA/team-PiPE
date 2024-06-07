@@ -58,7 +58,7 @@ public class BoidManager : MonoBehaviourPun
                 Debug.Log("pm.PlayerID == OwnerID");
                 owner = p;
                 pm.AssignBoidQueue.Enqueue(this.gameObject);
-                pm.GetComponent<BoidsPlayerManager>().DebougLogBoidsNum();
+                pm.GetComponent<BoidsPlayerManager>().DebugLogBoidsNum();
                 return;
             }
         }

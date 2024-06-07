@@ -63,7 +63,6 @@ public class PickingAction : MonoBehaviour
          chargeGage += Time.deltaTime * 5f;
          //Debug.Log(boidsPlayerManager.GetHasBoidsNum());
          chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum() ==1 ? boidsPlayerManager.GetHasBoidsNum() : boidsPlayerManager.GetHasBoidsNum()-1);
-         Debug.Log("chargeGage: "+chargeGage);
          boom.XRChangeSize(chargeGage);
          boom.transform.position = grabPos.transform.position;
       }
@@ -76,6 +75,7 @@ public class PickingAction : MonoBehaviour
          instantiatedBoom = null;
          boom = null;
          boid.ChargeGage = (int)chargeGage;
+         Debug.Log("chargeGage: "+chargeGage);
          chargeGage = 0;
       }
    }

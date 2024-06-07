@@ -1202,6 +1202,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2494966609960027750, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
+      propertyPath: MaxObjectNum
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3855869027018869199, guid: c3bea3baf729c8b49ace825ba4230a18, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -2914,7 +2918,8 @@ MonoBehaviour:
   maps: {fileID: 945747325}
   boids: {fileID: 281098436}
   ui: {fileID: 323216662}
-  PlayerID: 0
+  playerGoList: []
+  playerList: []
 --- !u!4 &1699735347
 Transform:
   m_ObjectHideFlags: 0

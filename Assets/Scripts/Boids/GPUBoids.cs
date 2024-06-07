@@ -34,7 +34,7 @@ namespace BoidsSimulationOnGPU
         public Vector3 TargetPos { get { return targetPos; } set { targetPos = value; } }
     }
 
-    public struct BoidBomb
+/*    public struct BoidBomb
     {
       private bool hitPlayer;
       private int hitPlayerId;
@@ -45,10 +45,10 @@ namespace BoidsSimulationOnGPU
       public int HitPlayerID { get { return hitPlayerId; } set { hitPlayerId = value; } }
       public int ChargeGage { get { return chargeGage; } set { chargeGage = value; } }
       public Vector3 DropPos { get { return dropPos; } set { dropPos = value; } }
-    }
+    }*/
 
     // 스레드 그룹의 크기
-    const int SIMULATION_BLOCK_SIZE = 256;
+    private const int SIMULATION_BLOCK_SIZE = 5;
 
     #region Built-in Resources
     // Boids 시뮬레이션을 실행하는 ComputeShader의 참조
@@ -98,7 +98,7 @@ namespace BoidsSimulationOnGPU
     // 렌더 경계 중심
     [SerializeField] private Vector3 renderAreaCenter = Vector3.zero;
     // 렌더 경계 범위
-    [SerializeField] private  Vector3 renderAreaSize = new Vector3(45.0f, 1.0f, 45.0f);
+    [SerializeField] private  Vector3 renderAreaSize = new Vector3(450.0f, 1.0f, 450.0f);
     #endregion
 
     #region Private Resources
@@ -116,7 +116,7 @@ namespace BoidsSimulationOnGPU
     public BoidData[] BoidDataArr { get { return boidDataArr; } set { boidDataArr = value; } }
     private Vector3[] forceArr;
     private BoidTarget[] boidTargetArr;
-    private BoidBomb boidBomb;
+    //private BoidBomb boidBomb;
     private int chargeGage;
     public int ChargeGage { get { return chargeGage; } set { chargeGage = value; } }
     #endregion
@@ -158,7 +158,7 @@ namespace BoidsSimulationOnGPU
         return stayOwnerRadius;
     }*/
 
-    public BoidBomb GetBoidBomb()
+/*    public BoidBomb GetBoidBomb()
     {
       Debug.Log($"BoidBomb.hitPlayer: {boidBomb.HitPlayer}, BoidBomb.hitPlayerID: {boidBomb.HitPlayerID}, BoidBomb.chargeGage: {boidBomb.ChargeGage}, BoidBomb.DropPos: {boidBomb.DropPos}");
       return boidBomb;
@@ -169,17 +169,17 @@ namespace BoidsSimulationOnGPU
       boidBomb = _boidBomb;
       boidBomb.ChargeGage = this.chargeGage;
     }
-
+*/
     #endregion
 
     #region MonoBehaviour Functions
     private void Start()
     {
-      // 생성된 boids GameObject 가져오기
-      boidList = boidSpawner.GetBoidsList();
-            Debug.Log(boidList.Count);
-      // 버퍼 초기화
-      InitBuffer();
+        // 생성된 boids GameObject 가져오기
+        boidList = boidSpawner.GetBoidsList();
+        Debug.Log(boidList.Count);
+        // 버퍼 초기화
+        InitBuffer();
     }
 
         /*private void Update()
@@ -200,13 +200,14 @@ namespace BoidsSimulationOnGPU
             UpdateBoidTargetPos();
             Simulation();
             SyncToCSMesh();
+            SyncToGameObjects();
         }
 
         private void OnDestroy()
-    {
-      // 버퍼 해제
-      ReleaseBuffer();
-    }
+        {
+          // 버퍼 해제
+          ReleaseBuffer();
+        }
 
     // 바운드 영역 렌더링
 /*    void OnDrawGizmos()
@@ -238,9 +239,9 @@ namespace BoidsSimulationOnGPU
       for (var i = 0; i < MaxObjectNum; i++)
       {
         forceArr[i] = Vector3.zero;
-                //Debug.Log(boidList[i].GetComponent<BoidManager>().BoidID);
+        //Debug.Log(boidList[i].GetComponent<BoidManager>().BoidID);
         boidManager = boidList[i].GetComponent<BoidManager>();
-                //Debug.Log(boidManager);
+        //Debug.Log(boidManager);
         boidTargetArr[i].OwnerID = boidManager.OwnerID;
         boidTargetArr[i].TargetPos = boidManager.TargetPos;
         UpdateBoidDataArr(i);
@@ -257,12 +258,6 @@ namespace BoidsSimulationOnGPU
       boidDataArr[_index].Position = boidList[_index].transform.position;
     }
 
-    /*public void InitBoidTargetArr( int _index, int ownerID, Vector3 targetPos)
-    {
-      boidTargetArr[_index].OwnerID = ownerID;
-      boidTargetArr[_index].TargetPos = targetPos;
-    }*/
-
     public void UpdateBoidTargetPos() 
     {
       for (int i = 0; i < MaxObjectNum; i++) {
@@ -278,14 +273,14 @@ namespace BoidsSimulationOnGPU
       boidList[_index].transform.position = boidDataArr[_index].Position;
     }
 
-/*    private void SyncToGameObjects()
+    private void SyncToGameObjects()
     {
       for (int i = 0; i < MaxObjectNum; i++)
       {
         UpdateBoidDataArr(i);
       }
       UpdateBoidDataBuffer();
-    }*/
+    }
 
     private void SyncToCSMesh()
     {
