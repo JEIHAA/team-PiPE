@@ -9,35 +9,35 @@ public class BoidsPlayerManager : MonoBehaviour
   [SerializeField] private int playerID;
   public int PlayerID { get { return playerID; } set { playerID = value; } }
 
-  private Queue<GameObject> assignBoidQueue = new Queue<GameObject>();
+  [SerializeField] private Queue<GameObject> assignBoidQueue = new Queue<GameObject>();
   public Queue<GameObject> AssignBoidQueue { get { return assignBoidQueue; } set { assignBoidQueue = value; } }
 
-
-   private void FixedUpdate()
+   public int GetHasBoidsNum() 
    {
-      GetHasBoidsNum();
+       return assignBoidQueue.Count;
    }
 
-   public int GetHasBoidsNum() {
-    Debug.Log($"{this.gameObject.name}'s has boid: {assignBoidQueue.Count}");
-    return assignBoidQueue.Count;
-  }
+    public void DebougLogBoidsNum() {
+        Debug.Log($"{this.playerID}'s has boid: {assignBoidQueue.Count}");
+    }
 
   public int[] ShootMissBoid(int _chargeGage, Vector3 _dropPos) 
   {
-    GameObject boid = new GameObject();
+    GameObject boid;
     BoidManager bm = new BoidManager();
     int[] boidsID = new int[_chargeGage];
 
     for (int i = 0; i < _chargeGage; ++i) 
     {
-      boid = assignBoidQueue.Dequeue();
+      Debug.Log($"i: {i}, dropPos: {_dropPos}");
+      boid = this.assignBoidQueue.Dequeue();
       bm = boid.GetComponent<BoidManager>();
       bm.OwnerID = -1;
       boidsID[i] = bm.BoidID;
       bm.TargetPos = _dropPos;
       //boid.GetComponentInParent<GPUBoids>().BoidDataArr[bm.BoidID].Position = dropPos;
       Debug.Log($"boidID: {bm.BoidID}, ownerID: {bm.OwnerID}");
+      DebougLogBoidsNum();
     }
     return boidsID;
   }

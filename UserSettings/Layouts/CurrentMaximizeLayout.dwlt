@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 523
+  controlID: 17014
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 524
+  controlID: 17015
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 493
+  controlID: 16985
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -556,9 +556,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 12.718267, y: 10.335445, z: 29.15674}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 12.718267, y: 10.335445, z: 29.15674}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -604,13 +604,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.072063096, y: 0.75326777, z: 0.08372174, w: -0.64837146}
+    m_Target: {x: -0.18939997, y: 0.41132426, z: -0.08780412, w: -0.88726056}
     speed: 2
-    m_Value: {x: 0.07206309, y: 0.75326765, z: 0.083721735, w: -0.6483714}
+    m_Value: {x: -0.1893999, y: 0.4113241, z: -0.08780409, w: -0.88726026}
   m_Size:
-    m_Target: 0.25980738
+    m_Target: 10
     speed: 2
-    m_Value: 0.25980738
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -698,9 +698,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 9c6b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: b6ceffff0acfffff4ad4ffff58d4ffff74d4ffffa0d4ffffd2d9ffffceddffff28deffff50dfffff1ef0ffff3ef0ffffc6f1ffff4cf9ffffb0f9ffff20fbffff
+      m_ExpandedIDs: ec5cfbffac5dfbffb0a9fbff0cdbfbff6ce5fbffc0e5fbfff8eafbfffeeafbff12ebfbff36ebfbffa809fcffb009fcffb209fcffc82afcff9247fcffa060fcff687dfcfffa9dfcffe0c0fcff92d9fcffece3fcff40e4fcff80e9fcff8ee9fcffaae9fcffd6e9fcffbc21fdff1022fdff5027fdff5e27fdff7a27fdffa627fdff4a92fdff369dfdff8a9dfdffe4a2fdff0ca3fdff42a3fdff88a3fdff8ab6fdff84c7fdff64dafdffc0dbfdff34e5fdff88e5fdffc8eafdffd6eafdfff2eafdff1eebfdff0eeefdfff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -769,8 +769,8 @@ MonoBehaviour:
     y: 0
     width: 377
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -894,7 +894,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/PC
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -902,16 +902,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes/PC
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\gmldj\GitHub\team-PiPE
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f06d0000
-    m_LastClickedID: 28144
-    m_ExpandedIDs: 00000000ac6d0000c26d000000ca9a3b
+    m_SelectedIDs: 0a090000
+    m_LastClickedID: 2314
+    m_ExpandedIDs: 000000001e060000ba06000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -939,7 +939,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac6d000000ca9a3b
+    m_ExpandedIDs: 000000001e06000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -964,21 +964,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 9c6b0000
+    m_LastClickedInstanceID: 27548
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Main_Test
-      m_OriginalName: Main_Test
+      m_Name: Network
+      m_OriginalName: Network
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 28140
+      m_UserData: 2350
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

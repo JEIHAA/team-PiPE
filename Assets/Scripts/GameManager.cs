@@ -6,34 +6,42 @@ using Photon.Realtime;
 using Unity.XR.CoreUtils;
 using ExitGames.Client.Photon;
 using Photon.Pun.Demo.PunBasics;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
+    private static GameManager gm;
     [SerializeField] GameObject XROrigin;
     [SerializeField] GameObject PCOrigin;
     [SerializeField] MapGenerate2D maps;
     [SerializeField] BoidsGameObjectGenerator boids;
     [SerializeField] UIManager ui;
 
-
-
-
     private DontDestoryObject client;
-    private GameObject player;
-    private GameObject[] playerGoList;
+    //private GameObject player;
+    [SerializeField] private GameObject[] playerGoList;
+    [SerializeField] private List<GameObject> playerList = new List<GameObject>();
+    public List<GameObject> PlayerList { get { return playerList; } }
 
-    [SerializeField] private int PlayerID = 0;
     private bool isFinished = false;
     private bool GenerateFinished = false;
 
     private void Awake()
     {
+        gm = this;
         client = FindObjectOfType<DontDestoryObject>();
         maps.OnFinishedGenerateCallback = EndProcess;
         boids.OnFinishedGenerateCallBack = EndForMaster;
-
-        
     }
+
+   public static GameManager Instance()
+   {
+      if(gm == null)
+      {
+         gm = new GameManager();
+      }
+      return gm;
+   }
 
     private void Start()
     {
@@ -92,10 +100,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         yield break;
     }
-    public override void OnLeftRoom()
+/*    public override void OnLeftRoom()
     {
         PhotonNetwork.Destroy(player);
-    }
+    }*/
 
     [PunRPC]
     public void ApplyPlayerList()
@@ -105,6 +113,7 @@ public class GameManager : MonoBehaviourPunCallbacks
          {
              playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
          }
+        SortPlayerGoList();
         EndProcess();
     }
 
@@ -166,5 +175,26 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         
     }
-    
+
+    public void SortPlayerGoList()
+    {
+        foreach (GameObject go in playerGoList)
+            playerList.Add(go);
+
+        foreach (GameObject player in playerGoList)
+        {
+            int playerID = player.GetComponent<BoidsPlayerManager>().PlayerID;
+
+            // ID에 맞는 인덱스에 플레이어 배치
+            if (playerID >= 0 && playerID < playerList.Count)
+            {
+                playerList[playerID] = player;
+            }
+            else
+            {
+                Debug.LogWarning("Invalid player ID: " + playerID);
+            }
+        }
+    }
+
 }
