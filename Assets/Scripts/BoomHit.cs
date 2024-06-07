@@ -10,6 +10,8 @@ public class BoomHit : MonoBehaviourPun
 {
     private GPUBoids boid;
     private BoidsPlayerManager boidPM;
+    private PCPlayerController pcController;
+    private XRPlayerController xrController;
     private XRGrabInterAction bombGrab;
     private PhotonView pv;
     BoidBomb dataStr = new BoidBomb();
@@ -27,6 +29,7 @@ public class BoomHit : MonoBehaviourPun
 
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         // 충돌한 지점들의 정보를 저장
@@ -43,18 +46,25 @@ public class BoomHit : MonoBehaviourPun
                 Debug.Log("Collision point: ");
                 Debug.Log("Collision point: " + dataStr.DropPos);
             }
-            PhotonNetwork.Destroy(photonView);
+            Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Player") && !collision.gameObject.GetPhotonView().IsMine)
         {
-            
-            if (boidPM != null)
+            pcController = collision.gameObject.GetComponent<PCPlayerController>();
+            xrController = collision.gameObject.GetComponent<XRPlayerController>();
+            if (xrController != null)
             {
                 dataStr.HitPlayer = true;
-                dataStr.HitPlayerID = boidPM.PlayerID;
-                boidPM.StealBoids(boid.ChargeGage, boidPM.gameObject, collision.gameObject, boidPM.PlayerID);
+                dataStr.HitPlayerID = xrController.PlayerID;
+                boidPM.StealBoids(boid.ChargeGage, xrController.gameObject, collision.gameObject, xrController.PlayerID);
             }
-            PhotonNetwork.Destroy(photonView);
+            else if (pcController != null)
+            {
+                dataStr.HitPlayer = true;
+                dataStr.HitPlayerID = pcController.PlayerID;
+                boidPM.StealBoids(boid.ChargeGage, pcController.gameObject, collision.gameObject, pcController.PlayerID);
+            }
+            Destroy(gameObject);
         }
 
         

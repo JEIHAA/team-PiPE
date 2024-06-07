@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private DontDestoryObject client;
     private GameObject player;
-    private List<GameObject> playerGoList = new List<GameObject>();
+    private GameObject[] playerGoList;
 
     [SerializeField] private int PlayerID = 0;
     private bool isFinished = false;
@@ -51,9 +51,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator Generate()
     {
-        photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
+       /* photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
         yield return StartCoroutine(WaitForProcess());
-        isFinished = false;
+        isFinished = false;*/
         photonView.RPC("SpawnPlayer", RpcTarget.AllBuffered);
         yield return StartCoroutine(WaitForProcess());
         isFinished = false;
@@ -97,126 +97,44 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.Destroy(player);
     }
 
-    /*[PunRPC]
+    [PunRPC]
     public void ApplyPlayerList()
     {
-        // 현재 방에 접속해 있는 플레이어의 수
 
-        // 현재 생성되어 있는 모든 포톤뷰 가져오기
-        PhotonView[] photonViews = FindObjectsOfType<PhotonView>();
-
-        // 매번 재정렬을 하는게 좋으므로 플레이어 게임오브젝트 리스트를 초기화
-        playerGoList.Clear();
-
-        // 현재 생성되어 있는 포톤뷰 전체와
-        // 접속중인 플레이어들의 액터넘버를 비교해,
-        // 액터넘버를 기준으로 플레이어 게임오브젝트 배열을 채움
-        for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; ++i)
-        {
-            Debug.Log("PlayerCount: " + PhotonNetwork.CurrentRoom.PlayerCount);
-            // 키는 0이 아닌 1부터 시작
-            int key = i + 1;
-            for (int j = 0; j < photonViews.Length; ++j)
-            {
-                // 만약 PhotonNetwork.Instantiate를 통해서 생성된 포톤뷰가 아니라면 넘김
-                if (photonViews[j].isRuntimeInstantiated == false) continue;
-                // 만약 현재 키 값이 딕셔너리 내에 존재하지 않는다면 넘김
-                if (PhotonNetwork.CurrentRoom.Players.ContainsKey(key) == false) continue;
-
-                Debug.Log("photonView Name: " + photonViews[j].name);
-                // 포톤뷰의 액터넘버
-                int viewNum = photonViews[j].CreatorActorNr;
-                // 접속중인 플레이어의 액터넘버
-                int playerNum = PhotonNetwork.CurrentRoom.Players[key].ActorNumber;
-                //Debug.Log("J: " + j + " key: " + key);
-                //Debug.Log("photonView Owner ActorNumber: " + viewNum + " currentRoom player actornumber: " + playerNum);
-                // 액터넘버가 같은 오브젝트가 있다면,
-                if (viewNum == playerNum && photonViews[j].gameObject.TryGetComponent<CharacterController>(out CharacterController Con))
-                {
-                    Debug.Log(photonViews[j].gameObject);
-                    // 실제 게임오브젝트를 배열에 추가
-                    playerGoList.Add(photonViews[j].gameObject);
-                    // 게임오브젝트 이름도 알아보기 쉽게 변경
-                    playerGoList[playerNum - 1].name = "Player_" + photonViews[j].Owner.NickName;
-                }
-            }
-        }
-
-        for (int i = 0; i < playerGoList.Count; i++)
-        {
-           playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
-        }
+        for (int i = 0; i < playerGoList.Length; i++)
+         {
+             playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
+         }
         EndProcess();
     }
-*/
-    /*[PunRPC]
-    public void ApplyPlayerList()
-    {
-        int actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
-        Player[] sortedPlayers = PhotonNetwork.PlayerList;
-
-        for (int i = 0; i < sortedPlayers.Length; i += 1)
-        {
-            if (sortedPlayers[i].ActorNumber == actorNumber)
-            {
-                PlayerID = i; // 자기 자신의 번호는 잘 찾는다.
-                break;
-            }
-        }
-
-        photonView.RPC("ApplyPlayerID", RpcTarget.All, PlayerID);
-
-        
-       *//* for (int i = 0; i < playerGoList.Count; i++)
-        {
-             = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
-        }*//*
-        EndProcess();
-    }*/
-
-    /*[PunRPC]
-    public void ApplyPlayerID(int _id)
-    {
-        if (photonView.IsMine)
-        {
-            foreach (GameObject go in playerGoList)
-            {
-                if (go.GetComponent<PhotonView>().CreatorActorNr - 1 == PlayerID)
-                {
-                    go.GetComponent<BoidsPlayerManager>().PlayerID = PlayerID;
-                }
-            }
-        }
-        else
-        {
-            foreach (GameObject go in playerGoList)
-            {
-                if (go.GetComponent<PhotonView>().CreatorActorNr - 1 == _id)
-                {
-                    go.GetComponent<BoidsPlayerManager>().PlayerID = _id;
-                }
-            }
-        }
-
-    }*/
 
 
     [PunRPC]
-    public void SpawnPlayer()
+    public void StartPlayerSpawn()
+    {
+        StartCoroutine(SpawnPlayer());
+    }
+
+    [PunRPC]
+    private IEnumerator SpawnPlayer()
     {
         Vector2 pos = Random.insideUnitCircle * 2.0f;
         if (client != null && client.isPc == false)
         {
-            playerGoList.Add(PhotonNetwork.Instantiate("VR_Player", new Vector3(pos.x, 0, pos.y), Quaternion.identity, 0));
+            PhotonNetwork.Instantiate("VR_Player", new Vector3(pos.x, 0, pos.y), Quaternion.identity, 0);
             PCOrigin.SetActive(false);
         }
 
         if (client != null && client.isPc == true)
         {
-            playerGoList.Add(PhotonNetwork.Instantiate("PC_Player", new Vector3(pos.x, 2, pos.y), Quaternion.identity, 0));
+            PhotonNetwork.Instantiate("PC_Player", new Vector3(pos.x, 2, pos.y), Quaternion.identity, 0);
             XROrigin.gameObject.SetActive(false);
         }
-        EndProcess();
+        
+        yield return StartCoroutine(WaitForSpawn());
+
+        
+
     }
 
     [PunRPC]
@@ -231,9 +149,22 @@ public class GameManager : MonoBehaviourPunCallbacks
         boids.StartSpawnBoids();
     }
 
-    [PunRPC]
-    public void SetPlayerID(GameObject[] players)
+    private IEnumerator WaitForSpawn()
     {
-
+        
+        while (true)
+        {
+            GameObject[] go = GameObject.FindGameObjectsWithTag("Player");
+            if (go.Length == PhotonNetwork.CurrentRoom.PlayerCount)
+            {
+                Debug.Log("Wait... " + go.Length);
+                playerGoList = go;
+                EndProcess();
+                yield break;
+            }
+            yield return null;
+        }
+        
     }
+    
 }

@@ -55,6 +55,10 @@ public class PCPlayerController : MonoBehaviourPun
             head.transform.localScale = Vector3.zero;
             Rotate();
             Move();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
         
     }

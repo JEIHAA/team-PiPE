@@ -18,7 +18,10 @@ public class PickingAction : MonoBehaviour
     [SerializeField] private float throwPower;
     [SerializeField] private Transform grabPos;
     [SerializeField] private float pickRange;
+    [SerializeField] private GameObject bombPrefab;
     private GPUBoids boid;
+    private bool isbuttonClicked=false;
+    private Transform otherPlayerCamPos;
 
     private void Awake()
     {
@@ -33,51 +36,67 @@ public class PickingAction : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                instantiatedBoom = PhotonNetwork.Instantiate("Boom", new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
-                boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
-                PV.RPC("GrabBomb", RpcTarget.All);
-            }
-            if (Input.GetMouseButton(0))
-            {
-                chargeGage += Time.deltaTime * 5f;
-                Debug.Log(boidsPlayerManager.GetHasBoidsNum());
-                chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum());
-                boom.XRChangeSize(chargeGage);
-                PV.RPC("HoldObject", RpcTarget.All,boom.gameObject);
+                PV.RPC("OnClicked", RpcTarget.All);
             }
             if (Input.GetMouseButtonUp(0))
             {
-                boom.XRRealease();
-                PV.RPC("ThrowBomb", RpcTarget.All);
-                instantiatedBoom = null;
-                boom = null;
-                boid.ChargeGage = (int)chargeGage;
-                chargeGage = 0;
+                PV.RPC("ExitClicked", RpcTarget.All);
             }
-            if (Input.GetMouseButton(1))
-            {
-
-            }
+            PV.RPC("UpdateOtherPlayerCamPos", RpcTarget.Others, mainCam.transform.position, mainCam.transform.rotation);
         }
-        
+        SpawnBomb();
+    }
+
+    private void SpawnBomb()
+    {
+        if (isbuttonClicked && instantiatedBoom == null)
+        {
+            instantiatedBoom = Instantiate(bombPrefab, new Vector3(grabPos.transform.position.x, grabPos.transform.position.y, grabPos.transform.position.z), Quaternion.identity);
+            boom = instantiatedBoom.GetComponent<XRGrabInterAction>();
+            boom.XRGrab();
+        }
+        if (isbuttonClicked)
+        {
+            chargeGage += Time.deltaTime * 5f;
+            Debug.Log(boidsPlayerManager.GetHasBoidsNum());
+            chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum());
+            boom.XRChangeSize(chargeGage);
+            boom.transform.position = grabPos.transform.position;
+        }
+        if (!isbuttonClicked && instantiatedBoom != null)
+        {
+            boom.XRRealease();
+            instantiatedBoom.transform.SetParent(null);
+            Transform throwDirection = PV.IsMine ? mainCam.transform : otherPlayerCamPos;
+            boom.Throw(throwDirection, throwPower);
+            instantiatedBoom = null;
+            boom = null;
+            boid.ChargeGage = (int)chargeGage;
+            chargeGage = 0;
+        }
     }
 
     [PunRPC]
-    private void ThrowBomb()
+    private void OnClicked()
     {
-        boom.Throw(mainCam.transform, throwPower);
+        isbuttonClicked = true;
+    }
+    [PunRPC]
+    private void ExitClicked()
+    {
+        isbuttonClicked = false;
     }
 
     [PunRPC]
-    private void GrabBomb()
+    private void UpdateOtherPlayerCamPos(Vector3 position, Quaternion rotation)
     {
-        boom.XRGrab();
-    }
-
-    [PunRPC]
-    private void HoldObject(GameObject _grabObject)
-    {
-        _grabObject.transform.position = grabPos.transform.position;
+        if (otherPlayerCamPos == null)
+        {
+            GameObject cameraObj = new GameObject("OtherPlayerCamera");
+            otherPlayerCamPos = cameraObj.transform;
+        }
+        otherPlayerCamPos.position = position;
+        otherPlayerCamPos.rotation = rotation;
     }
 
     /*private void Picking()
