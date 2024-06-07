@@ -165,6 +165,7 @@
     <Compile Include="Assets\ZerinLabs_lowpolyPack_SciFi\ScriptsEditor\scrEdit_objectGridRepositioneer.cs" />
     <Compile Include="Assets\Scripts\RayInteractor.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
+    <Compile Include="Assets\mapMaker\Scripts\CullingRay.cs" />
     <Compile Include="Assets\Scripts\Boids\BoidsPickingAction.cs" />
     <Compile Include="Assets\Scenes\Minimap.cs" />
     <Compile Include="Assets\Scripts\Network\InGameConsole.cs" />

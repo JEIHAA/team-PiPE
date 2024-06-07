@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
-using Unity.XR.CoreUtils;
-using ExitGames.Client.Photon;
-using Photon.Pun.Demo.PunBasics;
-using static UnityEngine.UI.GridLayoutGroup;
+
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -24,6 +20,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public List<GameObject> PlayerList { get { return playerList; } }
 
     private bool isFinished = false;
+    public bool IsFinished { get { return isFinished; } set { isFinished = value; } }
     private bool GenerateFinished = false;
 
     private void Awake()
@@ -32,17 +29,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         client = FindObjectOfType<DontDestoryObject>();
         maps.OnFinishedGenerateCallback = EndProcess;
         boids.OnFinishedGenerateCallBack = EndForMaster;
+        
     }
 
-   public static GameManager Instance()
-   {
-      if(gm == null)
-      {
-         gm = new GameManager();
-      }
-      return gm;
-   }
-
+    public static GameManager Instance()
+    {
+        if (gm == null)
+        {
+            gm = new GameManager();
+        }
+        return gm;
+    }
     private void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -53,25 +50,32 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             StartCoroutine(WaitForMaster());
         }
-        
-        
+
+
     }
 
     private IEnumerator Generate()
     {
-       /* photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
+        photonView.RPC("StartProgress", RpcTarget.AllBuffered);
         yield return StartCoroutine(WaitForProcess());
-        isFinished = false;*/
+        isFinished = false;
+        photonView.RPC("SetProgress", RpcTarget.AllBuffered, false, 60.0f);
+        photonView.RPC("GenerateMap", RpcTarget.AllBuffered);
+        yield return StartCoroutine(WaitForProcess());
+        isFinished = false;
         photonView.RPC("SpawnPlayer", RpcTarget.AllBuffered);
         yield return StartCoroutine(WaitForProcess());
         isFinished = false;
+        photonView.RPC("SetProgress", RpcTarget.AllBuffered, false, 90.0f);
         photonView.RPC("ApplyPlayerList", RpcTarget.AllBuffered);
         yield return StartCoroutine(WaitForProcess());
         isFinished = false;
         photonView.RPC("StartBoidsGenerate", RpcTarget.AllBuffered);
+        photonView.RPC("SetProgress", RpcTarget.AllBuffered, true, 100.0f);
         isFinished = false;
         GenerateFinished = false;
         
+
     }
 
     public void EndProcess()
@@ -100,19 +104,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         yield break;
     }
-/*    public override void OnLeftRoom()
-    {
-        PhotonNetwork.Destroy(player);
-    }*/
+    /*    public override void OnLeftRoom()
+        {
+            PhotonNetwork.Destroy(player);
+        }*/
 
     [PunRPC]
     public void ApplyPlayerList()
     {
 
         for (int i = 0; i < playerGoList.Length; i++)
-         {
-             playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
-         }
+        {
+            playerGoList[i].GetComponent<BoidsPlayerManager>().PlayerID = playerGoList[i].GetComponent<PhotonView>().OwnerActorNr - 1;
+        }
         SortPlayerGoList();
         EndProcess();
     }
@@ -139,10 +143,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate("PC_Player", new Vector3(pos.x, 2, pos.y), Quaternion.identity, 0);
             XROrigin.gameObject.SetActive(false);
         }
-        
+
         yield return StartCoroutine(WaitForSpawn());
 
-        
+
 
     }
 
@@ -157,6 +161,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         boids.StartSpawnBoids();
     }
+
+    [PunRPC]
+    public void SetProgress(bool _isDone, float _progress)
+    {
+        Debug.Log("SetProgress Active: " + _isDone + " " + _progress);
+        
+        ui.LoddingStatus(_isDone, _progress);
+    }
+
+    [PunRPC]
+    public void StartProgress()
+    {
+        ui.loddingActive();
+    }    
 
     private IEnumerator WaitForSpawn()
     {

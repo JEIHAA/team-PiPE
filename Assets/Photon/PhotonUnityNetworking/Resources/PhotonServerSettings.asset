@@ -64,6 +64,9 @@ MonoBehaviour:
   - ExitClicked
   - OnClicked
   - UpdateOtherPlayerCamPos
+  - SetProgress
+  - StartPrgress
+  - StartProgress
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

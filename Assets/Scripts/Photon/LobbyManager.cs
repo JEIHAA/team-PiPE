@@ -32,7 +32,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
-        LoddingBarController.LoadScene("Main_Test");
+        SceneManager.LoadScene("Main_Test");
 
     }
 
