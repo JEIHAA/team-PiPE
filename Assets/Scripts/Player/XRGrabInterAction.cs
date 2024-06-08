@@ -49,14 +49,14 @@ public class XRGrabInterAction : MonoBehaviour
         transform.localScale = Vector3.one * _charge;
     }
 
-    public void Throw(Transform _controller,float _throwPower)
+    public void Throw(Vector3 _dir,float _throwPower)
     {
         if (grabrb == null)
         {
             Debug.LogError("Rigidbody not initialized");
             return;
         }
-        grabrb.AddForce(_controller.forward * _throwPower + Vector3.up * 5, ForceMode.Impulse);
+        grabrb.AddForce(_dir * _throwPower + Vector3.up * 5, ForceMode.Impulse);
     }
 
 }

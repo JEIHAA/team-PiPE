@@ -22,7 +22,15 @@ public class BoidsPlayerManager : MonoBehaviour
         Debug.Log($"{this.playerID}'s has boid: {assignBoidQueue.Count}");
     }
 
-    public void ShootMissBoid(int _chargeGage, Vector3 _dropPos) 
+    //변경
+    // 발사했을때 미리 발사될때 사용된 군집들 미리 빼두기위한 용도
+    public GameObject ShootBoid()
+    {
+        return this.assignBoidQueue.Dequeue();
+    }
+
+
+    /*public void ShootMissBoid(int _chargeGage, Vector3 _dropPos) 
     {
         Debug.Log($"miss!");
         GameObject boid;
@@ -48,9 +56,10 @@ public class BoidsPlayerManager : MonoBehaviour
             }
             
         }
-    }
+    }*/
+    //변경
 
-    public void StealBoids(int _chargeGage, GameObject shooter, int _shooterID, GameObject _hitPlayer)
+    /*public void StealBoids(int _chargeGage, GameObject shooter, int _shooterID, GameObject _hitPlayer)
     {
         Debug.Log($"_chargeGage: {_chargeGage}, shooter: {shooter.name}, _shooterID: {_shooterID}, _hitPlayer: {_hitPlayer}");
         Debug.Log($"Hit!");
@@ -69,11 +78,12 @@ public class BoidsPlayerManager : MonoBehaviour
 
                 this.DebugLogBoidsNum();
             }
-            else {
+            else
+            {
                 Debug.Log($"Can't Steal. Player{hitPlayer.PlayerID} does not have a void");
                 return;
             }
-            
+
         }
-    }
+    }*/
 }

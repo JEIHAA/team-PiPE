@@ -8,8 +8,6 @@ public class PickingAction : MonoBehaviour
 {
    public float chargeGage;
    private Camera mainCam;
-   private GameObject pickObject;
-   private XRGrabInterAction pickReceiver;
    private GameObject instantiatedBoom;
    private PhotonView PV;
    private XRGrabInterAction boom;
@@ -62,19 +60,25 @@ public class PickingAction : MonoBehaviour
       {
          chargeGage += Time.deltaTime * 5f;
          //Debug.Log(boidsPlayerManager.GetHasBoidsNum());
-         chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum() ==1 ? boidsPlayerManager.GetHasBoidsNum() : boidsPlayerManager.GetHasBoidsNum()-1);
+         chargeGage = Mathf.Clamp(chargeGage, 1f, boidsPlayerManager.GetHasBoidsNum());
          boom.XRChangeSize(chargeGage);
          boom.transform.position = grabPos.transform.position;
       }
       if (!isbuttonClicked && instantiatedBoom != null)
       {
          boom.XRRealease();
-         instantiatedBoom.transform.SetParent(null);
+         //변경
+         for (int i = 0; i < (int)chargeGage; ++i)
+         {
+                instantiatedBoom.GetComponent<BoomHit>().BombhasBoid.Enqueue(boidsPlayerManager.ShootBoid());
+         }
+         instantiatedBoom.GetComponent<BoomHit>().ShooterID = boidsPlayerManager.PlayerID;
+         instantiatedBoom.GetComponent<BoomHit>().BombChcargeGage = (int)chargeGage;
+         //변경
          Transform throwDirection = PV.IsMine ? mainCam.transform : otherPlayerCamPos;
-         boom.Throw(throwDirection, throwPower);
+         boom.Throw(throwDirection.transform.forward, throwPower);
          instantiatedBoom = null;
          boom = null;
-         boid.ChargeGage = (int)chargeGage;
          Debug.Log("chargeGage: "+chargeGage);
          chargeGage = 0;
       }
@@ -119,6 +123,7 @@ public class PickingAction : MonoBehaviour
          yield return null;
       }
    }
+
    /*private void Picking()
    {
        RaycastHit hit;

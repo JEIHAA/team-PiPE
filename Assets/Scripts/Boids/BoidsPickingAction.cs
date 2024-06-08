@@ -54,7 +54,7 @@ public class BoidsPickingAction : MonoBehaviour
     if (Input.GetMouseButtonUp(0))
     {
       boom.XRRealease();
-      boom.Throw(mainCam.transform, throwPower);
+      // boom.Throw(mainCam.transform, throwPower);
       instantiatedBoom = null;
       boom = null;
       boid.ChargeGage = (int)chargeGage;
