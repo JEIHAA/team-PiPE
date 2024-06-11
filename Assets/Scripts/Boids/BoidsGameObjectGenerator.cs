@@ -27,7 +27,7 @@ public class BoidsGameObjectGenerator : MonoBehaviour
             boids[i].GetComponent<BoidManager>().BoidID = i;
         }
     }
-    
+
 
     private int SetRandomPositionTest() // ±Õµî ºÐ¹è
     {

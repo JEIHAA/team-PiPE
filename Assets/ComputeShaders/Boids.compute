@@ -209,17 +209,10 @@ void IntegrateCS
 											           
 	BoidData b = _BoidDataBufferWrite[P_ID];   // 현재 Boid 데이터 읽기
 	float3 force = _BoidForceBufferRead[P_ID]; // 조향력을 읽기
-  float3 maxForce = (float3) 10.0;
-	// 벽에 가까워지면 반발하는 힘 부여
 
 	force += avoidWall(b.position, P_ID) * _AvoidWallWeight; 
 	
-  if (force > maxForce)
-  {
-    force = 10f;
-	}
-
-  b.velocity += force * _DeltaTime; // 조향력을 속도에 적용
+	b.velocity += force * _DeltaTime; // 조향력을 속도에 적용
 	b.velocity = limit(b.velocity, _MaxSpeed); // 속도 제한
 	b.position += b.velocity * _DeltaTime;     // 위치 업데이트
 											           

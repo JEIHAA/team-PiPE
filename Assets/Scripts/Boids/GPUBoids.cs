@@ -175,10 +175,11 @@ namespace BoidsSimulationOnGPU
     #region MonoBehaviour Functions
     private void Start()
     {
-      // 생성된 boids GameObject 가져오기
-      boidList = boidSpawner.GetBoidsList();
-      // 버퍼 초기화
-      InitBuffer();
+        /* // 생성된 boids GameObject 가져오기
+            boidList = boidSpawner.GetBoidsList();*/
+        boidList = boidSpawner.GetBoidsList();
+        // 버퍼 초기화
+        InitBuffer();
     }
 
     private void Update()
@@ -239,9 +240,10 @@ namespace BoidsSimulationOnGPU
       {
         forceArr[i] = Vector3.zero;
         boidManager = boidList[i].GetComponent<BoidManager>();
-        boidTargetArr[i].OwnerID = boidManager.OwnerID;
-        boidTargetArr[i].TargetPos = boidManager.TargetPos;
+        boidTargetArr[i].OwnerID = -1;
+        boidTargetArr[i].TargetPos = Vector3.zero;
         UpdateBoidDataArr(i);
+        boidDataArr[i].Position = Random.insideUnitCircle * 0.5f;
         boidDataArr[i].Velocity = Random.insideUnitSphere * 0.1f;
       }
       UpdateBoidForceBuffer();// 버퍼에 들어갈 구조체 배열의 값을 설정
@@ -343,7 +345,6 @@ namespace BoidsSimulationOnGPU
       cs.SetBuffer(id, "_BoidDataBufferWrite", _boidDataBuffer);
       cs.SetBuffer(id, "_BoidForceBufferRead", _boidForceBuffer);
       cs.SetBuffer(id, "_BoidTargetBufferRead", _boidTargetBuffer);
-      //cs.SetBuffer(id, "_BoidTargetBufferWrite", _boidTargetBuffer);
       cs.Dispatch(id, threadGroupSize, 1, 1); 
     }
 
